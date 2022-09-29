@@ -112,11 +112,9 @@ export default function Sidebar() {
             <div className="img">
               <Image src={notification} />
             </div>
-            <Link href={"/logout"}>
-              <a className="text" href="">
-                Logout
-              </a>
-            </Link>
+            <div className="">
+              <p className="text">Logout</p>
+            </div>
             <div className="rightCheveron">
               <RightCheveron />
             </div>

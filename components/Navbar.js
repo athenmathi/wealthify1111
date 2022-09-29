@@ -4,7 +4,10 @@ import {} from "../styles/Navbar.module.css";
 import WealthifyLogo from "../assets/image/WealthifyLogo.svg";
 import Wrappers from "../assets/wrappers/Navbar.js";
 import Home from "./Home";
+import { useState } from "react";
+import Login from "./Login";
 const Navbar = () => {
+  const [modal, setModal] = useState(true);
   return (
     <Wrappers>
       <div className="navbar-container">
@@ -18,6 +21,9 @@ const Navbar = () => {
         </div>
         <div className="second-item">
           <li>
+            <ul>
+              <Link href={"/homeLoggedOut"}>Before Login</Link>
+            </ul>
             <ul>
               <Link href={"/"}>Home</Link>
             </ul>
@@ -42,13 +48,14 @@ const Navbar = () => {
                 <a href="">Nutrition Data base</a>
               </Link>
             </ul>
-            <ul>Login </ul>
+            <ul onClick={() => setModal(!modal)}>Login </ul>
           </li>
         </div>
         <div className="third-item">
           <button className="btn-primary">Doctor Login</button>
         </div>
       </div>
+      {modal && <Login />}
     </Wrappers>
   );
 };

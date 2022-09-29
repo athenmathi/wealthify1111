@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Wrappers = styled.div`
-  margin-top: 65vh;
   .vision-container {
     display: flex;
     flex-direction: column;

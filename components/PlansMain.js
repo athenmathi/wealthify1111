@@ -12,11 +12,11 @@ const Wrappers = styled.div`
   }
 `;
 
-const PlansMain = () => {
+const PlansMain = ({ name }) => {
   return (
     <Wrappers>
       <div className="container">
-        <h1>Plans</h1>
+        <h1>{name}</h1>
       </div>
     </Wrappers>
   );

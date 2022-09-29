@@ -4,7 +4,7 @@ import PlansMain from "../components/PlansMain";
 const PlansPage = () => {
   return (
     <>
-      <PlansMain />
+      <PlansMain name={"Plans"} />
       <Plans />
     </>
   );
