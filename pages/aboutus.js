@@ -1,12 +1,10 @@
 import React from "react";
-import Faqs from "../components/Faqs";
 import PlansMain from "../components/PlansMain";
 import Mission from "../components/Mission";
 import Plans from "../components/Plans";
 import Strategy from "../components/Strategy";
 import Vision from "../components/Vision";
 import Working from "../components/Working";
-import Login from "../components/Login";
 
 const aboutus = () => {
   return (
@@ -16,7 +14,6 @@ const aboutus = () => {
       <Strategy />
       <Mission />
       <Working />
-      <Login />
     </div>
   );
 };

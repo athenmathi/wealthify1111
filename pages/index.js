@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import LoggedInHome from "../components/LoggedInHome";
+import Login from "../components/Login";
 import ManageProfile from "../components/ManageProfile";
 import Mission from "../components/Mission";
 import Navbar from "../components/Navbar";

@@ -55,7 +55,7 @@ const Navbar = () => {
           <button className="btn-primary">Doctor Login</button>
         </div>
       </div>
-      {modal && <Login />}
+      {/* {modal && <Login />} */}
     </Wrappers>
   );
 };
