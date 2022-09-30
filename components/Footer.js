@@ -2,6 +2,10 @@ import Image from "next/image";
 import React from "react";
 import footerLogo from "../assets/image/footerLogo.svg";
 import Wrappers from "../assets/wrappers/Footer.js";
+import facebook from "../assets/image/facebook.svg";
+import twitter from "../assets/image/twitter.svg";
+import instagram from "../assets/image/instagram.svg";
+import youtube from "../assets/image/youtube.png";
 const Footer = () => {
   return (
     <Wrappers>
@@ -16,18 +20,18 @@ const Footer = () => {
 
               <div className="socialLinks">
                 <a href="#">
-                  <i className="fa-brands fa-facebook-f fa-lg"></i>
+                  <Image src={facebook} />
                 </a>
 
                 <a href="#">
-                  <i className="fab fa-twitter fa-lg"></i>
+                  <Image src={twitter} />
                 </a>
 
                 <a href="#">
-                  <i className="fab fa-instagram fa-lg"></i>
+                  <Image src={instagram} />
                 </a>
                 <a href="#">
-                  <i className="fab fa-youtube fa-lg"></i>
+                  <Image src={youtube} />
                 </a>
               </div>
             </div>
@@ -41,7 +45,7 @@ const Footer = () => {
             <div className="footer-col">
               {/* <!-- style="padding-left: 50px; padding-right: 50px" --> */}
 
-              <span>Quick Links</span>
+              <p className="quick-links">Quick links</p>
               <div className="common">
                 <div className="quicklinks">
                   <ul>

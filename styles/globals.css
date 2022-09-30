@@ -22,6 +22,8 @@ a {
     background: black;
   }
 } */
+
+@import url("https://fonts.googleapis.com/css2?family=poppins&display=swap");
 html,
 body {
   margin: 0;
@@ -35,10 +37,25 @@ body {
   --background-light-green: #eaf5db;
   --background-gray: #eeeeee;
   --line-color-gray: #707070;
+  --font-color: #38565a;
 }
 
 body {
 }
+h1,
+p,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "poppins";
+}
+@font-face {
+  font-family: bite-chocolate;
+  src: url("../utils//font/Bite\ Chocolate\ Personal\ Use.ttf");
+}
+
 * {
   box-sizing: border-box;
 }
@@ -47,11 +64,17 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
+}
+a:active {
+  color: #06913d;
 }
 li {
   list-style: none;
 }
+
 .green-line {
+  margin-top: -0.5rem;
   width: 200px;
   height: 3px;
   text-align: center;
@@ -71,6 +94,15 @@ li {
   flex-direction: column;
   align-items: center;
   margin-bottom: 3rem;
+}
+
+.heading-font {
+  margin-top: -2rem;
+  /* font-family: "Arizonia", cursive; */
+  font-family: bite-chocolate;
+  color: var(--font-color);
+  font-size: 3rem;
+  font-weight: 200;
 }
 
 /* section 2 css  */

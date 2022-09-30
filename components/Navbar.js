@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import {} from "../styles/Navbar.module.css";
-import WealthifyLogo from "../assets/image/WealthifyLogo.svg";
+import WealthifyLogo from "../assets/image/WealthifyLogo.png";
 import Wrappers from "../assets/wrappers/Navbar.js";
 import Home from "./Home";
 import { useState } from "react";
 import Login from "./Login";
 const Navbar = () => {
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   return (
     <Wrappers>
       <div className="navbar-container">
@@ -15,8 +15,8 @@ const Navbar = () => {
           <Image
             className="logo"
             src={WealthifyLogo}
-            width="317px"
-            height="250px"
+            width="200px"
+            height="200px"
           />
         </div>
         <div className="second-item">
@@ -45,7 +45,7 @@ const Navbar = () => {
             </ul>
             <ul>
               <Link href={"/nutrition"}>
-                <a href="">Nutrition Data base</a>
+                <a href="">Nutrition Database</a>
               </Link>
             </ul>
             <ul onClick={() => setModal(!modal)}>Login </ul>
@@ -55,7 +55,7 @@ const Navbar = () => {
           <button className="btn-primary">Doctor Login</button>
         </div>
       </div>
-      {/* {modal && <Login />} */}
+      {modal && <Login />}
     </Wrappers>
   );
 };

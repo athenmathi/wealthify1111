@@ -39,6 +39,10 @@ const Wrappers = styled.div`
     margin: 10px;
   }
   .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 25%;
     padding: 0 15px;
   }
@@ -113,9 +117,16 @@ const Wrappers = styled.div`
     color: #ffffff;
   }
 
-  /* .socialLinks a {
-  border: #ffffff;
-} */
+  .socialLinks {
+    margin-top: 1rem;
+  }
+  .socialLinks a {
+    margin-right: 0.5rem;
+  }
+  .quick-links {
+    color: white;
+    font-size: 2rem;
+  }
 
   .socialLinks a i {
     border-radius: 60%;

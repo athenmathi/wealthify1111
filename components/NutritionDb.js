@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Wrappers from "../assets/wrappers/NutiritionDb";
 import fruit from "../assets/image/fruit.jpeg";
-
+import searchIcon from "../assets/image/searchIcon.svg";
 const NutritionDb = () => {
   return (
     <Wrappers>
@@ -15,6 +15,9 @@ const NutritionDb = () => {
       <div className="searchbar">
         <form method="get">
           <span className="searchrec"></span>
+          <div className="search-icon">
+            <Image src={searchIcon} />
+          </div>
           <i className="fa fa-search fa-xl icon" aria-hidden="true"></i>
           <input type="search-bar" typeof="text" placeholder="Search" />
           <input className="button" type="submit" value="SEARCH "></input>

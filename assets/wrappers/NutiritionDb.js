@@ -22,11 +22,27 @@ const Wrappers = styled.div`
   opacity: 0.2, 1, 1;
   margin-bottom: 50px;
 } */
+  .search-icon {
+    margin-left: 29rem;
+    margin-bottom: -3rem;
+  }
+  .Nutrition h3 {
+    /* position: relative;
+    text-align: center;
+    padding-top: 194px; */
+    font-size: 60px;
+    font-weight: 300;
+    display: block;
+    text-align: center;
+    font-family: bite-chocolate;
+    color: var(--font-color);
+    margin-top: 2rem;
+  }
 
   .Nutrition {
     background-image: url("./nutritionBg.svg");
     position: relative;
-    height: 477px;
+    height: 30vh;
     width: 100%;
     background-size: cover;
     margin-bottom: 50px;
@@ -43,13 +59,9 @@ const Wrappers = styled.div`
   }
 
   .Nutrition h3 {
-    display: block;
-    position: relative;
     text-align: center;
     font-size: 60px;
-    margin-top: 0px;
     font-weight: 300;
-    padding-top: 194px;
   }
 
   .searchbar input {
@@ -99,11 +111,11 @@ div i {
   .searchrec {
     position: absolute;
     border-left: 2px solid #b2b2b2;
-    height: 14px;
+    height: 26px;
     /* width: 100%; */
     max-width: 50px;
     padding: 7px;
-    margin-top: 12px;
+    margin-top: 0.5rem;
     margin-left: 450px;
   }
 

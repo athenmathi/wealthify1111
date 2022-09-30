@@ -9,10 +9,10 @@ const Wrappers = styled.div`
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.161);
     border: 1.2px solid #dddddd;
     cursor: pointer;
-    padding: 2rem;
+    padding: 1rem 2rem;
     max-width: 80%;
     margin: 0 auto;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     border-radius: 1rem;
   }
   .question-container {

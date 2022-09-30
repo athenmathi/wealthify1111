@@ -12,5 +12,20 @@ const Wrappers = styled.div`
     margin-right: 5rem;
     margin-left: 3rem;
   }
+  .first-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .underline {
+    width: 100%;
+    height: 3px;
+    text-align: center;
+    background-color: gray;
+  }
+
+  h1 {
+    font-weight: 400;
+  }
 `;
 export default Wrappers;

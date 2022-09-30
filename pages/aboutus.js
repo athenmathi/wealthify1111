@@ -5,6 +5,7 @@ import Plans from "../components/Plans";
 import Strategy from "../components/Strategy";
 import Vision from "../components/Vision";
 import Working from "../components/Working";
+import Team from "../components/Team";
 
 const aboutus = () => {
   return (
@@ -14,6 +15,7 @@ const aboutus = () => {
       <Strategy />
       <Mission />
       <Working />
+      <Team />
     </div>
   );
 };

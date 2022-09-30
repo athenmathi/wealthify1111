@@ -4,10 +4,11 @@ import styled from "styled-components";
 import thyroid from "../assets/image/thyroid.svg";
 import obesity from "../assets/image/obesity.svg";
 import pocs from "../assets/image/pocs.svg";
+import diabetes from "../assets/image/diabetes.jpeg";
 
 import Card from "./Card";
 const Wrappers = styled.div`
-  margin-top: 3rem;
+  margin: 3rem 0;
   .cards {
     display: flex;
     justify-content: center;
@@ -38,6 +39,14 @@ const Plans = () => {
           img={obesity}
           name={"Obesity"}
           subtitle={"Can you lose weight andsubstain it by eating more?"}
+        />
+
+        <Card
+          img={diabetes}
+          name={"Diabetes"}
+          subtitle={
+            "Is it possible to bring diabetesunder control with help of food"
+          }
         />
         <Card
           img={pocs}

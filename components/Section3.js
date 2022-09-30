@@ -5,7 +5,10 @@ const Section3 = () => {
     <Wrapper>
       <div className="section2">
         <div className="title-container">
-          <h1 className="title">Our Dr.Wealthify precision treatment</h1>
+          <div className="line-container">
+            <h1 className="title">Our Dr.Wealthify precision treatment</h1>
+            <div className="green-line"></div>
+          </div>
           <p className="subtitle">
             Everyone’s metabolism is different. What’s most impactful for you is
             different from others.(what’s most impactful for someone else). Your

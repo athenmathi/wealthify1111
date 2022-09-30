@@ -16,8 +16,6 @@ const Wrappers = styled.div`
   }
 
   .first-item {
-    width: 317px;
-    height: 250px;
   }
 
   .second-item > li {

@@ -8,7 +8,6 @@ const MyPayments = () => {
     <Wrappers>
       <div className="top">
         <p>Consult Payment</p>
-        <p>Manage Payment</p>
       </div>
       <div className="line"></div>
       <div className="bottom">

@@ -15,7 +15,10 @@ const Section2 = () => {
       <Image src={syringe} />
       <Image src={arms} /> */}
         <div className="title-container">
-          <h1 className="title">Results For Itself</h1>
+          <div className="line-container">
+            <h1 className="title">Results For Itself</h1>
+            <div className="green-line"></div>
+          </div>
           <p className="subtitle">
             Free From Diabetes Join The Dr.Wealthify Family To Become
           </p>

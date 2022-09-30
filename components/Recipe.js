@@ -2,19 +2,26 @@ import Image from "next/image.js";
 import React from "react";
 import Wrappers from "../assets/wrappers/Recipe.js";
 import fruit from "../assets/image/fruit.jpeg";
+import Link from "next/link.js";
+import searchIcon from "../assets/image/searchIcon.svg";
 const Recipe = () => {
   return (
     <Wrappers>
       <div className="Nutrition">
         {/* <!-- <span className="cover1" style="background-image: url(/images/Path.png); "></span>
          <span className="cover1" style=" background-image: url(/images/Path1.png);"></span> --> */}
-        <h3>Receipe</h3>
+        <h3 className="heading-font">Receipe</h3>
       </div>
 
       <div className="searchbar">
         <form method="get">
           <span className="searchrec"></span>
-          <i className="fa fa-search fa-xl icon" aria-hidden="true"></i>
+          <span className="">
+            {" "}
+            <div className="search-icon">
+              <Image src={searchIcon} />
+            </div>
+          </span>
           <input type="search-bar" typeof="text" placeholder="Search" />
           <input className="button" type="submit" value="SEARCH "></input>
         </form>
@@ -25,11 +32,7 @@ const Recipe = () => {
       <div className="fruitgrid">
         <div className="category">
           <p>SORT BY</p>
-          <ul>
-            {" "}
-            <i className="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-            &nbsp; Name
-          </ul>
+          <ul> &nbsp; Name</ul>
           <hr className="line" />
           <ul>
             {" "}
