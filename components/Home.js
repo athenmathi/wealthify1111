@@ -13,8 +13,8 @@ const Home = () => {
           Type-2 diabetes & Pre- diabetes Reversal
         </div>
         <div className="second-container verline">
-          <div className="first-line line">Book The Diabetes Reversal</div>
-          <div className="first-line line mt0-5rem">
+          <div className="first-line line ss">Book The Diabetes Reversal</div>
+          <div className="first-line line mt0-5rem ss">
             Session With <b> Dr.Wealthify </b> to Know how
           </div>
         </div>

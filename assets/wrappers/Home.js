@@ -55,8 +55,8 @@ const Wrappers = styled.div`
   .line {
     font-size: 1.2rem;
   }
-  .first-line {
-    margin-left: 0.5rem;
+  .ss {
+    margin-left: 1rem;
   }
   .second-line {
     font-weight: 700;
