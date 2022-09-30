@@ -14,7 +14,6 @@ const Wrappers = styled.div`
   li {
     list-style: none;
   }
-
   .first-item {
   }
 

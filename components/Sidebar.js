@@ -62,7 +62,7 @@ export default function Sidebar() {
             </div>
             <Link href={"/membership"}>
               <a className="text" href="">
-                Membership
+                Subscription
               </a>
             </Link>
             <div className="rightCheveron">

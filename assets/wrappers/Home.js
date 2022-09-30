@@ -24,6 +24,7 @@ const Wrappers = styled.div`
     top: 45%;
     margin-left: 10%;
   }
+
   h1 {
     margin-top: -2rem;
     /* font-family: "Arizonia", cursive; */
@@ -37,6 +38,7 @@ const Wrappers = styled.div`
     font-size: 1.3rem;
   }
   .btn {
+    margin-top: 3rem;
     background-color: var(--primary-700);
     padding: 1rem 2rem;
     border: none;
@@ -45,7 +47,19 @@ const Wrappers = styled.div`
   }
   .verline {
     border-left: 4px solid green;
-    padding-right: 4%;
+    padding-right: 2rem;
+  }
+  .second-container {
+    margin-top: 2rem;
+  }
+  .line {
+    font-size: 1.2rem;
+  }
+  .first-line {
+    margin-left: 0.5rem;
+  }
+  .second-line {
+    font-weight: 700;
   }
 `;
 

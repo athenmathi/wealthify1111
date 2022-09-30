@@ -47,9 +47,14 @@ const Wrappers = styled.div`
     padding: 0 15px;
   }
 
-  .footer-rec {
-    /* width: 100px; */
-    padding: 35px 0 15px;
+  .footer-col-div {
+    margin-top: -3.5rem;
+  }
+  .location {
+    margin-top: -2.2rem;
+  }
+  .contact-us {
+    margin-top: -3.6rem;
   }
 
   .footer-col span {

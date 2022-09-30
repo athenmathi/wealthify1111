@@ -5,18 +5,29 @@ const Home = () => {
     <Wrappers>
       <div className="container">
         <h1>Diabetes Reversal</h1>
-        <p>A personalized evidence-based path to</p>
-        <b>Type-2 diabetes & Pre- diabetes Reversal</b>
-        <div className="2nd-container verline">
-          <p>
-            Book The Diabetes Reversal <br />
-            Session With Dr. Wealthify to know how{" "}
-          </p>
+
+        <div className="first-line line">
+          A personalized evidence-based path to
         </div>
-        <button className="btn">Get in touch</button>
+        <div className="second-line mt0-5rem line">
+          Type-2 diabetes & Pre- diabetes Reversal
+        </div>
+        <div className="second-container verline">
+          <div className="first-line line">Book The Diabetes Reversal</div>
+          <div className="first-line line mt0-5rem">
+            Session With <b> Dr.Wealthify </b> to Know how
+          </div>
+        </div>
+        <button className="btn">Get in Touch</button>
       </div>
     </Wrappers>
   );
 };
-
+<p>
+  A personalized evidence-based path to
+  <br />
+  {/* <div className="mt0-5rem bold"> */}
+  Type-2 diabetes & Pre- diabetes Reversal
+  {/* </div> */}
+</p>;
 export default Home;

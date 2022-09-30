@@ -104,5 +104,19 @@ li {
   font-size: 3rem;
   font-weight: 200;
 }
+.align-horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 
+default margin 
+*/
 
+.mt0-5rem {
+  margin-top: 0.5rem;
+}
+.bold {
+  font-weight: 700;
+}
 /* section 2 css  */

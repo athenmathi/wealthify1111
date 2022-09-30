@@ -57,9 +57,6 @@ const Footer = () => {
                   <ul>
                     <a href="#">Plan's</a>
                   </ul>
-                  <ul>
-                    <a href="#">Why Us</a>
-                  </ul>
                 </div>
                 <div className="quicklinks2">
                   <ul>
@@ -80,7 +77,7 @@ const Footer = () => {
             </div>
             {/* <!--next col--> */}
             <div className="footer-col">
-              <div className="footer-col-div">
+              <div className="footer-col-div contact-us">
                 <span>Contact Us</span>
                 <ul>
                   <ul>
@@ -99,7 +96,7 @@ const Footer = () => {
             </div>
             {/* <!--next col--> */}
             <div className="footer-col">
-              <div className="footer-col-div">
+              <div className="footer-col-div location">
                 <span>Location</span>
                 <ul>
                   <ul className="weight">HeadQuaters Address</ul>
