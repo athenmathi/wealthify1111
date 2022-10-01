@@ -5,6 +5,7 @@ import Strategy from "../components/Strategy";
 import Vision from "../components/Vision";
 import Working from "../components/Working";
 import Team from "../components/Team";
+import SingleNutrition from "../components/SingleNutrition";
 
 const aboutus = () => {
   return (

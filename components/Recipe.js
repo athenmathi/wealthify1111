@@ -53,52 +53,77 @@ const Recipe = () => {
           </ul>
           <hr className="line" />
         </div>
-        <div className="grid11">
-          <Image src={fruit} />
-          <p>imagename</p>
-        </div>
-        <div className="grid12">
-          <Image src={fruit} />
-          <p>imagename</p>
-        </div>
-        <div className="grid13">
-          <Image src={fruit} />
-          <p>imagename</p>
-        </div>
+        <Link href={"singleRecipe"}>
+          <div className="grid11">
+            <Image src={fruit} />
+            <p>Fruit Name</p>
+          </div>
+        </Link>
+        <Link href={"singleRecipe"}>
+          <div className="grid12">
+            <Image src={fruit} />
+            <p>imagename</p>
+          </div>
+        </Link>
+
+        <Link href={"singleRecipe"}>
+          <div className="grid13">
+            <Image src={fruit} />
+            <p>imagename</p>
+          </div>
+        </Link>
       </div>
 
       {/* <!--grid copy--> */}
       <div className="fruitgrid">
         <div className="category"></div>
-        <div className="grid11">
-          <Image src={fruit} />
-          <p>imagename</p>
-        </div>
-        <div className="grid12">
-          <Image src={fruit} />
-          <p>imagename</p>
-        </div>
-        <div className="grid13">
-          <Image src={fruit} />
 
-          <p>imagename</p>
-        </div>
+        <Link href={"singleRecipe"}>
+          <div className="grid11">
+            <Image src={fruit} />
+            <p>imagename</p>
+          </div>
+        </Link>
+
+        <Link href={"singleRecipe"}>
+          <div className="grid12">
+            <Image src={fruit} />
+            <p>imagename</p>
+          </div>
+        </Link>
+
+        <Link href={"singleRecipe"}>
+          <div className="grid13">
+            <Image src={fruit} />
+
+            <p>imagename</p>
+          </div>
+        </Link>
       </div>
 
       <div className="fruitgrid">
         <div className="category"></div>
-        <div className="grid11">
-          <Image src={fruit} />
-          <p>imagename</p>
-        </div>
-        <div className="grid12">
-          <Image src={fruit} />
-          <p>imagename</p>
-        </div>
-        <div className="grid13">
-          <Image src={fruit} />
-          <p>imagename</p>
-        </div>
+
+        <Link href={"singleRecipe"}>
+          <div className="grid11">
+            <Image src={fruit} />
+            <p>imagename</p>
+          </div>
+        </Link>
+
+        <Link href={"singleRecipe"}>
+          <div className="grid12">
+            <Image src={fruit} />
+            <p>imagename</p>
+          </div>
+        </Link>
+
+        <Link href={"singleRecipe"}>
+          <div className="grid13">
+            <Image src={fruit} />
+            <p>imagename</p>
+          </div>
+        </Link>
       </div>
     </Wrappers>
   );
