@@ -9,26 +9,41 @@ const Wrappers = styled.div`
   height: 100%;
   padding: 1rem;
   margin: 0 auto;
-  .container {
+  .first-part {
+    display: flex;
+    justify-content: space-between;
   }
   .name {
     color: var(--primary-700);
-  }
-  .number {
-    border: none;
-    border-bottom: 1px solid black;
-  }
-
-  h4 {
-    margin-top: -0.5rem;
   }
   .close-btn {
     position: absolute;
     right: 1rem;
     top: 1rem;
   }
-  .signup {
+  .dark-underline {
+    width: 100%;
+    height: 2px;
+    border: 1.3px solid black;
+  }
+  .second-part {
     display: flex;
+    justify-content: space-between;
+  }
+  ul {
+    margin-left: -2rem;
+  }
+  li {
+    margin-bottom: 1rem;
+  }
+
+  li:after {
+    margin-top: 0.5rem;
+    display: flex;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: gray;
   }
 `;
 

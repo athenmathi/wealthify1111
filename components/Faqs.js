@@ -23,12 +23,8 @@ const Faqs = () => {
       {faqData.map((item, index) => {
         return (
           <div className="container" key={index}>
-            <div className="question-container">
-              <h4
-                className="question"
-                onClick={() => toggle(index)}
-                key={index}
-              >
+            <div className="question-container" onClick={() => toggle(index)}>
+              <h4 className="question" key={index}>
                 {item.question}
               </h4>
               {clicked !== index ? <RightCheveron /> : null}

@@ -15,7 +15,7 @@ const Wrappers = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    height: 40vh;
+    height: 30vh;
     width: 100%;
     opacity: 1px;
     margin-bottom: 50px;

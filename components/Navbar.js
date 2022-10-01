@@ -6,8 +6,11 @@ import Wrappers from "../assets/wrappers/Navbar.js";
 import Home from "./Home";
 import { useState } from "react";
 import Login from "./Login";
+import Menu from "../components/Menu";
 const Navbar = () => {
   const [modal, setModal] = useState(false);
+  const [menu, setMenu] = useState(false);
+
   return (
     <Wrappers>
       <div className="navbar-container">
@@ -48,14 +51,19 @@ const Navbar = () => {
                 <a href="">Nutrition Database</a>
               </Link>
             </ul>
-            <ul onClick={() => setModal(!modal)}>Login </ul>
+            <ul onClick={() => setModal(!modal)}>
+              <Link href={""}>
+                <a href=""> Login</a>
+              </Link>
+            </ul>
           </li>
         </div>
-        <div className="third-item">
+        <div className="third-item" onClick={() => setMenu(!menu)}>
           <button className="btn-primary">Doctor Login</button>
         </div>
       </div>
-      {modal && <Login />}
+      {modal && <Login setModal={setModal} />}
+      {menu && <Menu setMenu={setMenu} />}
     </Wrappers>
   );
 };

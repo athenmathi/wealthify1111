@@ -61,10 +61,17 @@ h6 {
 }
 
 /* Navbar css  */
-
+.btn {
+  border: none;
+  background: none;
+}
 a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
 }
 a:active {
   color: #06913d;

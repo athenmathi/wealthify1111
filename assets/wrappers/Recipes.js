@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Wrappers = styled.div`
+  margin-top: 5rem;
   @import url("https://fonts.googleapis.com/css2?family=poppins&display=swap");
 
   body {
