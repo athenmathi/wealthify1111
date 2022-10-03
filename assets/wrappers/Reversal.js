@@ -3,7 +3,7 @@ import styled from "styled-components";
 import df from "../../public/Logo.svg";
 const Wrappers = styled.div`
   width: 100%;
-  height: 700px;
+  height: auto;
   background-color: var(--background-light-green);
   background-image: url("./Reversal.svg");
   background-size: cover;
@@ -18,10 +18,13 @@ const Wrappers = styled.div`
   .title {
     margin-top: 7rem;
     font-size: 3rem;
+    width: auto;
+    padding: 0 1rem;
   }
   .subtitle {
     font-size: 2rem;
     font-weight: 400;
+    padding: 0 2rem;
   }
   .dark-title {
     margin-top: 5rem;
@@ -29,7 +32,7 @@ const Wrappers = styled.div`
     background-color: var(--primary-700);
     padding: 1rem 2rem;
     color: white;
-    max-width: 1300px;
+    width: 90%;
     text-align: center;
     font-size: 2rem;
   }
@@ -39,6 +42,11 @@ const Wrappers = styled.div`
     padding: 1rem 4rem;
     border-radius: 2rem;
     font-weight: 400;
+    margin-bottom: 5rem;
+  }
+  @media (max-width: 480px) {
+    .title {
+    }
   }
 `;
 export default Wrappers;

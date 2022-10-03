@@ -1,0 +1,2 @@
+margin-inline : auto 
+width : max(90% , 1000px)

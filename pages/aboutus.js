@@ -6,6 +6,7 @@ import Vision from "../components/Vision";
 import Working from "../components/Working";
 import Team from "../components/Team";
 import SingleNutrition from "../components/SingleNutrition";
+import ReversalQuestion from "../components/ReversalQuestion";
 
 const aboutus = () => {
   return (
@@ -16,6 +17,7 @@ const aboutus = () => {
       <Mission />
       <Working />
       <Team />
+      <ReversalQuestion />
     </div>
   );
 };

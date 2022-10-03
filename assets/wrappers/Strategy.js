@@ -4,6 +4,7 @@ const Wrappers = styled.div`
   background-color: var(--background-light);
   .title {
     text-align: center;
+    width: max(200px, 85%);
     padding-top: 3rem;
   }
   .items-container {
@@ -21,7 +22,8 @@ const Wrappers = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 400px;
+    /* max-width: 400px; */
+    width: max(300px, 80%);
     margin: 0 auto;
   }
   .item-subtitle {

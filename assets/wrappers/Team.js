@@ -6,14 +6,18 @@ const Wrappers = styled.div`
 
   .main-container {
     display: flex;
+    flex-wrap: wrap;
   }
   .content-container {
     margin-top: 4rem;
     margin-left: 3rem;
-    max-width: 50%;
+    /* max-width: 50%; */
+    width: max(40%, 300px);
   }
   .picture-container {
-    max-width: 40%;
+    /* max-width: 40%; */
+    width: max(40%, 300px);
+    margin: 0 auto;
   }
   .title {
     color: var(--primary-700);

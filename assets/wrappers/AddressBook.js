@@ -16,6 +16,7 @@ const Wrappers = styled.div`
     text-decoration: none;
     border: none;
     color: white;
+    margin-inline: auto;
   }
 `;
 export default Wrappers;

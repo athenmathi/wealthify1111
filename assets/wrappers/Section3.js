@@ -18,14 +18,18 @@ const Wrapper = styled.div`
   .subtitle {
     font-size: 1.3rem;
     margin-top: 4rem;
-    max-width: 1200px;
+    max-width: 90%;
+    margin: 0 auto;
   }
   .dark-title {
     margin-top: 5rem;
     border-radius: 0.5rem;
     background-color: var(--primary-700);
-    padding: 1rem 7rem;
+    padding: 1rem;
+    text-align: center;
     color: white;
+    width: 80%;
+    font-weight: 300;
   }
   .item-container {
     display: grid;
@@ -40,7 +44,6 @@ const Wrapper = styled.div`
     font-size: 1.1rem;
   }
   .items {
-    margin: 2rem;
     display: flex;
     align-items: center;
   }

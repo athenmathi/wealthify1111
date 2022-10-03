@@ -10,6 +10,7 @@ const Wrapper = styled.div`
 
   .title-container {
     text-align: center;
+    width: 90%;
   }
   .title {
     font-size: 3rem;

@@ -37,7 +37,7 @@ const Team = () => {
             <p className="content">
               Having degrees in Allopathy such as MD (Doctorate in
               Medicine),Dr.Preethi has been adding value to our clients with her
-              7+ years of experience. She has been instrumental in setting up
+              10+ years of experience. She has been instrumental in setting up
               the foundation for the role of various healthcare programs in
               Dr.Wealthify.
             </p>
