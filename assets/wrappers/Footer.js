@@ -4,10 +4,10 @@ const Wrappers = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=poppins&display=swap");
 
   margin-top: 4rem;
-  body {
-    line-height: 2;
-    font-family: "poppins";
-  }
+  // body {
+  //   line-height: 2;
+  //   font-family: "poppins";
+  // }
   * {
     padding: 0;
     box-sizing: border-box;
@@ -34,6 +34,7 @@ const Wrappers = styled.div`
     /* background-color: #404040; */
     padding: 0;
     height: 350px;
+    max-width: 100%;
   }
   .footerLogo {
     margin: 10px;
@@ -154,6 +155,8 @@ const Wrappers = styled.div`
   .common {
     display: flex;
     flex-direction: row;
+    margin-top: 0rem;
+    justify-content: center;
   }
 
   .quicklinks2 {
@@ -181,7 +184,7 @@ const Wrappers = styled.div`
     }
     .container {
       background-color: #404040;
-      width: 435px;
+      max-width: 435px;
       height: auto;
     }
     .footer-col {
@@ -198,8 +201,9 @@ const Wrappers = styled.div`
     }
     .quicklinks {
       justify-content: center;
-      margin-left: 40px;
-      padding-left: 6em;
+      /* margin-left: 25%; */
+      padding-left: 0%;
+      margin: 0% 0%;
       font-size: 20px;
       margin-top: 10px;
     }
@@ -207,7 +211,8 @@ const Wrappers = styled.div`
       justify-content: center;
       padding-left: inherit;
       font-size: 20px;
-      padding-left: 6em;
+      margin-left: 0%;
+      /* padding-left: 6rem; */
     }
     .footer-col-div ul {
       justify-content: center;
@@ -253,10 +258,17 @@ const Wrappers = styled.div`
       justify-content: center;
     }
 
+    .location {
+      margin-top: 0rem;
+    }
+
+    .contact-us {
+      margin-top: 0.4rem;
+    }
     .cc {
-      width: 435px;
-      height: 91px;
-      display: inline-block;
+      max-width: 100%;
+      max-height: fit-content;
+      display: 100%;
     }
 
     .cc-content {
