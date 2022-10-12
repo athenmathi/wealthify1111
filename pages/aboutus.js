@@ -7,6 +7,9 @@ import Working from "../components/Working";
 import Team from "../components/Team";
 import SingleNutrition from "../components/SingleNutrition";
 import ReversalQuestion from "../components/ReversalQuestion";
+import DoctorHome from "../components/DoctorHome";
+import MembershipCard from "../components/MembershipCard";
+import EachDoctorDetails from "../components/EachDoctorDetails";
 
 const aboutus = () => {
   return (
@@ -18,6 +21,9 @@ const aboutus = () => {
       <Working />
       <Team />
       <ReversalQuestion />
+      <DoctorHome />
+      <MembershipCard />
+      {/* <EachDoctorDetails /> */}
     </div>
   );
 };

@@ -126,4 +126,11 @@ default margin
 .bold {
   font-weight: 700;
 }
+
+.tal {
+  text-align: left;
+}
+.tac {
+  text-align: center;
+}
 /* section 2 css  */

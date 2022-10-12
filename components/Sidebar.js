@@ -11,6 +11,7 @@ import notification from "../assets/image/notification.svg";
 import needHelp from "../assets/image/needHelp.svg";
 
 import ManageProfile from "../components/ManageProfile";
+import ActiveLink from "./ActiveLink";
 
 export default function Sidebar() {
   return (
@@ -21,11 +22,14 @@ export default function Sidebar() {
             <div className="img">
               <Image src={profile} />
             </div>
-            <Link href={"/managedProfile"}>
+            {/* <Link href={"/managedProfile"}>
               <a className="text" href="">
                 Managed Profile
               </a>
-            </Link>
+            </Link> */}
+            <div className="text">
+              <ActiveLink route={"/managedProfile"}>Managed Profile</ActiveLink>
+            </div>
             <div className="rightCheveron">
               <RightCheveron />
             </div>

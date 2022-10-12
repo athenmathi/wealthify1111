@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const Wrappers = styled.div`
   .container {
-    /* margin-left: 9rem; */
     background-color: white;
     max-width: 450px;
   }
@@ -11,8 +10,8 @@ const Wrappers = styled.div`
   }
   .item {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    /* border: 2px solid black; */
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.161);
     border-radius: 1rem;
     padding: 1rem;
@@ -27,7 +26,15 @@ const Wrappers = styled.div`
     margin-left: 2rem;
     width: 20rem;
   }
-  .rightCheveron {
+
+  @media (max-width: 480px) {
+    .container {
+      margin: 0 auto;
+    }
+    .item {
+      width: 350px;
+      margin-left: -2.5rem;
+    }
   }
 `;
 export default Wrappers;

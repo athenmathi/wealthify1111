@@ -14,5 +14,15 @@ const Wrappers = styled.div`
   .img {
     font-size: 2rem;
   }
+  @media (max-width: 480px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 350px;
+      margin-right: 1rem;
+      margin-left: -2rem;
+    }
+  }
 `;
 export default Wrappers;

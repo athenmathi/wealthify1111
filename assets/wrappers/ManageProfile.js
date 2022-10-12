@@ -29,5 +29,12 @@ const Wrappers = styled.div`
     align-items: center;
     justify-content: space-between;
   }
+  @media (max-width: 480px) {
+    .container {
+      min-width: 350px;
+      margin-right: 1rem;
+      margin-left: -2rem;
+    }
+  }
 `;
 export default Wrappers;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Wrappers = styled.div`
   .container {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.161);
-    min-width: 700px;
+    min-width: 200px;
     border-radius: 1rem;
     padding: 1rem 3rem;
     margin-top: 1rem;
@@ -74,6 +74,18 @@ const Wrappers = styled.div`
   }
   .contents > p {
     color: black;
+  }
+  @media (max-width: 480px) {
+    .container {
+      /* max-width: 350px;
+      margin-right: 1rem;
+      margin-left: -2rem; */
+      min-width: 300px;
+    }
+    margin-left: 9rem;
+    .physical-details {
+      width: 400px;
+    }
   }
 `;
 

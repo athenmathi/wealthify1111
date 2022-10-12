@@ -27,5 +27,12 @@ const Wrappers = styled.div`
   h1 {
     font-weight: 400;
   }
+  @media (max-width: 480px) {
+    .container {
+      min-width: 350px;
+      margin-right: 1rem;
+      margin-left: -2rem;
+    }
+  }
 `;
 export default Wrappers;

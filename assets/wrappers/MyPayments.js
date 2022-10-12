@@ -31,5 +31,10 @@ const Wrappers = styled.div`
     width: 100%;
     height: 1px;
   }
+  @media (max-width: 480px) {
+    min-width: 350px;
+    margin-right: 1rem;
+    margin-left: -2rem;
+  }
 `;
 export default Wrappers;
