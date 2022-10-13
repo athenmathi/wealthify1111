@@ -87,6 +87,7 @@ const Navbar = () => {
             {/* {singleDoctor && <EachDoctorDetails setMenu={setSingleDoctor} />} */}
           </li>
         </div>
+
         <div className="third-item" onClick={() => setMenu(!menu)}>
           <button className="btn-primary">Doctor Login</button>
         </div>
