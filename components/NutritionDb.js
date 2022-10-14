@@ -1,5 +1,6 @@
+import axios from "axios";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import Wrappers from "../assets/wrappers/NutiritionDb";
 import fruit from "../assets/image/fruit.jpeg";
 import searchIcon from "../assets/image/searchIcon.svg";
