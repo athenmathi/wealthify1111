@@ -14,7 +14,7 @@ const Login = ({ setModal }) => {
           </div>
           <h3>Please enter your mobile number to login</h3>
           <input className="number" type="text" placeholder="+91" />
-          <Image />
+          {/* <Image /> */}
           <p className="subtitle">
             OTP will be sent to this number by SMS And Whatsapp
           </p>
