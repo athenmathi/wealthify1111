@@ -20,9 +20,9 @@ const aboutus = () => {
       <Mission />
       <Working />
       <Team />
-      <ReversalQuestion />
+      {/* <ReversalQuestion /> */}
       <DoctorHome />
-      <MembershipCard />
+      {/* <MembershipCard /> */}
       {/* <EachDoctorDetails /> */}
     </div>
   );

@@ -42,7 +42,7 @@ const Footer = () => {
             {/* <!-- </div> --> */}
 
             {/* <!--next col--> */}
-            <div className="footer-col">
+            <div className="footer-col quick">
               {/* <!-- style="padding-left: 50px; padding-right: 50px" --> */}
 
               <p className="quick-links">Quick links</p>
@@ -95,7 +95,7 @@ const Footer = () => {
               <div className="rectangle"></div>
             </div>
             {/* <!--next col--> */}
-            <div className="footer-col">
+            <div className="footer-col location2">
               <div className="footer-col-div location">
                 <span>Location</span>
                 <ul>

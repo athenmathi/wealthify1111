@@ -14,6 +14,14 @@ const Wrappers = styled.div`
     /* border: 2px solid red; */
   }
 
+  /* oct 14 */
+  .quick {
+    margin-top: -1rem;
+  }
+  .location2 {
+    margin-top: -0.5rem;
+  }
+
   .container {
     max-width: 1870px;
     height: 366px;
