@@ -19,12 +19,12 @@ const Navbar = () => {
   return (
     <Wrappers>
       <div className="navbar-container">
-        {modal
+        {/* {modal
           ? ReactDOM.createPortal(
               <Login setModal={setModal} />,
               document.getElementById("modal-root")
             )
-          : null}
+          : null} */}
 
         <div className="first-item">
           <Image
@@ -92,7 +92,8 @@ const Navbar = () => {
           <button className="btn-primary">Doctor Login</button>
         </div>
       </div>
-      {/* {modal && <Login setModal={setModal} />} */}
+      {modal && <Login setModal={setModal} />}
+
       {menu && <Menu setMenu={setMenu} />}
     </Wrappers>
   );
