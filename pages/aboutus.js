@@ -11,6 +11,7 @@ import DoctorHome from "../components/DoctorHome";
 import MembershipCard from "../components/MembershipCard";
 import EachDoctorDetails from "../components/EachDoctorDetails";
 import EachPatientDetails from "../components/EachPatientDetails";
+import DoctorDashboard from "../components/DoctorDashboard";
 
 const aboutus = () => {
   return (
@@ -22,10 +23,11 @@ const aboutus = () => {
       <Working />
       <Team />
       {/* <ReversalQuestion /> */}
-      <DoctorHome />
+      {/* <DoctorHome /> */}
       {/* <MembershipCard /> */}
       {/* <EachDoctorDetails /> */}
-      <EachPatientDetails />
+      {/* <EachPatientDetails /> */}
+      <DoctorDashboard />
     </div>
   );
 };

@@ -1,0 +1,80 @@
+import styled from "styled-components";
+
+const Wrappers = styled.div`
+  margin-top: 3rem;
+  .calendar {
+    margin-left: 5rem;
+    display: flex;
+  }
+  .patient-list {
+    display: flex;
+    align-items: center;
+  }
+  .btn {
+    background-color: var(--primary-700);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    color: white;
+    margin-left: 5rem;
+  }
+  .left {
+    display: flex;
+  }
+  .card {
+    padding: 2rem 3rem;
+    box-shadow: var(--shadow-1);
+    width: fit-content;
+    height: fit-content;
+    /* text-align: center; */
+    margin: 3rem 5rem;
+  }
+
+  p:first-child {
+    font-size: 2rem;
+    color: green;
+    position: relative;
+  }
+  p:first-child::after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    /* pos */
+    position: absolute;
+    bottom: -1rem;
+    left: -20px;
+    background: var(--line-color-gray);
+  }
+  .right {
+    margin: 3rem;
+  }
+  .called {
+    background-color: green;
+  }
+  .not-called {
+    color: black;
+    position: relative;
+  }
+  .not-called:before {
+    content: "";
+    position: absolute;
+    background: var(--primary-700);
+    height: 100px;
+    width: 8px;
+    top: 6px;
+    left: 0;
+    border-radius: 1rem;
+  }
+  li {
+    width: 700px;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: white;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-1);
+  }
+  li div {
+    font-size: 1.4rem;
+  }
+`;
+
+export default Wrappers;

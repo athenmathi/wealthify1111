@@ -38,6 +38,9 @@ body {
   --background-gray: #eeeeee;
   --line-color-gray: #707070;
   --font-color: #38565a;
+
+  /* box-shadow */
+  --shadow-1: 0px 0px 15px rgba(0, 0, 0, 0.161);
 }
 
 body {
