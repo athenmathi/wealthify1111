@@ -88,13 +88,20 @@ const Navbar = () => {
           </li>
         </div>
 
-        <div className="third-item" onClick={() => setMenu(!menu)}>
-          <button className="btn-primary">Doctor Login</button>
-        </div>
+        <Link href={"/adminHome"}>
+          <div className="third-item">
+            <button className="btn-primary">Admin Login</button>
+          </div>
+        </Link>
+        <Link href={"/doctorHome"}>
+          <div className="third-item">
+            <button className="btn-primary">Doctor Login</button>
+          </div>
+        </Link>
       </div>
       {modal && <Login setModal={setModal} />}
 
-      {menu && <Menu setMenu={setMenu} />}
+      {/* {menu && <Menu setMenu={setMenu} />} */}
     </Wrappers>
   );
 };

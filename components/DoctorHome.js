@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Wrappers from "../assets/wrappers/DoctorHome";
+import EachDoctorDetails from "./EachDoctorDetails";
 const data = [
   { id: 23034534, name: "john" },
   { id: 23034534, name: "john" },
@@ -13,8 +14,13 @@ const data = [
 ];
 
 const DoctorHome = () => {
+  const [state, setState] = useState(false);
+  // if (state) {
+  //   return <EachDoctorDetails />;
+  // }
   return (
     <Wrappers>
+      {state ? <EachDoctorDetails setState={setState} /> : null}
       <table className="doctor-heading">
         <thead>
           <tr>
@@ -24,7 +30,7 @@ const DoctorHome = () => {
           </tr>
           {data.map((item) => {
             return (
-              <tr>
+              <tr onClick={() => setState(!state)}>
                 <td>{item.id}</td>
                 <td> {item.name} </td>
                 <td>

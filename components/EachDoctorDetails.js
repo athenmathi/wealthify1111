@@ -6,7 +6,7 @@ const data = [
   { patientName: "john", callDuration: "15 mins" },
   { patientName: "john", callDuration: "14 mins" },
 ];
-const EachDoctorDetails = () => {
+const EachDoctorDetails = ({ setState }) => {
   return (
     <Wrappers>
       <div className="container">
@@ -19,7 +19,7 @@ const EachDoctorDetails = () => {
             <h6>Doctor Name</h6>
             <p>john</p>
           </div>
-          <div className="close-btn">
+          <div className="close-btn" onClick={() => setState(false)}>
             <Image src={redCloseBtn} />
           </div>
         </div>

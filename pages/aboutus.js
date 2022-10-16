@@ -10,6 +10,7 @@ import ReversalQuestion from "../components/ReversalQuestion";
 import DoctorHome from "../components/DoctorHome";
 import MembershipCard from "../components/MembershipCard";
 import EachDoctorDetails from "../components/EachDoctorDetails";
+import EachPatientDetails from "../components/EachPatientDetails";
 
 const aboutus = () => {
   return (
@@ -24,6 +25,7 @@ const aboutus = () => {
       <DoctorHome />
       {/* <MembershipCard /> */}
       {/* <EachDoctorDetails /> */}
+      <EachPatientDetails />
     </div>
   );
 };
