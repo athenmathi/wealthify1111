@@ -80,7 +80,6 @@ const HealthRecords = () => {
         </div>
       </div>
       {/* <PrescriptionForm /> */}
-      <button className="btn-green">ADD PRESCRIPTION</button>
     </Wrappers>
   );
 };

@@ -1,5 +1,7 @@
-import React from "react";
+import Link from "next/link";
+import React, { useState } from "react";
 import styled from "styled-components";
+import PrescriptionForm from "./PrescriptionForm";
 
 const Wrappers = styled.div`
   width: 700px;
@@ -15,9 +17,21 @@ const Wrappers = styled.div`
     font-size: 16px;
     resize: none;
   }
+  .btn-green {
+    background-color: var(--primary-700);
+    padding: 1rem 7rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    border: none;
+    color: white;
+    margin-top: 3rem;
+    margin-left: 15rem;
+  }
 `;
 
 const DoctorConsultation = () => {
+  const [openForm, setOpenForm] = useState(false);
+  const [state, setState] = useState(false);
   return (
     <Wrappers>
       <h2>Doctor Consultation</h2>
@@ -30,6 +44,11 @@ const DoctorConsultation = () => {
       <form>
         <textarea>Some text...</textarea>
       </form>
+      {openForm ? <PrescriptionForm setOpenForm={setOpenForm} /> : null}
+
+      <button onClick={() => setOpenForm(true)} className="btn-green">
+        ADD PRESCRIPTION
+      </button>
     </Wrappers>
   );
 };
