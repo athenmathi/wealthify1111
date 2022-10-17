@@ -5,8 +5,11 @@ const Wrappers = styled.div`
   .calendar {
     margin-left: 5rem;
     display: flex;
+    flex-wrap: wrap;
+    margin: 3rem;
   }
   .patient-list {
+    margin-top: 3rem;
     display: flex;
     align-items: center;
   }
@@ -16,6 +19,10 @@ const Wrappers = styled.div`
     border-radius: 1rem;
     color: white;
     margin-left: 5rem;
+  }
+  .bottom {
+    display: flex;
+    flex-wrap: wrap;
   }
   .left {
     display: flex;
@@ -65,7 +72,7 @@ const Wrappers = styled.div`
     border-radius: 1rem;
   }
   li {
-    width: 700px;
+    width: 50vw;
     padding: 1rem;
     border-radius: 1rem;
     color: white;
@@ -74,6 +81,15 @@ const Wrappers = styled.div`
   }
   li div {
     font-size: 1.4rem;
+  }
+  @media (max-width: 900px) {
+    li {
+      width: 300px;
+    }
+
+    ul {
+      margin-left: -1.5rem;
+    }
   }
 `;
 

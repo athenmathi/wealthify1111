@@ -15,12 +15,13 @@ const DoctorDashboard = () => {
           </Link>
         </div>
       </div>
-
-      <div className="left">
-        <div className="card">
-          <p>Dr. James</p>
-          <p>213234</p>
-          <p>Chennai</p>
+      <div className="bottom">
+        <div className="left">
+          <div className="card">
+            <p>Dr. James</p>
+            <p>213234</p>
+            <p>Chennai</p>
+          </div>
         </div>
         <div className="right">
           <ul>

@@ -27,7 +27,6 @@ const aboutus = () => {
       {/* <MembershipCard /> */}
       {/* <EachDoctorDetails /> */}
       {/* <EachPatientDetails /> */}
-      <DoctorDashboard />
     </div>
   );
 };
