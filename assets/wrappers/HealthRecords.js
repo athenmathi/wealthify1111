@@ -57,10 +57,6 @@ const Wrappers = styled.div`
     margin-right: 1.6rem;
   }
   .payment-history {
-    margin: 5rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
   .btn-green {
     background-color: var(--primary-700);

@@ -65,6 +65,7 @@ h6 {
 
 /* Navbar css  */
 .btn {
+  border-radius: 1rem;
   border: none;
   background: none;
 }

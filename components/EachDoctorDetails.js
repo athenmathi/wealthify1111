@@ -3,8 +3,8 @@ import React from "react";
 import Wrappers from "../assets/wrappers/EachDoctorDetails";
 import redCloseBtn from "../assets/image/redCloseBtn.svg";
 const data = [
-  { patientName: "john", callDuration: "15 mins" },
-  { patientName: "john", callDuration: "14 mins" },
+  { patientId: "1212", attendedPatient: "john", callDuration: "15 mins" },
+  { patientId: "1232", attendedPatient: "john", callDuration: "14 mins" },
 ];
 const EachDoctorDetails = ({ setState }) => {
   return (
@@ -26,6 +26,7 @@ const EachDoctorDetails = ({ setState }) => {
         <table className="doctor-heading">
           <thead>
             <tr>
+              <th>Patient ID</th>
               <th>Attended patient</th>
               <th>Call Duration</th>
               <th>Description</th>
@@ -33,7 +34,8 @@ const EachDoctorDetails = ({ setState }) => {
             {data.map((item) => {
               return (
                 <tr>
-                  <td>{item.patientName}</td>
+                  <td>{item.patientId}</td>
+                  <td>{item.attendedPatient}</td>
                   <td> {item.callDuration} </td>
                   <td>
                     <button className="btn">download</button>

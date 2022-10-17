@@ -1,11 +1,20 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import Wrappers from "../assets/wrappers/HealthRecords.js";
 import weight from "../assets/image/weight.svg";
 import height from "../assets/image/height.svg";
 import blood from "../assets/image/blood.svg";
 import paymentHistory from "../assets/image/paymentHistory.svg";
+import DoctorConsultation from "./DoctorConsultation.js";
+import PrescriptionForm from "./PrescriptionForm.js";
+import TestReports from "./TestReports.js";
+import HealthCondition from "../assets/wrappers/HealthCondition.js";
+import PatientNotes from "./PatientNotes.js";
+import DietPlan from "./DietPlan.js";
+import FollowUp from "./FollowUp.js";
+import History from "./History.js";
 const HealthRecords = () => {
+  const [tab, setTab] = useState("doctorConsultation");
   return (
     <Wrappers>
       <div className="container">
@@ -33,18 +42,44 @@ const HealthRecords = () => {
         </div>
         <div className="bottom">
           <div className="contents">
-            <p className="name">Doctor Consultation</p>
-            <p className="name">Test Reports</p>
-            <p className="name">Health Condition</p>
-            <p className="name">Vaccination</p>
+            <p className="name" onClick={() => setTab("doctorConsultation")}>
+              Doctor Consultation
+            </p>
+            <p className="name" onClick={() => setTab("testReports")}>
+              Test Reports
+            </p>
+            <p className="name" onClick={() => setTab("healthCondition")}>
+              Health Condition
+            </p>
+            <p className="name" onClick={() => setTab("patientNotes")}>
+              Patient Notes
+            </p>
+            <p className="name" onClick={() => setTab("dietPlan")}>
+              Diet plan
+            </p>
+            <p className="name" onClick={() => setTab("history")}>
+              History
+            </p>
+            <p className="name" onClick={() => setTab("followUp")}>
+              Follow up
+            </p>
           </div>
           <div className="underline"></div>
           <div className="payment-history">
-            <Image src={paymentHistory} />
-            <p>No payment History</p>
+            {tab === "doctorConsultation" ? <DoctorConsultation /> : null}
+            {tab === "testReports" ? <TestReports /> : null}
+            {tab === "healthCondition" ? <HealthCondition /> : null}
+            {tab === "patientNotes" ? <PatientNotes /> : null}
+            {tab === "dietPlan" ? <DietPlan /> : null}
+            {tab === "history" ? <History /> : null}
+            {tab === "followUp" ? <FollowUp /> : null}
+
+            {/* <Image src={paymentHistory} />
+            <p>No payment History</p> */}
           </div>
         </div>
       </div>
+      {/* <PrescriptionForm /> */}
       <button className="btn-green">ADD PRESCRIPTION</button>
     </Wrappers>
   );

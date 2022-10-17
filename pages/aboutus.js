@@ -12,6 +12,7 @@ import MembershipCard from "../components/MembershipCard";
 import EachDoctorDetails from "../components/EachDoctorDetails";
 import EachPatientDetails from "../components/EachPatientDetails";
 import DoctorDashboard from "../components/DoctorDashboard";
+import AssessmentForm1 from "../components/AssessmentForm1";
 
 const aboutus = () => {
   return (
@@ -27,6 +28,7 @@ const aboutus = () => {
       {/* <MembershipCard /> */}
       {/* <EachDoctorDetails /> */}
       {/* <EachPatientDetails /> */}
+      <AssessmentForm1 />
     </div>
   );
 };

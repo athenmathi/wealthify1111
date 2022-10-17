@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import Wrappers from "../assets/wrappers/Login";
 import closeBtn from "../assets/image/closeBtn.svg";
 const Login = ({ setModal }) => {
-  return (
+  return ReactDOM.createPortal(
     <Wrappers>
       <div className="overlay">
         <div className="container">
@@ -29,7 +29,8 @@ const Login = ({ setModal }) => {
           <h4>Privacy Policy, Terms and conditions of Dr. Wealthify</h4>
         </div>
       </div>
-    </Wrappers>
+    </Wrappers>,
+    document.getElementById("modal-root")
   );
 };
 
