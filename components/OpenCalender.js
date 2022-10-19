@@ -13,7 +13,7 @@ const OpenCalender = ({ setOpenCalender }) => {
           <Image src={redCloseBtn} />
         </div>
         <h1 className="heading">
-          Please select the date range to download docter data
+          Please select the date range to download Doctor data
         </h1>
         <form action="" onSubmit={(e) => e.preventDefault()}>
           <div className="container">
