@@ -4,20 +4,20 @@ import React, { useEffect, useState } from "react";
 import Wrappers from "../assets/wrappers/Recipes";
 import recipeCircle from "../assets/image/recipeCircle.svg";
 import recipeRectangle from "../assets/image/recipeRectangle.svg";
-// import { recipeData } from "../utils/recipeData";
+import { recipeData } from "../utils/recipeData";
 
 const Recipes = () => {
-  const [recipeData, setRecipeData] = useState([]);
-  useEffect(() => {
-    const getRecipeData = async () => {
-      const { data } = await axios.get(
-        "http://doctor.brandimagetech.com/recipes.php?api_key=GET"
-      );
-      setRecipeData(data.data);
-    };
-    getRecipeData();
-  }, []);
-  console.log(recipeData);
+  // const [recipeData, setRecipeData] = useState([]);
+  // useEffect(() => {
+  //   const getRecipeData = async () => {
+  //     const { data } = await axios.get(
+  //       "http://doctor.brandimagetech.com/recipes.php?api_key=GET"
+  //     );
+  //     setRecipeData(data.data);
+  //   };
+  //   getRecipeData();
+  // }, []);
+  // console.log(recipeData);
   return (
     <Wrappers>
       {recipeData.map((item) => {

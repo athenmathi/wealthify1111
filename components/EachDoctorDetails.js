@@ -45,7 +45,7 @@ const EachDoctorDetails = ({ setState }) => {
               <th>Patient ID</th>
               <th>Attended patient</th>
               <th>Call Duration</th>
-              <th>Description</th>
+              <th>Pescription</th>
             </tr>
             {data.map((item) => {
               return (
@@ -54,7 +54,7 @@ const EachDoctorDetails = ({ setState }) => {
                   <td>{item.attendedPatient}</td>
                   <td> {item.callDuration} </td>
                   <td>
-                    <button className="btn">download</button>
+                    <button className="btn">View</button>
                   </td>
                 </tr>
               );

@@ -101,7 +101,7 @@ const AssessmentForm5 = () => {
           </tr>
         </thead>
         <tbody>
-          {data1.map((item) => {
+          {data2.map((item) => {
             return (
               <tr>
                 <td>{item}</td>
