@@ -7,20 +7,20 @@ const DoctorDashboard = () => {
   const [value, onChange] = useState(new Date());
   return (
     <Wrappers>
-      <div className="calendar">
-        <Calendar onChange={onChange} value={value} />
-        <div className="patient-list">
-          <Link href={"/eachPatient"}>
-            <button className="btn">Patient List</button>
-          </Link>
-        </div>
-      </div>
       <div className="bottom">
         <div className="left">
           <div className="card">
             <p>Dr. James</p>
             <p>213234</p>
             <p>Chennai</p>
+          </div>
+          <div className="calendar">
+            <div className="patient-list">
+              <Link href={"/eachPatient"}>
+                <button className="btn">Patient List</button>
+              </Link>
+            </div>
+            <Calendar onChange={onChange} value={value} />
           </div>
         </div>
         <div className="right">

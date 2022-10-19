@@ -23,6 +23,7 @@ const Wrappers = styled.div`
     border-bottom: 1px solid var(--primary-700);
   }
   .text {
+    cursor: pointer;
     margin-left: 2rem;
     width: 20rem;
   }

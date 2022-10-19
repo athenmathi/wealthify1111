@@ -3,6 +3,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Wrappers from "../assets/wrappers/Login";
 import closeBtn from "../assets/image/closeBtn.svg";
+import loginBtn from "../assets/image/loginBtn.png";
+import Link from "next/link";
 const Login = ({ setModal }) => {
   return ReactDOM.createPortal(
     <Wrappers>
@@ -13,8 +15,15 @@ const Login = ({ setModal }) => {
             <Image src={closeBtn} />
           </div>
           <h3>Please enter your mobile number to login</h3>
-          <input className="number" type="text" placeholder="+91" />
-          {/* <Image /> */}
+          <div className="enter-btn">
+            <input className="number" type="text" placeholder="+91" />
+            {/* <Image /> */}
+            <Link href={"/assessment"}>
+              <div className="login-btn" onClick={() => setModal(false)}>
+                <Image src={loginBtn} />
+              </div>
+            </Link>
+          </div>
           <p className="subtitle">
             OTP will be sent to this number by SMS And Whatsapp
           </p>

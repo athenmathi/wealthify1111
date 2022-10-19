@@ -43,6 +43,14 @@ const Wrappers = styled.div`
   .signup {
     display: flex;
   }
+  .enter-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .login-btn {
+    margin-right: 2rem;
+  }
 `;
 
 export default Wrappers;

@@ -4,7 +4,8 @@ const Wrappers = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  height: 1000vh;
+  /* height: 1000vh; */
+  height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
@@ -14,11 +15,19 @@ const Wrappers = styled.div`
     color: darkslategray;
     font-family: "Archivo Black";
   }
-
   .form {
-    height: 35%;
-    border: 5px solid $bluegray;
-    border-radius: 20%;
+    background-color: white;
+    border-radius: 9rem;
+    width: fit-content;
+    padding-bottom: 6rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  /* .form {
+  height: 35%;
+  border: 5px solid $bluegray;
+  border-radius: 20%;
     margin-top: 1em;
     text-align: center;
     justify-content: center;
@@ -27,7 +36,7 @@ const Wrappers = styled.div`
     display: flex;
     padding: 45px;
     padding-bottom: 6rem;
-  }
+  } */
   .inputcontainer {
     display: flex;
     justify-content: center;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Wrappers = styled.div`
   /* table  */
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0;
   height: 100%;
@@ -22,7 +22,7 @@ const Wrappers = styled.div`
   .doctor-details {
     display: flex;
     width: 200px;
-    margin: 0 auto;
+    margin-left: 10rem;
     justify-content: space-between;
   }
   .close-btn {
@@ -61,6 +61,12 @@ const Wrappers = styled.div`
     border-radius: 2rem;
     color: white;
     cursor: pointer;
+  }
+
+  .calender-selector {
+    position: absolute;
+    top: 2rem;
+    left: 29rem;
   }
 `;
 

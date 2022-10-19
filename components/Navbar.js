@@ -1,16 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import ReactDOM from "react-dom";
 import {} from "../styles/Navbar.module.css";
 import WealthifyLogo from "../assets/image/WealthifyLogo.png";
 import Wrappers from "../assets/wrappers/Navbar.js";
-import Home from "./Home";
 import { useState } from "react";
 import Login from "./Login";
-import Menu from "../components/Menu";
 import { useRouter } from "next/router";
 import ActiveLink from "./ActiveLink";
-import EachDoctorDetails from "./EachDoctorDetails";
 const Navbar = () => {
   const [modal, setModal] = useState(false);
   const [menu, setMenu] = useState(false);

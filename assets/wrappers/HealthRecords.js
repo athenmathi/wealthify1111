@@ -54,6 +54,7 @@ const Wrappers = styled.div`
     background-color: gray;
   }
   .name {
+    cursor: pointer;
     margin-right: 1.6rem;
   }
   .payment-history {

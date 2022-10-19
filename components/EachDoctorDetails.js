@@ -2,9 +2,19 @@ import Image from "next/image";
 import React from "react";
 import Wrappers from "../assets/wrappers/EachDoctorDetails";
 import redCloseBtn from "../assets/image/redCloseBtn.svg";
+import { Calendar } from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 const data = [
-  { patientId: "1212", attendedPatient: "john", callDuration: "15 mins" },
-  { patientId: "1232", attendedPatient: "john", callDuration: "14 mins" },
+  {
+    patientId: "1212",
+    attendedPatient: "john",
+    callDuration: "12:45 PM - 1:00PM ,15 mins",
+  },
+  {
+    patientId: "1232",
+    attendedPatient: "john",
+    callDuration: "12:45 PM - 1:00PM ,15 mins ",
+  },
 ];
 const EachDoctorDetails = ({ setState }) => {
   return (
@@ -12,16 +22,22 @@ const EachDoctorDetails = ({ setState }) => {
       <div className="container">
         <div className="doctor-details">
           <div className="doctor-id">
-            <h6>Doctor Id</h6>
+            <h4>Doctor Id</h4>
             <p>34523454</p>
           </div>
+
           <div className="doctor-name">
-            <h6>Doctor Name</h6>
+            <h4>Doctor Name</h4>
             <p>john</p>
           </div>
+
           <div className="close-btn" onClick={() => setState(false)}>
             <Image src={redCloseBtn} />
           </div>
+        </div>
+        <div className="calender-selector">
+          <label htmlFor="">Select by Date</label>
+          <input type="date" />
         </div>
         <table className="doctor-heading">
           <thead>

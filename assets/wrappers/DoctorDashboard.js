@@ -5,11 +5,12 @@ const Wrappers = styled.div`
   .calendar {
     margin-left: 5rem;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
     margin: 3rem;
   }
   .patient-list {
-    margin-top: 3rem;
+    margin-bottom: 3rem;
     display: flex;
     align-items: center;
   }
@@ -25,7 +26,7 @@ const Wrappers = styled.div`
     flex-wrap: wrap;
   }
   .left {
-    display: flex;
+    /* display: flex; */
   }
   .card {
     padding: 2rem 3rem;

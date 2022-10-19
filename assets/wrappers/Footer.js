@@ -11,6 +11,7 @@ const Wrappers = styled.div`
   * {
     padding: 0;
     box-sizing: border-box;
+    margin-top: 20px;
     /* border: 2px solid red; */
   }
 
@@ -176,6 +177,7 @@ const Wrappers = styled.div`
     background-color: #1e1e1e;
     max-width: 1870px;
     height: 72px;
+    margin-top: 0px;
   }
 
   .cc-content {
