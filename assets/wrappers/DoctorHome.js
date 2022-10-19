@@ -33,6 +33,34 @@ const Wrappers = styled.div`
     color: white;
     cursor: pointer;
   }
+  /* open calender */
+  .container {
+    padding: 3rem 1rem;
+  }
+  .heading {
+    text-align: center;
+  }
+  label {
+    position: absolute;
+    top: -0.6rem;
+    left: 1.5rem;
+    background-color: white;
+  }
+  .input {
+    position: relative;
+  }
+  input,
+  select {
+    padding: 1rem;
+  }
+  .input {
+    margin-left: 15rem;
+    margin-top: 2rem;
+  }
+  .btn1 {
+    margin: 2rem 0;
+    margin-left: 16rem;
+  }
 `;
 
 export default Wrappers;

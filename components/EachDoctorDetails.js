@@ -45,7 +45,7 @@ const EachDoctorDetails = ({ setState }) => {
               <th>Patient ID</th>
               <th>Attended patient</th>
               <th>Call Duration</th>
-              <th>Pescription</th>
+              <th>Prescription</th>
             </tr>
             {data.map((item) => {
               return (
