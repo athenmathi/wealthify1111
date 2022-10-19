@@ -32,8 +32,8 @@ const DoctorHome = () => {
             return (
               <tr onClick={() => setState(!state)}>
                 <td>{item.id}</td>
-                <td>{item.workingHours}</td>
                 <td> {item.name} </td>
+                <td>{item.workingHours}</td>
                 <td>
                   <button className="btn">download</button>
                 </td>
