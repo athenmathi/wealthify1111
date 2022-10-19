@@ -29,9 +29,7 @@ const Team = () => {
           </div>
 
           <div className="content-container">
-            <p className="title">
-              N u t r i t i o n & D o c t o r E x p e r t T e a m
-            </p>
+            <p className="title">Nutrition & Doctor Expert Team</p>
             <h2 className="name">Dr.PREETHI VEERARAGAVAN</h2>
             <p className="desigination">S e n i o r l e a d D o c t o r</p>
             <p className="content">

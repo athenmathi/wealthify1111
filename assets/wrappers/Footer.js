@@ -11,7 +11,6 @@ const Wrappers = styled.div`
   * {
     padding: 0;
     box-sizing: border-box;
-    margin-top: 20px;
     /* border: 2px solid red; */
   }
 
@@ -116,6 +115,7 @@ const Wrappers = styled.div`
   .rectangle {
     height: 303px;
     width: 3px;
+    margin-top: 2rem;
     /* margin: 1px; */
     background-color: #707070;
     border-radius: 3px;
@@ -177,7 +177,6 @@ const Wrappers = styled.div`
     background-color: #1e1e1e;
     max-width: 1870px;
     height: 72px;
-    margin-top: 0px;
   }
 
   .cc-content {
@@ -244,7 +243,7 @@ const Wrappers = styled.div`
     .rectangle {
       justify-self: center;
       height: 3.43px;
-      width: 340px;
+      width: 90%;
       margin-left: 40px;
       background-color: #707070;
       border-radius: 3px;
@@ -273,7 +272,7 @@ const Wrappers = styled.div`
     }
 
     .contact-us {
-      margin-top: 0.4rem;
+      margin-top: -1rem;
     }
     .cc {
       max-width: 100%;

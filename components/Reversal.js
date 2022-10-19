@@ -1,5 +1,6 @@
 import Wrappers from "../assets/wrappers/Reversal";
 import Image from "next/image";
+import Link from "next/link";
 const Reversal = () => {
   return (
     <Wrappers>
@@ -13,7 +14,9 @@ const Reversal = () => {
           To Craft your personalized reversal plan to heal your damaged
           metabolism
         </p>
-        <p className="sub-dark-title">PREDECIT MY REVERSAL DATA</p>
+        <Link href={"/assessment"}>
+          <p className="sub-dark-title">PREDECIT MY REVERSAL DATA</p>
+        </Link>
       </div>
     </Wrappers>
   );

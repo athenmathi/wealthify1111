@@ -44,6 +44,7 @@ const Wrappers = styled.div`
     width: 30%;
   }
   .topics {
+    width: 70%;
     display: flex;
     justify-content: space-between;
   }
@@ -65,6 +66,62 @@ const Wrappers = styled.div`
     .right-side {
       width: 100%;
     }
+  }
+  .left-side {
+    position: relative;
+  }
+  .left-side-top {
+    position: relative;
+  }
+  .left-side-top::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 98%;
+    height: 2px;
+    background-color: gray;
+    bottom: -0.5rem;
+  }
+
+  .left-side::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 550px;
+    background-color: gray;
+    position: absolute;
+    top: 0;
+    right: 1rem;
+  }
+  .footer {
+    margin-top: 2rem;
+  }
+  .topic-items,
+  .topics {
+    position: relative;
+  }
+  .topic-items::after {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 2px;
+    width: 98%;
+    background-color: gray;
+    margin-top: 0.5rem;
+  }
+  .topics::after {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 2px;
+    width: 138%;
+    background-color: gray;
+    margin-top: 0.5rem;
+    bottom: 0;
+  }
+  .readmore {
+    color: green;
+    text-decoration: underline;
   }
 `;
 export default Wrappers;

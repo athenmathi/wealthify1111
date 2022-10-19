@@ -23,7 +23,7 @@ const Blog = () => {
                   overeating.
                 </p>
                 <div className="footer">
-                  <div className="author">by Dr.john</div>
+                  <div className="author">by. DR.JOHN</div>
                   <div className="readmore">Read More</div>
                 </div>
               </div>
@@ -37,7 +37,7 @@ const Blog = () => {
                   A Small guide to understanding obesity{" "}
                 </h4>
                 <div className="footer">
-                  <div className="author">by Dr.john</div>
+                  <div className="author">by. DR.JOHN</div>
                   <div className="readmore">Read More</div>
                 </div>
               </div>
@@ -49,7 +49,7 @@ const Blog = () => {
                   A Small guide to understanding obesity{" "}
                 </h4>
                 <div className="footer">
-                  <div className="author">by Dr.john</div>
+                  <div className="author">by. DR.JOHN</div>
                   <div className="readmore">Read More</div>
                 </div>
               </div>
@@ -61,7 +61,7 @@ const Blog = () => {
                   A Small guide to understanding obesity{" "}
                 </h4>
                 <div className="footer">
-                  <div className="author">by Dr.john</div>
+                  <div className="author">by. DR.JOHN</div>
                   <div className="readmore">Read More</div>
                 </div>
               </div>
@@ -70,7 +70,7 @@ const Blog = () => {
           <div className="vertical-line"></div>
           <div className="right-side">
             <div className="topics">
-              <p>Trending Topic</p>
+              <p style={{ color: "green" }}>Trending Topic</p>
               <p>Latest Topic</p>
             </div>
             <div className="topic-items">
@@ -83,7 +83,7 @@ const Blog = () => {
                 mollitia! Eos ad quisquam neque! Reprehenderit maxime
               </div>
               <div className="footer">
-                <div className="author">by Dr.john</div>
+                <div className="author">by. DR.JOHN</div>
                 <div className="readmore">Read More</div>
               </div>
             </div>
@@ -97,7 +97,7 @@ const Blog = () => {
                 mollitia! Eos ad quisquam neque! Reprehenderit maxime
               </div>
               <div className="footer">
-                <div className="author">by Dr.john</div>
+                <div className="author">by. DR.JOHN</div>
                 <div className="readmore">Read More</div>
               </div>
             </div>
@@ -111,7 +111,7 @@ const Blog = () => {
                 mollitia! Eos ad quisquam neque! Reprehenderit maxime
               </div>
               <div className="footer">
-                <div className="author">by Dr.john</div>
+                <div className="author">by DR.JOHN</div>
                 <div className="readmore">Read More</div>
               </div>
             </div>
