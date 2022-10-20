@@ -2,6 +2,7 @@ import Image from "next/image.js";
 import React from "react";
 import Wrappers from "../assets/wrappers/Notification.js";
 import notificationIcon from "../assets/image/notificationIcon.svg";
+import ToggleSwitch from "./customComponents.js/ToggleSwitch.js";
 const Notification = () => {
   return (
     <Wrappers>
@@ -10,7 +11,15 @@ const Notification = () => {
           <div className="first-row">
             <h1 className="name">Push Notification</h1>
             <div className="img">
-              <Image src={notificationIcon} />
+              <ToggleSwitch/>
+              {/* checknotification Start 
+             <label class="switch">
+        <input type="checkbox" />
+        <span class="slider round"></span>
+    </label>
+               checknotification End */}
+              
+              {/*<Image src={notificationIcon} />*/}
             </div>
           </div>
           <p>
@@ -26,7 +35,7 @@ const Notification = () => {
           <div className="first-row">
             <h1 className="name">Notification</h1>
             <div className="img">
-              <Image src={notificationIcon} />
+             <ToggleSwitch />
             </div>
           </div>
 
