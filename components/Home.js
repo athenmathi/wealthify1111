@@ -7,10 +7,10 @@ const Home = () => {
         <h1>Diabetes Reversal</h1>
 
         <div className="first-line line">
-          A personalized evidence-based path to
+          A Personalized Evidence-Based path to
         </div>
         <div className="second-line mt0-5rem line">
-          Type-2 diabetes & Pre- diabetes Reversal
+          Type-2 Diabetes & Pre-Diabetes Reversal
         </div>
         <div className="second-container verline">
           <div className="first-line line ss">Book The Diabetes Reversal</div>
@@ -24,10 +24,10 @@ const Home = () => {
   );
 };
 <p>
-  A personalized evidence-based path to
+  A Personalized Evidence-based path to
   <br />
   {/* <div className="mt0-5rem bold"> */}
-  Type-2 diabetes & Pre- diabetes Reversal
+  Type-2 Diabetes & Pre-Diabetes Reversal
   {/* </div> */}
 </p>;
 export default Home;
