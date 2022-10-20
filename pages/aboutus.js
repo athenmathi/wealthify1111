@@ -17,6 +17,7 @@ import AssessmentForm2 from "../components/AssessmentForm2";
 import AssessmentForm3 from "../components/AssessmentForm3";
 import AssessmentFormContainer from "../assets/wrappers/AssessmentFormContainer";
 import AssessmentForm4 from "../components/AssessmentForm4";
+import MobileNavbar from "../components/MobileNavbar";
 
 const aboutus = () => {
   return (

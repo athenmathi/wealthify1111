@@ -15,6 +15,22 @@ const Wrappers = styled.div`
     list-style: none;
   }
   .first-item {
+    /* position: relative; */
+    /* background-color: red; */
+  }
+  @media (max-width: 400px) {
+    .hamburger-menu div {
+      background: black;
+      width: 50px;
+      height: 5px;
+      margin-top: 0.5rem;
+    }
+    .hamburger-menu {
+      cursor: pointer;
+      position: absolute;
+      right: 2rem;
+      top: 3rem;
+    }
   }
 
   .second-item > li {

@@ -7,13 +7,17 @@ import { useState } from "react";
 import Login from "./Login";
 import { useRouter } from "next/router";
 import ActiveLink from "./ActiveLink";
+import MobileNavbar from "./MobileNavbar";
 const Navbar = () => {
   const [modal, setModal] = useState(false);
   const [menu, setMenu] = useState(false);
   const [singleDoctor, setSingleDoctor] = useState(false);
+  const [menubar, setMenubar] = useState(false);
   console.log(useRouter());
+
   return (
     <Wrappers>
+      {menubar ? <MobileNavbar setMenubar={setMenubar} /> : null}
       <div className="navbar-container">
         {/* {modal
           ? ReactDOM.createPortal(
@@ -29,6 +33,11 @@ const Navbar = () => {
             width="200px"
             height="200px"
           />
+          <div onClick={() => setMenubar(true)} className="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
         <div className="second-item">
           <li>

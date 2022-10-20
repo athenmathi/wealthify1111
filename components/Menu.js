@@ -5,7 +5,7 @@ import Wrappers from "../assets/wrappers/Menu";
 const Menu = ({ setMenu }) => {
   return (
     <Wrappers>
-      <div className="container">
+      <div className="container ">
         <div className="first-part">
           <h1 className="name">John Doe</h1>
           <button className="close-btn btn" onClick={() => setMenu(false)}>
