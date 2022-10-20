@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <Wrappers>
       <div className="container">
-        <h1>Diabetes Reversal</h1>
+        <h1>Diabetes Reversals</h1>
 
         <div className="first-line line">
           A personalized evidence-based path to
