@@ -2,23 +2,25 @@ import Image from "next/image";
 import React from "react";
 import Wrappers from "../assets/wrappers/MembershipCard";
 import Tag from "../assets/image/Tag.svg";
-const MembershipCard = ({ months }) => {
+const MembershipCard = ({ price, planType, month, calls, dietChart }) => {
   return (
     <Wrappers>
       <div className="tag-container">
         <Image src={Tag} />
         <p className="price">
-          2000.23 <br />
+          {price} <br />
           INR
         </p>
       </div>
       <div className="container">
         <ul>
-          <li>2 Months</li>
-          <li>3 calls</li>
-          <li>3 DIET CHART/ MONTH</li>
+          <li>{month}</li>
+          <li>{calls}</li>
+          <li>{dietChart}</li>
         </ul>
-        <button className="upgrade-btn btn">Upgrade</button>
+        <div className="upgrade-div">
+          <button className="upgrade-btn btn">Upgrade</button>
+        </div>
       </div>
     </Wrappers>
   );

@@ -23,23 +23,74 @@ const Membership = () => {
         <div className="plans basic">
           <p className="sub-title">BASIC PLAN</p>
           <div className="plans-container">
-            <MembershipCard />
-            <MembershipCard />
+            <MembershipCard
+              price={"5,003.2"}
+              planType={"Basic Plan"}
+              month={"2 Months"}
+              calls={"3 CALLS"}
+              dietChart={"3 DIET CHART/ MONTH"}
+            />
+            <MembershipCard
+              price={"7,504.8"}
+              planType={"Basic Plan"}
+              month={"3 Months"}
+              calls={"3 CALLS"}
+              dietChart={"3 DIET CHART/ MONTH"}
+            />
+          </div>
+        </div>
+        <div className="plans basic">
+          <p className="sub-title">PERMIUM PLAN</p>
+          <div className="plans-container">
+            <MembershipCard
+              price={"5003.2"}
+              planType={"Basic Plan"}
+              month={"1 Months"}
+              calls={"3 CALLS"}
+              dietChart={"3 DIET CHART/ MONTH"}
+              modification={"Personal Modification"}
+              dietitian={"1 - Dietitian"}
+              personalFitness={"1 - Personal Fitness Trainer"}
+            />
+            <MembershipCard
+              price={"23,600"}
+              planType={"Premium Plan"}
+              month={"2 Months"}
+              calls={"3 CALLS"}
+              dietChart={"3 DIET CHART/ MONTH"}
+              modification={"Personal Modification"}
+              dietitian={"1 - Dietitian"}
+              personalFitness={"1 - Personal Fitness Trainer"}
+            />
+            <MembershipCard
+              price={"5003.2"}
+              planType={"Basic Plan"}
+              month={"2 Months"}
+              calls={"3 CALLS"}
+              dietChart={"3 DIET CHART/ MONTH"}
+              modification={"Personal Modification"}
+              dietitian={"1 - Dietitian"}
+              personalFitness={"1 - Personal Fitness Trainer"}
+            />
           </div>
         </div>
         <div className="plans basic">
           <p className="sub-title">BASIC PLAN</p>
           <div className="plans-container">
-            <MembershipCard />
-            <MembershipCard />
-            <MembershipCard />
-          </div>
-        </div>
-        <div className="plans basic">
-          <p className="sub-title">BASIC PLAN</p>
-          <div className="plans-container">
-            <MembershipCard />
-            <MembershipCard />
+            <MembershipCard
+              price={"5003.2"}
+              planType={"Basic Plan"}
+              month={"2 Months"}
+              calls={"3 CALLS"}
+              dietChart={"3 DIET CHART/ MONTH"}
+            />
+            <MembershipCard
+              price={"5003.2"}
+              planType={"Basic Plan"}
+              month={"2 Months"}
+              calls={"3 CALLS"}
+              dietChart={"3 DIET CHART/ MONTH"}
+            />
           </div>
         </div>
       </div>

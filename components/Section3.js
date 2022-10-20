@@ -6,7 +6,7 @@ const Section3 = () => {
       <div className="section2">
         <div className="title-container">
           <div className="line-container">
-            <h1 className="title">Our Dr.Wealthify precision treatment</h1>
+            <h1 className="title">Our Dr.Wealthify Precision Treatment</h1>
             <div className="green-line"></div>
           </div>
           <p className="subtitle">

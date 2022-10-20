@@ -8,6 +8,7 @@ const Wrappers = styled.div`
   width: 300px;
   /* height: 300px; */
   padding: 1rem;
+  padding-bottom: 3rem;
   margin: 0 auto;
   .tag-container {
     position: absolute;
@@ -27,14 +28,21 @@ const Wrappers = styled.div`
   ul {
     margin-top: 4rem;
   }
+  .upgrade-div {
+    margin: 0 auto;
+  }
   .upgrade-btn {
+    position: absolute;
+    bottom: 9%;
+    left: 10%;
+    color: white;
     background-color: var(--primary-700);
     padding: 1rem 6rem;
     border-radius: 2rem;
     display: block;
     margin: 0 auto;
-    margin-left: -2rem;
-    margin-top: 3rem;
+    /* margin-left: -2rem; */
+    /* margin-top: 3rem; */
   }
   li:first-child {
     font-weight: 500;

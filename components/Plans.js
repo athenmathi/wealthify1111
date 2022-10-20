@@ -26,7 +26,7 @@ const Plans = () => {
   return (
     <Wrappers>
       <div className="line-container">
-        <h1 className="heading">Active and fit plans</h1>
+        <h1 className="heading">Active and Fit Plans</h1>
         <div className="green-line"></div>
       </div>
       <div className="cards">
