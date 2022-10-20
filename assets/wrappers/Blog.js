@@ -41,32 +41,15 @@ const Wrappers = styled.div`
     /* width: 80vw; */
   }
   .right-side {
-    width: 30%;
+    width: 29%;
+    margin-left: 1rem;
   }
   .topics {
     width: 70%;
     display: flex;
     justify-content: space-between;
   }
-  @media (max-width: 900px) {
-    .left-side-top {
-      display: none;
-    }
-    .left-side-bottom div {
-      width: 300px;
-    }
-  }
-  @media (max-width: 900px) {
-    .left-side-bottom {
-      width: 100vw;
-    }
-    .left-side-bottom div {
-      width: 300px;
-    }
-    .right-side {
-      width: 100%;
-    }
-  }
+
   .left-side {
     position: relative;
   }
@@ -87,11 +70,11 @@ const Wrappers = styled.div`
     content: "";
     display: block;
     width: 2px;
-    height: 550px;
+    height: 630px;
     background-color: gray;
     position: absolute;
     top: 0;
-    right: 1rem;
+    right: 0.1rem;
   }
   .footer {
     margin-top: 2rem;
@@ -122,6 +105,28 @@ const Wrappers = styled.div`
   .readmore {
     color: green;
     text-decoration: underline;
+  }
+  @media (max-width: 900px) {
+    .left-side-top {
+      display: none;
+    }
+    .left-side-bottom div {
+      width: 300px;
+    }
+  }
+  @media (max-width: 900px) {
+    .left-side::after {
+      display: none;
+    }
+    .left-side-bottom {
+      width: 100vw;
+    }
+    .left-side-bottom div {
+      width: 300px;
+    }
+    .right-side {
+      width: 100%;
+    }
   }
 `;
 export default Wrappers;
