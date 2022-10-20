@@ -39,6 +39,7 @@ const Wrappers = styled.div`
     position: absolute;
     right: 1rem;
     top: 1rem;
+    cursor: pointer;
   }
   .signup {
     display: flex;
@@ -50,6 +51,7 @@ const Wrappers = styled.div`
   }
   .login-btn {
     margin-right: 2rem;
+    cursor: pointer;
   }
 `;
 
