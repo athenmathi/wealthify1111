@@ -8,15 +8,17 @@ import Login from "./Login";
 import { useRouter } from "next/router";
 import ActiveLink from "./ActiveLink";
 import MobileNavbar from "./MobileNavbar";
+import MobileSidebar from "./MobileSidebar";
 const Navbar = () => {
   const [modal, setModal] = useState(false);
   const [menu, setMenu] = useState(false);
   const [singleDoctor, setSingleDoctor] = useState(false);
   const [menubar, setMenubar] = useState(false);
   console.log(useRouter());
-
+  const [mobileSidebar, setMobileSidbar] = useState(true);
   return (
     <Wrappers>
+      {mobileSidebar ? <MobileSidebar /> : null}
       {menubar ? <MobileNavbar setMenubar={setMenubar} /> : null}
       <div className="navbar-container">
         {/* {modal

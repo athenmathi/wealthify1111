@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const Wrappers = styled.div`
+  .right-icon {
+    display: none;
+  }
   .container {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.161);
     min-width: 700px;
@@ -34,6 +37,12 @@ const Wrappers = styled.div`
       min-width: 350px;
       margin-right: 1rem;
       margin-left: -2rem;
+    }
+    .right-icon {
+      display: block;
+      position: absolute;
+      top: 3.5rem;
+      left: 2rem;
     }
   }
 `;
