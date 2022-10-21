@@ -6,6 +6,9 @@ const Wrappers = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 480px) {
+    width: 300px;
+  }
 `;
 const FollowUp = () => {
   return (

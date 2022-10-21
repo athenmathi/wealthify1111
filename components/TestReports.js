@@ -23,6 +23,9 @@ const Wrappers = styled.div`
     padding: 1rem 2rem;
     color: white;
   }
+  @media (max-width: 480px) {
+    width: 300px;
+  }
 `;
 const TestReports = () => {
   const handleSubmit = (e) => {

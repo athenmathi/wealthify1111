@@ -31,6 +31,9 @@ const Wrappers = styled.div`
   li {
     margin-bottom: 2rem;
   }
+  @media (max-width: 480px) {
+    width: 300px;
+  }
 `;
 const PatientNotes = () => {
   return (

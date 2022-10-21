@@ -6,6 +6,9 @@ const Wrappers = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 480px) {
+    width: 300px;
+  }
 `;
 const History = () => {
   return (

@@ -77,18 +77,24 @@ const Wrappers = styled.div`
     color: black;
   }
   @media (max-width: 480px) {
-    width: 400px;
-    overflow: scroll;
+    width: 380px;
+    margin-left: -6rem;
     .container {
+      margin-left: -6rem;
       width: 400px;
     }
     .contents {
-      width: 400px;
+      width: 300px;
       overflow-x: scroll;
     }
-    margin-left: 9rem;
     .physical-details {
-      width: 400px;
+      width: 300px;
+    }
+    .underline {
+      width: 300px;
+    }
+    .btn-green {
+      display: none;
     }
   }
 `;

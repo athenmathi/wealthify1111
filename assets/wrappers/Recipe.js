@@ -97,12 +97,12 @@ div i {
     margin-left: 450px;
   }
 
-  .searchbar .button {
+  .search-bar {
     width: 150px;
     height: 50px;
     background-color: yellow;
     border-radius: 50px;
-    margin-left: 12px;
+    margin-left: 10%;
     font-family: Arial, Helvetica, sans-serif;
     border: 2px white;
     /* padding-top: 10px; */
@@ -110,8 +110,22 @@ div i {
     color: green;
     font-weight: 200;
     text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    outline: none;
   }
-
+  .button {
+    width: 10% !important;
+    height: 20%;
+    background-color: yellow;
+    box-shadow: 1px 1px solid black;
+    color: green;
+    font-weight: 300;
+    text-align: center;
+    cursor: pointer;
+    border: 2px white !important;
+  }
   .fruitgrid {
     display: grid;
     grid-template-rows: auto;
@@ -156,6 +170,10 @@ div i {
     text-align: center;
   }
 
+  .category ul {
+    cursor: pointer;
+  }
+
   @media only screen and (max-width: 600px) {
     body {
       font-family: "poppins";
@@ -164,25 +182,29 @@ div i {
 
     .searchbar input {
       border: 2px solid grey;
-
+      display: inline-block;
       border-radius: 20px;
       margin-left: 18px;
-      width: 250px;
+      width: 50%;
       height: 42px;
       /* background-color: red; */
       font-size: 24px;
-      display: flex;
     }
 
     .searchrec {
-      position: absolute;
+      /* position: absolute; */
       border-left: 2px solid #b2b2b2;
-      height: 14px;
+      height: 3.5%;
       /* width: 100%; */
       max-width: 50px;
       padding: 7px;
-      margin-top: 12px;
-      margin-left: 220px;
+      margin-top: 2%;
+      margin-left: 42%;
+    }
+
+    .button {
+      display: inline-block;
+      width: 25% !important;
     }
 
     .icon {
@@ -193,6 +215,12 @@ div i {
       min-width: 50px;
       text-align: center;
       justify-items: center;
+    }
+
+    .search-icon {
+      margin-left: 44%;
+      margin-bottom: -3rem;
+      position: absolute;
     }
     .fruitgrid {
       display: grid;

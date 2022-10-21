@@ -27,6 +27,9 @@ const Wrappers = styled.div`
     margin-top: 3rem;
     margin-left: 15rem;
   }
+  @media (max-width: 480px) {
+    width: 300px;
+  }
 `;
 
 const DoctorConsultation = () => {

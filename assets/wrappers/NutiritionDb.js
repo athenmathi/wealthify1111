@@ -25,6 +25,8 @@ const Wrappers = styled.div`
   .search-icon {
     margin-left: 29rem;
     margin-bottom: -3rem;
+    position: absolute;
+    display: inline-block;
   }
   .Nutrition h3 {
     /* position: relative;
@@ -119,7 +121,7 @@ div i {
     margin-left: 450px;
   }
 
-  .searchbar .button {
+  .search-bar {
     width: 150px;
     height: 50px;
     background-color: yellow;
@@ -127,12 +129,26 @@ div i {
     margin-left: 12px;
     font-family: Arial, Helvetica, sans-serif;
     border: 2px white;
-    /* padding-top: 10px; */
+    padding-top: 10px;
     justify-content: space-between;
     color: green;
     font-weight: 200;
     text-align: center;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .button {
+    width: 10% !important;
+    height: 20%;
+    background-color: yellow;
+    box-shadow: 1px 1px solid black;
+    color: green;
+    font-weight: 300;
+    text-align: center;
+    cursor: pointer;
+    border: 2px white !important;
   }
 
   .fruitgrid {
@@ -163,25 +179,29 @@ div i {
 
     .searchbar input {
       border: 2px solid grey;
-
+      display: inline-block;
       border-radius: 20px;
       margin-left: 18px;
-      width: 250px;
+      width: 50%;
       height: 42px;
       /* background-color: red; */
       font-size: 24px;
-      display: flex;
+      flex-direction: row;
+      outline: none;
     }
 
     .searchrec {
-      position: absolute;
       border-left: 2px solid #b2b2b2;
-      height: 14px;
+      height: 3.5%;
       /* width: 100%; */
       max-width: 50px;
       padding: 7px;
-      margin-top: 12px;
-      margin-left: 220px;
+      margin-top: 2%;
+      margin-left: 42%;
+    }
+    .button {
+      display: inline-block;
+      width: 25% !important;
     }
 
     .icon {
@@ -192,6 +212,12 @@ div i {
       min-width: 50px;
       text-align: center;
       justify-items: center;
+    }
+
+    .search-icon {
+      margin-left: 44%;
+      margin-bottom: -3rem;
+      position: absolute;
     }
     .fruitgrid {
       display: grid;
