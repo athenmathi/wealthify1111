@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 const Wrappers = styled.div`
   z-index: 200;
+  .right-icon {
+    display: none;
+  }
   .navbar-container {
     display: flex;
     align-items: center;
@@ -18,7 +21,7 @@ const Wrappers = styled.div`
     /* position: relative; */
     /* background-color: red; */
   }
-  @media (max-width: 400px) {
+  @media (max-width: 480px) {
     .hamburger-menu div {
       background: black;
       width: 50px;
@@ -30,6 +33,12 @@ const Wrappers = styled.div`
       position: absolute;
       right: 2rem;
       top: 3rem;
+    }
+    .right-icon {
+      display: block;
+      position: absolute;
+      top: 3.5rem;
+      left: 2rem;
     }
   }
 

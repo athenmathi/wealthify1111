@@ -18,15 +18,10 @@ const Wrappers = styled.div`
     color: white;
     margin-inline: auto;
   }
-  /* @media (max-width: 480px) {
-    min-width: 300px;
-    margin: 0 auto;
-    padding: 2rem 2rem;
-    .add-btn {
-      padding: 1rem 6rem;
-      margin-right: 2rem;
-    }
-  } */
+
+  @media (max-width: 480px) {
+    width: 300px;
+  }
   @media (max-width: 480px) {
     min-width: 350px;
     margin-right: 1rem;

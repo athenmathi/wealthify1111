@@ -61,6 +61,12 @@ const Wrappers = styled.div`
   .second-line {
     font-weight: 700;
   }
+  @media (max-width: 480px) {
+    margin-top: -6rem;
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
 `;
 
 export default Wrappers;

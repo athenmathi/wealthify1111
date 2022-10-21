@@ -38,12 +38,6 @@ const Wrappers = styled.div`
       margin-right: 1rem;
       margin-left: -2rem;
     }
-    .right-icon {
-      display: block;
-      position: absolute;
-      top: 3.5rem;
-      left: 2rem;
-    }
   }
 `;
 export default Wrappers;

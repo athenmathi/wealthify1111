@@ -12,6 +12,9 @@ const Wrappers = styled.div`
       flex-wrap: wrap;
       justify-content: center;
     }
+    .sidebar {
+      display: none;
+    }
   }
   .sidebar {
   }

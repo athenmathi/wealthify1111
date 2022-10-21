@@ -75,7 +75,7 @@ const Membership = () => {
           </div>
         </div>
         <div className="plans basic">
-          <p className="sub-title">BASIC PLAN</p>
+          <p className="sub-title">GOLDEN PLAN</p>
           <div className="plans-container">
             <MembershipCard
               price={"5003.2"}

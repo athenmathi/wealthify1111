@@ -15,6 +15,7 @@ const Wrappers = styled.div`
 
   .top {
     display: flex;
+    width: max(100%, 300px);
     align-items: center;
     justify-content: space-between;
   }
@@ -40,6 +41,9 @@ const Wrappers = styled.div`
   .blood {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
   }
   .img {
   }
@@ -73,11 +77,14 @@ const Wrappers = styled.div`
     color: black;
   }
   @media (max-width: 480px) {
+    width: 400px;
+    overflow: scroll;
     .container {
-      /* max-width: 350px;
-      margin-right: 1rem;
-      margin-left: -2rem; */
-      min-width: 300px;
+      width: 400px;
+    }
+    .contents {
+      width: 400px;
+      overflow-x: scroll;
     }
     margin-left: 9rem;
     .physical-details {

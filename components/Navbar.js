@@ -9,16 +9,19 @@ import { useRouter } from "next/router";
 import ActiveLink from "./ActiveLink";
 import MobileNavbar from "./MobileNavbar";
 import MobileSidebar from "./MobileSidebar";
+import rightArrow from "../assets/image/rightArrow.svg";
 const Navbar = () => {
   const [modal, setModal] = useState(false);
   const [menu, setMenu] = useState(false);
   const [singleDoctor, setSingleDoctor] = useState(false);
   const [menubar, setMenubar] = useState(false);
   console.log(useRouter());
-  const [mobileSidebar, setMobileSidbar] = useState(true);
+  const [mobileSidebar, setMobileSidebar] = useState(false);
   return (
     <Wrappers>
-      {mobileSidebar ? <MobileSidebar /> : null}
+      {mobileSidebar ? (
+        <MobileSidebar setMobileSidebar={setMobileSidebar} />
+      ) : null}
       {menubar ? <MobileNavbar setMenubar={setMenubar} /> : null}
       <div className="navbar-container">
         {/* {modal
@@ -40,6 +43,9 @@ const Navbar = () => {
             <div></div>
             <div></div>
           </div>
+        </div>
+        <div className="right-icon" onClick={() => setMobileSidebar(true)}>
+          <Image src={rightArrow} width="40px" height="40px" />
         </div>
         <div className="second-item">
           <li>
@@ -84,14 +90,6 @@ const Navbar = () => {
                 <a href=""> Login</a>
               </Link>
             </ul>
-            {/* <div
-              className="third-item"
-              onClick={() => setSingleDoctor(!singleDoctor)}
-            >
-              <button className="btn-primary">single doctor</button>
-            </div> */}
-
-            {/* {singleDoctor && <EachDoctorDetails setMenu={setSingleDoctor} />} */}
           </li>
         </div>
 

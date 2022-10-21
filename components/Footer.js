@@ -102,7 +102,7 @@ const Footer = () => {
                   <ul className="weight">HeadQuaters Address</ul>
 
                   <ul>
-                    637/2 VallalarNagar,Pachal,
+                    637/2 Vallalar Nagar, Pachal,
                     <br />
                     Tiruppatur District.
                   </ul>
