@@ -20,7 +20,9 @@ const DoctorDashboard = () => {
                 <button className="btn">Patient List</button>
               </Link>
             </div>
-            <Calendar onChange={onChange} value={value} />
+            <div className="calendar-2">
+              <Calendar onChange={onChange} value={value} />
+            </div>
           </div>
         </div>
         <div className="right">

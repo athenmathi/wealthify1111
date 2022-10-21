@@ -3,11 +3,15 @@ import styled from "styled-components";
 const Wrappers = styled.div`
   /* table  */
   height: 100vh;
-  overflow: auto;
-
+  overflow-x: scroll;
+  .table-container {
+    width: 90%;
+    margin: 0 auto;
+    overflow: scroll;
+  }
   .doctor-heading {
     border-collapse: collapse;
-    width: max(400px, 80%);
+    width: 80%;
     margin: 0 auto;
   }
   tr:has(th) {
@@ -15,9 +19,9 @@ const Wrappers = styled.div`
     top: 0;
   }
   .doctor-heading th {
-    text-align: center;
     padding: 1rem 0;
     background-color: #a1c334;
+    overflow: scroll;
   }
   .doctor-heading td {
     padding: 0.75rem 0;

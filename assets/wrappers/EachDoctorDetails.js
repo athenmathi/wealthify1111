@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const Wrappers = styled.div`
   /* table  */
+
   position: fixed;
   top: 0px;
   left: 0;
@@ -21,9 +22,13 @@ const Wrappers = styled.div`
   }
   .doctor-details {
     display: flex;
-    width: 200px;
-    margin-left: 10rem;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
   }
   .close-btn {
     position: absolute;
@@ -62,11 +67,38 @@ const Wrappers = styled.div`
     color: white;
     cursor: pointer;
   }
-
   .calender-selector {
+    position: relative;
+  }
+  .calender-selector label {
     position: absolute;
-    top: 2rem;
-    left: 29rem;
+
+    /* top: 2rem;
+    left: 29rem; */
+  }
+
+  @media (max-width: 400px) {
+    background-color: white;
+    overflow: hidden;
+    .container {
+      border-radius: 0;
+      position: absolute;
+      width: 100%;
+      top: 5%;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+    .table-container {
+      width: 350px;
+      overflow: scroll;
+    }
+
+    table {
+      width: 400px;
+      height: 300px;
+      overflow: scroll;
+    }
   }
 `;
 

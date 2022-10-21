@@ -15,6 +15,36 @@ const data = [
     attendedPatient: "john",
     callDuration: "12:45 PM - 1:00PM ,15 mins ",
   },
+  {
+    patientId: "1232",
+    attendedPatient: "john",
+    callDuration: "12:45 PM - 1:00PM ,15 mins ",
+  },
+  {
+    patientId: "1232",
+    attendedPatient: "john",
+    callDuration: "12:45 PM - 1:00PM ,15 mins ",
+  },
+  {
+    patientId: "1232",
+    attendedPatient: "john",
+    callDuration: "12:45 PM - 1:00PM ,15 mins ",
+  },
+  {
+    patientId: "1232",
+    attendedPatient: "john",
+    callDuration: "12:45 PM - 1:00PM ,15 mins ",
+  },
+  {
+    patientId: "1232",
+    attendedPatient: "john",
+    callDuration: "12:45 PM - 1:00PM ,15 mins ",
+  },
+  {
+    patientId: "1232",
+    attendedPatient: "john",
+    callDuration: "12:45 PM - 1:00PM ,15 mins ",
+  },
 ];
 const EachDoctorDetails = ({ setState }) => {
   return (
@@ -30,37 +60,40 @@ const EachDoctorDetails = ({ setState }) => {
             <h4>Doctor Name</h4>
             <p>john</p>
           </div>
+          <div className="calender-selector">
+            <label htmlFor="">Select by Date</label>
+            <input type="date" />
+          </div>
 
           <div className="close-btn" onClick={() => setState(false)}>
             <Image src={redCloseBtn} />
           </div>
         </div>
-        <div className="calender-selector">
-          <label htmlFor="">Select by Date</label>
-          <input type="date" />
+
+        <div className="table-container">
+          <table className="doctor-heading">
+            <thead>
+              <tr>
+                <th>Patient ID</th>
+                <th>Attended patient</th>
+                <th>Call Duration</th>
+                <th>Prescription</th>
+              </tr>
+              {data.map((item) => {
+                return (
+                  <tr>
+                    <td>{item.patientId}</td>
+                    <td>{item.attendedPatient}</td>
+                    <td> {item.callDuration} </td>
+                    <td>
+                      <button className="btn">View</button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </thead>
+          </table>
         </div>
-        <table className="doctor-heading">
-          <thead>
-            <tr>
-              <th>Patient ID</th>
-              <th>Attended patient</th>
-              <th>Call Duration</th>
-              <th>Prescription</th>
-            </tr>
-            {data.map((item) => {
-              return (
-                <tr>
-                  <td>{item.patientId}</td>
-                  <td>{item.attendedPatient}</td>
-                  <td> {item.callDuration} </td>
-                  <td>
-                    <button className="btn">View</button>
-                  </td>
-                </tr>
-              );
-            })}
-          </thead>
-        </table>
       </div>
     </Wrappers>
   );

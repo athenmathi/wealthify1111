@@ -9,6 +9,9 @@ const Wrappers = styled.div`
     justify-content: center;
     margin: 3rem;
   }
+  .calendar-2 {
+    margin-left: 2rem;
+  }
   .patient-list {
     margin-bottom: 3rem;
     display: flex;
@@ -90,6 +93,15 @@ const Wrappers = styled.div`
 
     ul {
       margin-left: -1.5rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .calendar-2 {
+      margin-left: -2.2rem;
+    }
+    .right {
+      margin: 0 auto;
     }
   }
 `;
