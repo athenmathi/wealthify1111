@@ -45,7 +45,8 @@ const Wrappers = styled.div`
     margin-bottom: 5rem;
   }
   @media (max-width: 480px) {
-    .title {
+    .sub-dark-title {
+      padding: 1rem 2rem;
     }
   }
 `;

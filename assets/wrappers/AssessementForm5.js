@@ -96,6 +96,20 @@ const Wrappers = styled.div`
     width: 60%;
     outline: 1px solid black;
   }
+  @media (max-width: 480px) {
+    .table-one,
+    .table-two {
+      overflow: scroll;
+    }
+    .checkbox {
+      width: 180px;
+      justify-content: space-between;
+    }
+    .checkbox-container {
+      width: 100px;
+      justify-content: space-between;
+    }
+  }
 `;
 
 export default Wrappers;

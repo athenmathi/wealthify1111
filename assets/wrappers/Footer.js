@@ -244,7 +244,7 @@ const Wrappers = styled.div`
       justify-self: center;
       height: 3.43px;
       width: 90%;
-      margin-left: 40px;
+      margin-left: 25px;
       background-color: #707070;
       border-radius: 3px;
       /* padding-left: 3em; */

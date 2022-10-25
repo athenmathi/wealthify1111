@@ -118,5 +118,37 @@ const Wrappers = styled.div`
     display: flex;
     flex-direction: row;
   }
+  select {
+    background-color: transparent;
+  }
+
+  @media (max-width: 480px) {
+    .heading {
+      font-size: 2rem;
+    }
+    .img-section {
+      display: none;
+    }
+    input {
+      width: 300px;
+      margin-left: -1.6rem;
+    }
+    input[type="checkbox"] {
+      width: 20px;
+    }
+    select {
+      width: 300px;
+      margin-left: -1.6rem;
+    }
+
+    .two-input {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    footer div:first-child::after {
+      width: 50px;
+    }
+  }
 `;
 export default Wrappers;

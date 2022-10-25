@@ -78,6 +78,13 @@ const Wrappers = styled.div`
   .bottom-question {
     margin-left: 2rem;
   }
+  @media (max-width: 480px) {
+    overflow: scroll;
+    .checkbox {
+      width: 200px;
+      justify-content: space-between;
+    }
+  }
 `;
 
 export default Wrappers;

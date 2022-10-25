@@ -44,95 +44,99 @@ const AssessmentForm5 = () => {
   return (
     <Wrappers>
       <h1 className="heading">INJURIES</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Please indicate if you of a blood relative has been diagnose with
-              or experienced any of the following conditions or symptoms
-            </th>
-            <th>Self or Family Member?</th>
-            <th>Specifics(Date, Explain, etc) </th>
-          </tr>
-        </thead>
-        <tbody>
-          {data1.map((item) => {
-            return (
-              <tr>
-                <td>{item}</td>
-                <td>
-                  <div className="checkbox">
-                    <label htmlFor="self">Self</label>
-                    <FormRow
-                      type={"checkBox"}
-                      // name="allergies_self"
-                      value={"self"}
-                      handleChange={(e) => handleInput(e)}
-                    />
-                    <label htmlFor="self">Family</label>
-                    <FormRow
-                      type={"checkBox"}
-                      // name="allergies_family"
-                      value={"family"}
-                      handleChange={(e) => handleInput(e)}
-                    />
-                  </div>
-                </td>
-                <td>
-                  <div className="text-area">
-                    <textarea name="" id=""></textarea>
-                  </div>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="table-one">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                Please indicate if you of a blood relative has been diagnose
+                with or experienced any of the following conditions or symptoms
+              </th>
+              <th>Self or Family Member?</th>
+              <th>Specifics(Date, Explain, etc) </th>
+            </tr>
+          </thead>
+          <tbody>
+            {data1.map((item) => {
+              return (
+                <tr>
+                  <td>{item}</td>
+                  <td>
+                    <div className="checkbox">
+                      <label htmlFor="self">Self</label>
+                      <FormRow
+                        type={"checkBox"}
+                        // name="allergies_self"
+                        value={"self"}
+                        handleChange={(e) => handleInput(e)}
+                      />
+                      <label htmlFor="self">Family</label>
+                      <FormRow
+                        type={"checkBox"}
+                        // name="allergies_family"
+                        value={"family"}
+                        handleChange={(e) => handleInput(e)}
+                      />
+                    </div>
+                  </td>
+                  <td>
+                    <div className="text-area">
+                      <textarea name="" id=""></textarea>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
       <h1 className="heading">DIAGNOSTIC STUDIES</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Please indicate if you of a blood relative has been diagnose with
-              or experienced any of the following conditions or symptoms
-            </th>
-            <th>Self or Family Member?</th>
-            <th>Specifics(Date, Explain, etc) </th>
-          </tr>
-        </thead>
-        <tbody>
-          {data2.map((item) => {
-            return (
-              <tr>
-                <td>{item}</td>
-                <td>
-                  <div className="checkbox">
-                    <label htmlFor="self">Self</label>
-                    <FormRow
-                      type={"checkBox"}
-                      // name="allergies_self"
-                      value={"self"}
-                      handleChange={(e) => handleInput(e)}
-                    />
-                    <label htmlFor="self">Family</label>
-                    <FormRow
-                      type={"checkBox"}
-                      // name="allergies_family"
-                      value={"family"}
-                      handleChange={(e) => handleInput(e)}
-                    />
-                  </div>
-                </td>
-                <td>
-                  <div className="text-area">
-                    <textarea name="" id=""></textarea>
-                  </div>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="table-two">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                Please indicate if you of a blood relative has been diagnose
+                with or experienced any of the following conditions or symptoms
+              </th>
+              <th>Self or Family Member?</th>
+              <th>Specifics(Date, Explain, etc) </th>
+            </tr>
+          </thead>
+          <tbody>
+            {data2.map((item) => {
+              return (
+                <tr>
+                  <td>{item}</td>
+                  <td>
+                    <div className="checkbox">
+                      <label htmlFor="self">Self</label>
+                      <FormRow
+                        type={"checkBox"}
+                        // name="allergies_self"
+                        value={"self"}
+                        handleChange={(e) => handleInput(e)}
+                      />
+                      <label htmlFor="self">Family</label>
+                      <FormRow
+                        type={"checkBox"}
+                        // name="allergies_family"
+                        value={"family"}
+                        handleChange={(e) => handleInput(e)}
+                      />
+                    </div>
+                  </td>
+                  <td>
+                    <div className="text-area">
+                      <textarea name="" id=""></textarea>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
       <h3 className="heading">
         Do you have complaints about any of the following ?
       </h3>

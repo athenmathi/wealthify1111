@@ -145,6 +145,19 @@ const Wrappers = styled.div`
     margin-left: 3.3rem;
     margin-top: 3rem;
   }
+  @media (max-width: 480px) {
+    .img-section {
+      display: none;
+    }
+    label,
+    textarea {
+      width: 300px;
+      margin-left: -1.5rem;
+    }
+    .bottom-table {
+      overflow: scroll;
+    }
+  }
 `;
 
 export default Wrappers;
