@@ -16,12 +16,7 @@ const Videos = () => {
             <Image width={"700px"} height={"700px"} src={video1} />
           </div>
           <div className="video">
-            <Image
-              style={{ borderRadius: "5rem" }}
-              width={"700px"}
-              height={"700px"}
-              src={video1}
-            />
+            <Image width={"700px"} height={"700px"} src={video1} />
           </div>
         </div>
       </div>

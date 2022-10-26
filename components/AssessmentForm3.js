@@ -34,9 +34,8 @@ const AssessmentForm3 = ({
             </div>
             <div className="textarea">
               <label for="">
-                List any medical conditions or diagnoses you have been treated
-                for with prescription, surgery , or medical care in the last 5
-                years
+                List any seasonal allergies and / or food allergies,
+                sensitivities or intolerances
               </label>
               <textarea
                 id=""
@@ -57,6 +56,12 @@ const AssessmentForm3 = ({
         <section className="img-section"></section>
       </div>
       <div className="bottom-table">
+        <p style={{ maxWidth: "70%" }}>
+          Please list all of the following taken currently or within the last
+          year: medications, hormone replacement therapies, antibiotics or other
+          medically related medications or remedies. (Vitamins, Minerals,
+          Nutraceuticals, etc. will be asked for in a different section.)
+        </p>
         <table id="myTable">
           <thead>
             <tr>

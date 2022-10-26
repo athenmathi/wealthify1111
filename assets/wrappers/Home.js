@@ -64,6 +64,7 @@ const Wrappers = styled.div`
   @media (max-width: 480px) {
     margin-top: -6rem;
     h1 {
+      margin-top: 2rem;
       font-size: 1.8rem;
     }
   }

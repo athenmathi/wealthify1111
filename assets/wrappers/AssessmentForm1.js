@@ -126,8 +126,11 @@ const Wrappers = styled.div`
     .heading {
       font-size: 2rem;
     }
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
     .img-section {
-      display: none;
     }
     input {
       width: 300px;

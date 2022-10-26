@@ -40,7 +40,14 @@ const data3 = [
   "Indigestion",
   "Stress",
 ];
-const AssessmentForm5 = () => {
+const AssessmentForm5 = ({ updateFeilds }) => {
+  const handleInput = (e) => {
+    let value = e.target.checked ? e.target.value : "";
+    console.log({ [e.target.name]: value });
+    // console.log(e.target.checked);
+    updateFeilds({ [e.target.name]: e.target.value });
+  };
+
   return (
     <Wrappers>
       <h1 className="heading">INJURIES</h1>
@@ -66,14 +73,14 @@ const AssessmentForm5 = () => {
                       <label htmlFor="self">Self</label>
                       <FormRow
                         type={"checkBox"}
-                        // name="allergies_self"
+                        name={item.split(" ")[0] + "_self"}
                         value={"self"}
                         handleChange={(e) => handleInput(e)}
                       />
                       <label htmlFor="self">Family</label>
                       <FormRow
                         type={"checkBox"}
-                        // name="allergies_family"
+                        name={item.split(" ")[0] + "_family"}
                         value={"family"}
                         handleChange={(e) => handleInput(e)}
                       />
@@ -113,14 +120,14 @@ const AssessmentForm5 = () => {
                       <label htmlFor="self">Self</label>
                       <FormRow
                         type={"checkBox"}
-                        // name="allergies_self"
+                        name={item.split(" ")[0] + "_family"}
                         value={"self"}
                         handleChange={(e) => handleInput(e)}
                       />
                       <label htmlFor="self">Family</label>
                       <FormRow
                         type={"checkBox"}
-                        // name="allergies_family"
+                        name={item.split(" ")[0] + "_family"}
                         value={"family"}
                         handleChange={(e) => handleInput(e)}
                       />
@@ -144,7 +151,13 @@ const AssessmentForm5 = () => {
         {data3.map((item) => {
           return (
             <div className="check">
-              <input type="checkBox" className="checkbox" />
+              <input
+                type="checkBox"
+                className="checkbox"
+                name={item}
+                value={true}
+                onChange={(e) => handleInput(e)}
+              />
               <label htmlFor="">{item}</label>
             </div>
           );
