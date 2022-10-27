@@ -4,6 +4,13 @@ import nextBtn from "../assets/image/nextBtn.svg";
 import Image from "next/image";
 import FormRow from "./customComponents.js/FormRow";
 import FormRowSelect from "./customComponents.js/FormRowSelect";
+const weightRange = () => {
+  let arr = [];
+  for (let i = 40; i < 120; i++) {
+    arr.push(i);
+  }
+  return arr;
+};
 const AssessmentForm2 = ({
   todayDate,
   sex,
@@ -13,6 +20,7 @@ const AssessmentForm2 = ({
   normalWeight,
   pastWeight,
   updateFeilds,
+  bloodGroup,
 }) => {
   const handleInput = (e) => {
     console.log({ [e.target.name]: e.target.value });
@@ -68,13 +76,25 @@ const AssessmentForm2 = ({
                 <input type="text" placeholder="32" /> */}
               </div>
             </div>
-            <div className="one-input">
+            <div className="two-input">
               <div className="input">
                 <FormRow
                   type={"text"}
                   name="height"
                   value={height}
                   labelText="Height"
+                  handleChange={(e) => handleInput(e)}
+                />
+                {/* <label htmlFor="">Height</label>
+                <input type="text" placeholder="190" /> */}
+              </div>
+              <div className="input">
+                <FormRowSelect
+                  type={"text"}
+                  name="bloodGroup"
+                  value={bloodGroup}
+                  labelText="Blood Group"
+                  list={["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]}
                   handleChange={(e) => handleInput(e)}
                 />
                 {/* <label htmlFor="">Height</label>
@@ -101,7 +121,7 @@ const AssessmentForm2 = ({
                   type="text"
                   name="currentWeight"
                   value={currentWeight}
-                  list={[40, 50]}
+                  list={weightRange()}
                   handleChange={(e) => handleInput(e)}
                 />
                 {/* <label htmlFor="">Current Weight</label>
@@ -115,7 +135,7 @@ const AssessmentForm2 = ({
                   type="text"
                   name="normalWeight"
                   value={normalWeight}
-                  list={[40, 50]}
+                  list={weightRange()}
                   handleChange={(e) => handleInput(e)}
                 />
                 {/* <label htmlFor="">Normal Weight</label>
@@ -129,7 +149,7 @@ const AssessmentForm2 = ({
                   type="text"
                   name="pastWeight"
                   value={pastWeight}
-                  list={[40, 50]}
+                  list={weightRange()}
                   handleChange={(e) => handleInput(e)}
                 />
                 {/* <label htmlFor="">Weight 6 Month Ago</label>

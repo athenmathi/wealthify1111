@@ -24,6 +24,7 @@ const initialData = {
   currentWeight: "",
   normalWeight: "",
   pastWeight: "",
+  bloodGroup: "",
   medicalCondition: "",
   seasonalAllergies: "",
   allergies: { self: "", family: "", specifics: "" },
