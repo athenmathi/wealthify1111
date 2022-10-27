@@ -36,9 +36,9 @@ const AssessmentFormContainer = () => {
   };
   const [data, setData] = useState(initialData);
   const { steps, currentStepIndex, back, goTo, next, step } = useMultiStepForm([
-    // <AssessmentForm1 {...data} updateFeilds={updateFeilds}></AssessmentForm1>,
-    // <AssessmentForm2 {...data} updateFeilds={updateFeilds}></AssessmentForm2>,
-    // <AssessmentForm3 {...data} updateFeilds={updateFeilds}></AssessmentForm3>,
+    <AssessmentForm1 {...data} updateFeilds={updateFeilds}></AssessmentForm1>,
+    <AssessmentForm2 {...data} updateFeilds={updateFeilds}></AssessmentForm2>,
+    <AssessmentForm3 {...data} updateFeilds={updateFeilds}></AssessmentForm3>,
     <AssessmentForm4 {...data} updateFeilds={updateFeilds}></AssessmentForm4>,
     <AssessmentForm5 {...data} updateFeilds={updateFeilds}></AssessmentForm5>,
     // <div>two</div>,
