@@ -40,7 +40,10 @@ const HealthRecords = () => {
         </div>
         <div className="bottom">
           <div className="contents">
-            <p className="name" onClick={() => setTab("doctorConsultation")}>
+            <p
+              className="name active"
+              onClick={() => setTab("doctorConsultation")}
+            >
               Doctor Consultation
             </p>
             <p className="name" onClick={() => setTab("testReports")}>

@@ -13,6 +13,9 @@ const Wrappers = styled.div`
   align-items: center;
   background: center;
   background-color: rgba(0, 0, 0, 0.7);
+  input {
+    outline: none;
+  }
   .container {
     position: relative;
     background-color: white;
@@ -30,6 +33,18 @@ const Wrappers = styled.div`
   .number {
     border: none;
     border-bottom: 1px solid black;
+  }
+  .referal {
+    position: relative;
+    height: 4rem;
+  }
+  .referal label {
+    position: absolute;
+    top: 1rem;
+  }
+  .referal input {
+    position: absolute;
+    top: 3rem;
   }
 
   h4 {

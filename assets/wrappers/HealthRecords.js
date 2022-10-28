@@ -57,6 +57,7 @@ const Wrappers = styled.div`
     text-align: center;
     background-color: gray;
   }
+
   .name {
     cursor: pointer;
     margin-right: 1.6rem;

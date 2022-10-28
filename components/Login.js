@@ -24,6 +24,10 @@ const Login = ({ setModal }) => {
               </div>
             </Link>
           </div>
+          <div className="referal">
+            <label htmlFor="">Referal Id</label>
+            <input type="text" className="number" />
+          </div>
           <p className="subtitle">
             OTP will be sent to this number by SMS And Whatsapp
           </p>

@@ -22,6 +22,7 @@ const Wrappers = styled.div`
     max-width: 280px;
   }
   .bottom {
+    height: 140px;
     margin-top: 3rem;
   }
   .join-btn {
