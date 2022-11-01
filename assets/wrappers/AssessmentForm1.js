@@ -88,28 +88,41 @@ const Wrappers = styled.div`
   footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     position: relative;
     width: 90%;
     margin: 0 auto;
     margin-top: 4rem;
     margin-bottom: 4rem;
-
-    /* margin-left: 2.5rem; */
   }
-  footer div:first-child::after {
+  .underline {
+    margin: 2rem;
+    height: 2px;
+    width: max(60%, 300px);
+    background-color: black;
+  }
+
+  /* footer div:first-child::after {
     content: "";
     position: absolute;
     top: 2rem;
-    left: 10rem;
+    left: 19rem;
     height: 2px;
-    width: 60vw;
+    width: 50vw;
     background: black;
-  }
-  .next {
+  } */
+  .next,
+  .back {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  .btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .prev-btn {
+    transform: scaleX(-1);
   }
   p {
     margin-left: 1rem;

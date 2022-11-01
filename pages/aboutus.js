@@ -18,6 +18,7 @@ import AssessmentForm3 from "../components/AssessmentForm3";
 import AssessmentFormContainer from "../assets/wrappers/AssessmentFormContainer";
 import AssessmentForm4 from "../components/AssessmentForm4";
 import MobileNavbar from "../components/MobileNavbar";
+import OtpPage from "../components/OtpPage";
 
 const aboutus = () => {
   return (
@@ -28,16 +29,6 @@ const aboutus = () => {
       <Mission />
       <Working />
       <Team />
-      {/* <ReversalQuestion /> */}
-      {/* <DoctorHome /> */}
-      {/* <MembershipCard /> */}
-      {/* <EachDoctorDetails /> */}
-      {/* <EachPatientDetails /> */}
-      {/* <AssessmentForm1 />
-      <AssessmentForm2 />
-
-      <AssessmentForm3 /> */}
-      {/* <AssessmentForm4 /> */}
     </div>
   );
 };

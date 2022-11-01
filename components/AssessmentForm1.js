@@ -13,9 +13,9 @@ const data = [
   "You are responsible for securely preserving your login credentials to prevent account misuse. You must not support any religious or political viewpoints or propaganda.",
 ];
 const AssessmentForm1 = ({
-  firstName,
-  lastName,
-  phoneNumber,
+  f_name,
+  l_name,
+  mobile_num,
   email,
   dob,
   agree,
@@ -43,13 +43,13 @@ const AssessmentForm1 = ({
                   type="text"
                   placeholder="John"
                   required
-                  value={firstName}
-                  onChange={(e) => updateFeilds({ firstName: e.target.value })}
+                  value={f_name}
+                  onChange={(e) => updateFeilds({ f_name: e.target.value })}
                 /> */}
                 <FormRow
                   type={"text"}
-                  name="firstName"
-                  value={firstName}
+                  name="f_name"
+                  value={f_name}
                   labelText="First Name"
                   handleChange={(e) => handleInput(e)}
                 />
@@ -57,8 +57,8 @@ const AssessmentForm1 = ({
               <div className="input">
                 <FormRow
                   type={"text"}
-                  name="lastName"
-                  value={lastName}
+                  name="l_name"
+                  value={l_name}
                   labelText="Last Name"
                   handleChange={(e) => handleInput(e)}
                 />
@@ -70,8 +70,8 @@ const AssessmentForm1 = ({
               <div className="input">
                 <FormRow
                   type={"text"}
-                  name="phoneNumber"
-                  value={phoneNumber}
+                  name="mobile_num"
+                  value={mobile_num}
                   labelText="Phone Number"
                   handleChange={(e) => handleInput(e)}
                 />
