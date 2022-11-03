@@ -35,6 +35,26 @@ const Wrappers = styled.div`
 const DoctorConsultation = () => {
   const [openForm, setOpenForm] = useState(false);
   const [state, setState] = useState(false);
+  const handleSubmit = async (e) => {
+    try {
+      const { data } = await axios.post(
+        `
+     http://doctor.brandimagetech.com/healthrecords.php`,
+        {
+          api_key: "send_otp",
+          ph_num: loginData.mobileNumber,
+          referal_id: loginData.referalId,
+        },
+        {
+          "Content-Type": "application/json;charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
+          // Accept: "application/json",
+        }
+      );
+    } catch (error) {
+      console.log({ error: error.response });
+    }
+  };
   return (
     <Wrappers>
       <h2>Doctor Consultation</h2>
@@ -44,8 +64,11 @@ const DoctorConsultation = () => {
         Doctor Write your notes here
       </p>
 
-      <form>
-        <textarea>Some text...</textarea>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <textarea placeholder="Some text..."></textarea>
+        <button type="submit" className="">
+          submit
+        </button>
       </form>
       {openForm ? <PrescriptionForm setOpenForm={setOpenForm} /> : null}
 

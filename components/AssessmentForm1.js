@@ -95,7 +95,7 @@ const AssessmentForm1 = ({
             <div className="one-input">
               <div className="input">
                 <FormRow
-                  type={"text"}
+                  type={"date"}
                   name="dob"
                   labelText="DOB"
                   handleChange={handleInput}

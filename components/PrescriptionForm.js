@@ -2,7 +2,41 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Wrappers from "../assets/wrappers/PrescriptionForm";
 import redCloseBtn from "../assets/image/redCloseBtn.svg";
+import axios from "axios";
 const PrescriptionForm = ({ setOpenForm }) => {
+  const initialData = {
+    record_for: "",
+    record_date: "",
+    record_name: "",
+    prescribed_by: "",
+  };
+  const handleChange = (e) => {
+    let name = e.target.name;
+    initialData[name] = e.target.value;
+    console.log(initialData);
+  };
+  const handleSubmit = async (e) => {
+    try {
+      console.log("ads");
+      const { data } = await axios.post(
+        `http://doctor.brandimagetech.com/healthrecords.php`,
+        {
+          api_key: "send_otp",
+          record_date: initialData.record_date,
+          record_for: initialData.record_for,
+          record_name: initialData.record_date,
+          record_prescribe: initialData.record_date,
+        },
+        {
+          "Content-Type": "application/json;charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
+          // Accept: "application/json",
+        }
+      );
+    } catch (error) {
+      console.log({ error: error.response });
+    }
+  };
   return (
     <Wrappers>
       <div>
@@ -17,7 +51,7 @@ const PrescriptionForm = ({ setOpenForm }) => {
           <div className="center-btn">
             <div className="inputcontainer">
               {/* Below are the text fields that record the user's information. Each uses the onChange event handler, and sets the user input value to the component's state in real time using e.target.value    */}
-              <form action="">
+              <form action="" onSubmit={(e) => handleSubmit(e)}>
                 <div className="first-row">
                   <div>
                     <label htmlFor="firstName">Record For</label>
@@ -26,6 +60,8 @@ const PrescriptionForm = ({ setOpenForm }) => {
                       type="text"
                       id="firstName"
                       placeholder="John"
+                      name="record_for"
+                      onChange={(e) => handleChange(e)}
                     />
                   </div>
 
@@ -37,6 +73,8 @@ const PrescriptionForm = ({ setOpenForm }) => {
                       className="two-row"
                       id="firstName"
                       placeholder=""
+                      name="record_date"
+                      onChange={(e) => handleChange(e)}
                     />
                   </div>
                 </div>
@@ -48,6 +86,8 @@ const PrescriptionForm = ({ setOpenForm }) => {
                       type="text"
                       id="firstName"
                       placeholder="John"
+                      name="record_name"
+                      onChange={(e) => handleChange(e)}
                     />
                   </div>
 
@@ -59,6 +99,8 @@ const PrescriptionForm = ({ setOpenForm }) => {
                       className="two-row"
                       id="firstName"
                       placeholder="john"
+                      name="prescribed_by"
+                      onChange={(e) => handleChange(e)}
                     />
                   </div>
                 </div>
@@ -68,7 +110,9 @@ const PrescriptionForm = ({ setOpenForm }) => {
               </div> */}
               </form>
             </div>
-            <button className="btn-green">Submit</button>
+            <button className="btn-green" onClick={(e) => handleSubmit(e)}>
+              Submit
+            </button>
           </div>
         </div>
       </div>

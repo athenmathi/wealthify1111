@@ -233,7 +233,7 @@ const AssessmentForm4 = ({ allergies, updateFeilds }) => {
                       type={"checkBox"}
                       name={item.property + "_self"}
                       // name={item.split(" ")[0] + "_self"}
-                      value={"self"}
+                      value={"1"}
                       handleChange={(e) => handleInput(e)}
                     />
                     <label htmlFor="self">Family</label>
@@ -241,7 +241,7 @@ const AssessmentForm4 = ({ allergies, updateFeilds }) => {
                       type={"checkBox"}
                       name={item.property + "_family"}
                       // name={item.property.split(" ")[0] + "_family"}
-                      value={"family"}
+                      value={"1"}
                       handleChange={(e) => handleInput(e)}
                     />
                   </div>

@@ -36,7 +36,7 @@ const AssessmentForm2 = ({
             <div className="two-input">
               <div className="input">
                 <FormRow
-                  type={"text"}
+                  type={"date"}
                   name="todayDate"
                   value={todayDate}
                   labelText="Today Date"

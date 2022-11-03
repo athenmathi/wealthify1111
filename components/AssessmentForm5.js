@@ -167,7 +167,7 @@ const AssessmentForm5 = ({ updateFeilds }) => {
                         type={"checkBox"}
                         // name={item.split(" ")[0] + "_self"}
                         name={item.property + "_self"}
-                        value={"self"}
+                        value={"1"}
                         handleChange={(e) => handleInput(e)}
                       />
                       <label htmlFor="self">Family</label>
@@ -175,7 +175,7 @@ const AssessmentForm5 = ({ updateFeilds }) => {
                         type={"checkBox"}
                         // name={item.split(" ")[0] + "_family"}
                         name={item.property + "_family"}
-                        value={"family"}
+                        value={"1"}
                         handleChange={(e) => handleInput(e)}
                       />
                     </div>
@@ -222,7 +222,7 @@ const AssessmentForm5 = ({ updateFeilds }) => {
                         type={"checkBox"}
                         name={item.property + "_specifics"}
                         // name={item.split(" ")[0] + "_family"}
-                        value={"self"}
+                        value={"1"}
                         handleChange={(e) => handleInput(e)}
                       />
                       <label htmlFor="self">Family</label>
@@ -230,7 +230,7 @@ const AssessmentForm5 = ({ updateFeilds }) => {
                         type={"checkBox"}
                         name={item.property + "_specifics"}
                         // name={item.split(" ")[0] + "_family"}
-                        value={"family"}
+                        value={"1"}
                         handleChange={(e) => handleInput(e)}
                       />
                     </div>
@@ -263,7 +263,7 @@ const AssessmentForm5 = ({ updateFeilds }) => {
                 type="checkBox"
                 className="checkbox"
                 name={item}
-                value={true}
+                value={"1"}
                 onChange={(e) => handleInput(e)}
               />
               <label htmlFor="">{item}</label>

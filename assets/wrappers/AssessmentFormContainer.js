@@ -10,37 +10,30 @@ import AssessmentForm5 from "../../components/AssessmentForm5";
 import useMultiStepForm from "../../customHooks/useMultiStepForm";
 import nextBtn from "../image/nextBtn.svg";
 import Wrappers from "./AssessmentForm1";
+import { initialData } from "../../utils/assessmentData";
 
-const initialData = {
-  f_name: "",
-  l_name: "",
-  mobile_num: "",
-  email: "",
-  dob: "",
-  agree: "",
-  todayDate: "",
-  sex: "",
-  age: "",
-  height: "",
-  current_weight: "",
-  normal_weight: "",
-  weight_6_month_ago: "",
-  bloodGroup: "",
-  medicalCondition: "",
-  seasonalAllergies: "",
-};
 const AssessmentFormContainer = () => {
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const getData = async () => {
-      const { data } = await axios.post(
-        `http://doctor.brandimagetech.com/patient.php?api_key=get_patient&ph_num=918939068212&assessmentData=${initialData}`
+    console.log(assessmentData);
+    try {
+      const res = await axios.post(
+        `
+     http://doctor.brandimagetech.com/patient.php`,
+        {
+          api_key: "add",
+          assessmentData: assessmentData,
+        },
+        {
+          "Content-Type": "application/json;charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
+          // Accept: "application/json",
+        }
       );
-      setResponseData(data);
-    };
-    getData();
-    // next();
-    // window.scrollTo(0, 0);
+      console.log(res.data);
+    } catch (error) {
+      console.log({ error: error.response });
+    }
   };
 
   const updateFeilds = (feilds) => {
@@ -60,6 +53,7 @@ const AssessmentFormContainer = () => {
     ></AssessmentForm2>,
     <AssessmentForm3
       {...assessmentData}
+      setAssessmentData={setAssessmentData}
       updateFeilds={updateFeilds}
     ></AssessmentForm3>,
     <AssessmentForm4
@@ -90,24 +84,6 @@ const AssessmentFormContainer = () => {
       <form action="" onSubmit={(e) => handleSubmit(e)}>
         {step}
         <Wrappers>
-          {/* <footer>
-            <div>Assessment Form 1</div>
-
-            <button type="submit" className="btn" onClick={(e) => prevPage(e)}>
-              <div className="back">
-                <p>back</p>
-                <Image src={nextBtn} />
-              </div>
-            </button>
-
-            <button type="submit" className="btn" onClick={(e) => nextPage(e)}>
-              <div className="next">
-                <Image src={nextBtn} />
-                <p>NEXT</p>
-              </div>
-            </button>
-          </footer> */}
-
           <footer>
             <p>Assessment form 1 </p>
             <div className="prev btn-container">
@@ -130,7 +106,6 @@ const AssessmentFormContainer = () => {
             <button type="submit">submit</button>
           </footer>
         </Wrappers>
-        {/* <button type="submit" onClick={() => handleSubmit()}></button> */}
       </form>
     </>
   );

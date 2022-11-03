@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Wrappers from "../assets/wrappers/AssessmentForm3";
-
+import { initialData } from "../utils/assessmentData";
 const AssessmentForm3 = ({
   medicalCondition,
   seasonalAllergies,
+  setAssessmentData,
   updateFeilds,
 }) => {
+  const [state, setState] = useState(initialData.tableData);
+  console.log(state);
   return (
     <Wrappers>
       <div className="container">
@@ -76,7 +79,21 @@ const AssessmentForm3 = ({
           <tbody>
             <tr>
               <td>
-                <input type="text" name="descriptionName" />
+                <input
+                  type="text"
+                  name="description"
+                  onChange={(e) => {
+                    let des = e.target.value;
+                    setState((prev) => {
+                      return [
+                        {
+                          ...prev,
+                          [e.target.name]: des,
+                        },
+                      ];
+                    });
+                  }}
+                />
               </td>
               <td>
                 <input type="text" name="dosage" />
@@ -93,7 +110,13 @@ const AssessmentForm3 = ({
             </tr>
             <tr>
               <td>
-                <input type="text" name="descriptionName" />
+                <input
+                  type="text"
+                  name="description"
+                  // onChange={updateFeilds({
+                  //   [e.target.name]: e.target.value,
+                  // })}
+                />
               </td>
               <td>
                 <input type="text" name="dosage" />

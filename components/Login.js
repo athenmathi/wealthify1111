@@ -25,12 +25,31 @@ const Login = ({ setModal }) => {
     updateFeilds({ [e.target.name]: e.target.value });
     console.log({ [e.target.name]: e.target.value });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { data } = axios.post(
-      `http://doctor.brandimagetech.com/portal.php?api_key=send_otp&ph_num=${loginData.mobileNumber}`
-    );
-    console.log("data");
+    try {
+      const { data } = await axios.post(
+        `
+     http://doctor.brandimagetech.com/portal.php`,
+        {
+          api_key: "send_otp",
+          ph_num: loginData.mobileNumber,
+          referal_id: loginData.referalId,
+        },
+        {
+          "Content-Type": "application/json;charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
+          // Accept: "application/json",
+        }
+      );
+    } catch (error) {
+      console.log({ error: error.response });
+    }
+
+    // const { data } = await axios.post(
+    //   `http://doctor.brandimagetech.com/portal.php?api_key=send_otp&ph_num=${loginData.mobileNumber}`
+    // );
+    // console.log("data");
     setNextPage(true);
   };
   return ReactDOM.createPortal(
@@ -51,6 +70,7 @@ const Login = ({ setModal }) => {
                   required="required"
                   placeholder="+91"
                   name="mobileNumber"
+                  value={loginData.mobileNumber}
                   onChange={(e) => handleChange(e)}
                 />
                 {/* <Image /> */}
@@ -70,6 +90,7 @@ const Login = ({ setModal }) => {
                   className="number"
                   required
                   name="referalId"
+                  value={loginData.referalId}
                   onChange={(e) => handleChange(e)}
                 />
               </div>
