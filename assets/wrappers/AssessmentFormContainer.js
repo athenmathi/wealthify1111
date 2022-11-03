@@ -58,6 +58,7 @@ const AssessmentFormContainer = () => {
     ></AssessmentForm3>,
     <AssessmentForm4
       {...assessmentData}
+      assessmentData={assessmentData}
       updateFeilds={updateFeilds}
     ></AssessmentForm4>,
     <AssessmentForm5
@@ -72,23 +73,22 @@ const AssessmentFormContainer = () => {
     e.preventDefault();
     next();
     // window.scrollTo(0, 0);
-    console.log(currentStepIndex);
   };
   const prevPage = (e) => {
     e.preventDefault();
     back();
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   };
   return (
     <>
-      <form action="" onSubmit={(e) => handleSubmit(e)}>
+      <form action="">
         {step}
         <Wrappers>
           <footer>
             <p>Assessment form 1 </p>
             <div className="prev btn-container">
               <button
-                type="submit"
+                type=""
                 className="btn prev-btn"
                 onClick={(e) => prevPage(e)}
               >
@@ -98,12 +98,15 @@ const AssessmentFormContainer = () => {
             </div>
             <div className="underline"></div>
             <div className="next btn-container" onClick={(e) => nextPage(e)}>
-              <button className="btn next-btn">
+              <button className="btn  next-btn">
                 <Image src={nextBtn} />
               </button>
+
               <p>next</p>
             </div>
-            <button type="submit">submit</button>
+            <button type="submit" onClick={(e) => handleSubmit(e)}>
+              submit
+            </button>
           </footer>
         </Wrappers>
       </form>

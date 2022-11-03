@@ -3,24 +3,29 @@ import React, { useState } from "react";
 import Wrappers from "../assets/wrappers/OtpPage";
 import loginBtn from "../assets/image/loginBtn.png";
 import { AiOutlineArrowLeft, AiOutlineClose } from "react-icons/ai";
-const OtpPage = ({ setModal, setNextPage, mobileNumber }) => {
+import { useRouter } from "next/router";
+import Link from "next/link";
+const OtpPage = ({ setModal, setNextPage, mobileNumber, otpValue }) => {
   const [otp, setOtp] = useState("");
+  const router = useRouter();
   const handleChange = (e) => {
     setOtp(e.target.value);
   };
-  console.log(otp);
   const handleSubmit = (e) => {
     e.preventDefault();
     // Define the string
-    var string = "28099";
 
     // Encode the String
-    var encodedString = window.btoa(otp);
-    console.log(encodedString); // Outputs: "SGVsbG8gV29ybGQh"
+    // var encodedString = window.btoa(otp);
+    // console.log(encodedString); // Outputs: "SGVsbG8gV29ybGQh"
 
     // Decode the String
-    var decodedString = window.atob(encodedString);
-    console.log(decodedString);
+    var decodedString = window.atob(otp);
+
+    if (otp === decodedString) {
+      router.push("/assessment");
+      // console.log("sucess");
+    }
   };
   return (
     <Wrappers>

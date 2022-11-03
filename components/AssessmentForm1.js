@@ -115,7 +115,7 @@ const AssessmentForm1 = ({
           <ul>
             <li>
               <div className="agree-btn">
-                <input type="checkBox" />
+                <input type="checkBox" required />
                 <p>I agree to terms & condition</p>
               </div>
             </li>

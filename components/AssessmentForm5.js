@@ -2,95 +2,7 @@ import { handReceiving } from "fontawesome";
 import React from "react";
 import Wrappers from "../assets/wrappers/AssessementForm5";
 import FormRow from "./customComponents.js/FormRow";
-const data1 = [
-  {
-    name: "Back injury",
-    property: "back_injury",
-  },
-  {
-    name: "Broken (specify)",
-    property: "broken",
-  },
-  {
-    name: "Head injury",
-    property: "head_injury",
-  },
-  {
-    name: "Neck injury",
-    property: "neck_injury",
-  },
-  {
-    name: "Other (describe)",
-    property: "pfi_other",
-  },
-];
-const data2 = [
-  {
-    name: "Barium Enema",
-    property: "barium_benema",
-  },
-  {
-    name: "Bone Scan",
-    property: "bone_scan",
-  },
-  {
-    name: "CAT Scan: Abdomen, Brain, Spine (specify)",
-    property: "cat_scan",
-  },
-  {
-    name: "Chest X-ray",
 
-    property: "chest_x_ray",
-  },
-  {
-    name: "Colonoscopy or Sigmoidoscopy (specify)",
-    property: "colonoscopy_or_sigmoidoscopy",
-  },
-  {
-    name: "EKG",
-    property: "ekg",
-  },
-  {
-    name: "Liver scan",
-    property: "liver_scan",
-  },
-  {
-    name: "NMR/MRI",
-    property: "nmr_mri",
-  },
-  {
-    name: "Upper GI Series",
-    property: "upper_gi_series",
-  },
-  {
-    name: "Other (describe)",
-    property: "ds_other",
-  },
-  {
-    name: "Operations",
-    property: "operations",
-  },
-  {
-    name: "Dental Surgery",
-    property: "dental surgery",
-  },
-  {
-    name: "Gall Bladder",
-    property: "gall_bladder",
-  },
-  {
-    name: "Hernia",
-    property: "hernia",
-  },
-  {
-    name: "Hysterectomy",
-    property: "hysterectomy",
-  },
-  {
-    name: "Tonsillectomy",
-    property: "tonsillectomy",
-  },
-];
 const data3 = [
   "Appetite",
   "Constipation",
@@ -110,7 +22,197 @@ const data4 = [
   { name: "Do you use alcohol in any way?", property: "alcohol" },
   { name: "Did you recently stop smoking?", property: "smoking" },
 ];
-const AssessmentForm5 = ({ updateFeilds }) => {
+const AssessmentForm5 = ({
+  updateFeilds,
+  back_injury_self,
+  back_injury_family,
+  back_injury_specifics,
+  broken_self,
+  broken_family,
+  broken_specifics,
+  head_injury_self,
+  head_injury_family,
+  head_injury_specifics,
+  neck_injury_self,
+  neck_injury_family,
+  neck_injury_specifics,
+  pfi_other_self,
+  pfi_other_family,
+  pfi_other_specifics,
+  barium_benema_self,
+  barium_benema_family,
+  barium_benema_specifics,
+  bone_scan_self,
+  bone_scan_family,
+  bone_scan_specifics,
+  cat_scan_self,
+  cat_scan_family,
+  cat_scan_specifics,
+  chest_x_ray_self,
+  chest_x_ray_family,
+  chest_x_ray_specifics,
+  colonoscopy_or_sigmoidoscopy_self,
+  colonoscopy_or_sigmoidoscopy_family,
+  colonoscopy_or_sigmoidoscopy_specifics,
+  ekg_self,
+  ekg_family,
+  ekg_specifics,
+  liver_scan_self,
+  liver_scan_family,
+  liver_scan_specifics,
+  nmr_mri_self,
+  nmr_mri_family,
+  nmr_mri_specifics,
+  upper_gi_series_self,
+  upper_gi_series_family,
+  upper_gi_series_specifics,
+  ds_other_self,
+  ds_other_family,
+  ds_other_specifics,
+  operations_self,
+  operations_family,
+  operations_specifics,
+  dental_self,
+  dental_family,
+  dental_specifics,
+  gall_bladder_self,
+  gall_bladder_family,
+  gall_bladder_specifics,
+  hernia_self,
+  hernia_family,
+  hernia_specifics,
+  hysterectomy_self,
+  hysterectomy_family,
+  hysterectomy_specifics,
+  tonsillectomy_self,
+  tonsillectomy_family,
+  tonsillectomy_specifics,
+}) => {
+  const data1 = [
+    {
+      name: "Back injury",
+      property: "back_injury",
+      value: [back_injury_self, back_injury_family, back_injury_specifics],
+    },
+    {
+      name: "Broken (specify)",
+      property: "broken",
+      value: [broken_self, broken_family, broken_specifics],
+    },
+    {
+      name: "Head injury",
+      property: "head_injury",
+      value: [head_injury_self, head_injury_family, head_injury_specifics],
+    },
+    {
+      name: "Neck injury",
+      property: "neck_injury",
+      value: [neck_injury_self, neck_injury_family, neck_injury_specifics],
+    },
+    {
+      name: "Other (describe)",
+      property: "pfi_other",
+      value: [pfi_other_self, pfi_other_family, pfi_other_specifics],
+    },
+  ];
+  const data2 = [
+    {
+      name: "Barium Enema",
+      property: "barium_benema",
+      value: [
+        barium_benema_self,
+        barium_benema_family,
+        barium_benema_specifics,
+      ],
+    },
+    {
+      name: "Bone Scan",
+      property: "bone_scan",
+      value: [bone_scan_self, bone_scan_family, bone_scan_specifics],
+    },
+    {
+      name: "CAT Scan: Abdomen, Brain, Spine (specify)",
+      property: "cat_scan",
+      value: [cat_scan_self, cat_scan_family, cat_scan_specifics],
+    },
+    {
+      name: "Chest X-ray",
+      property: "chest_x_ray",
+      value: [chest_x_ray_self, chest_x_ray_family, chest_x_ray_specifics],
+    },
+    {
+      name: "Colonoscopy or Sigmoidoscopy (specify)",
+      property: "colonoscopy_or_sigmoidoscopy",
+      value: [
+        colonoscopy_or_sigmoidoscopy_self,
+        colonoscopy_or_sigmoidoscopy_family,
+        colonoscopy_or_sigmoidoscopy_specifics,
+      ],
+    },
+    {
+      name: "EKG",
+      property: "ekg",
+      value: [ekg_self, ekg_family, ekg_specifics],
+    },
+    {
+      name: "Liver scan",
+      property: "liver_scan",
+      value: [liver_scan_self, liver_scan_family, liver_scan_specifics],
+    },
+    {
+      name: "NMR/MRI",
+      property: "nmr_mri",
+      value: [nmr_mri_self, nmr_mri_family, nmr_mri_specifics],
+    },
+    {
+      name: "Upper GI Series",
+      property: "upper_gi_series",
+      value: [
+        upper_gi_series_self,
+        upper_gi_series_family,
+        upper_gi_series_specifics,
+      ],
+    },
+    {
+      name: "Other (describe)",
+      property: "ds_other",
+      value: [ds_other_self, ds_other_family, ds_other_specifics],
+    },
+    {
+      name: "Operations",
+      property: "operations",
+      value: [operations_self, operations_family, operations_specifics],
+    },
+    {
+      name: "Dental Surgery",
+      property: "dental surgery",
+      value: [dental_self, dental_family, dental_specifics],
+    },
+    {
+      name: "Gall Bladder",
+      property: "gall_bladder",
+      value: [gall_bladder_self, gall_bladder_family, gall_bladder_specifics],
+    },
+    {
+      name: "Hernia",
+      property: "hernia",
+      value: [hernia_self, hernia_family, hernia_specifics],
+    },
+    {
+      name: "Hysterectomy",
+      property: "hysterectomy",
+      value: [hysterectomy_self, hysterectomy_family, hysterectomy_specifics],
+    },
+    {
+      name: "Tonsillectomy",
+      property: "tonsillectomy",
+      value: [
+        tonsillectomy_self,
+        tonsillectomy_family,
+        tonsillectomy_specifics,
+      ],
+    },
+  ];
   const handleSubmit = (e) => {
     e.preventDefault();
     useEffect(() => {
@@ -163,21 +265,43 @@ const AssessmentForm5 = ({ updateFeilds }) => {
                   <td>
                     <div className="checkbox">
                       <label htmlFor="self">Self</label>
-                      <FormRow
-                        type={"checkBox"}
-                        // name={item.split(" ")[0] + "_self"}
-                        name={item.property + "_self"}
-                        value={"1"}
-                        handleChange={(e) => handleInput(e)}
-                      />
+                      {item.value[0] === "1" ? (
+                        <input
+                          id="self"
+                          type="checkBox"
+                          value=""
+                          checked
+                          name={item.property + "_self"}
+                          onChange={(e) => handleInput(e)}
+                        />
+                      ) : (
+                        <input
+                          id="self"
+                          type="checkBox"
+                          value="1"
+                          name={item.property + "_self"}
+                          onChange={(e) => handleInput(e)}
+                        />
+                      )}
                       <label htmlFor="self">Family</label>
-                      <FormRow
-                        type={"checkBox"}
-                        // name={item.split(" ")[0] + "_family"}
-                        name={item.property + "_family"}
-                        value={"1"}
-                        handleChange={(e) => handleInput(e)}
-                      />
+                      {item.value[1] === "1" ? (
+                        <input
+                          id="self"
+                          type="checkBox"
+                          value=""
+                          checked
+                          name={item.property + "_family"}
+                          onChange={(e) => handleInput(e)}
+                        />
+                      ) : (
+                        <input
+                          id="self"
+                          type="checkBox"
+                          value="1"
+                          name={item.property + "_family"}
+                          onChange={(e) => handleInput(e)}
+                        />
+                      )}
                     </div>
                   </td>
                   <td>
@@ -185,8 +309,7 @@ const AssessmentForm5 = ({ updateFeilds }) => {
                       <FormRow
                         type={"text"}
                         name={item.property + "_specifics"}
-                        // name={item.property.split(" ")[0] + "_specific"}
-                        // value={"family"}
+                        value={item.value[2]}
                         handleChange={(e) => handleInput(e)}
                       />
                     </div>
@@ -218,21 +341,43 @@ const AssessmentForm5 = ({ updateFeilds }) => {
                   <td>
                     <div className="checkbox">
                       <label htmlFor="self">Self</label>
-                      <FormRow
-                        type={"checkBox"}
-                        name={item.property + "_specifics"}
-                        // name={item.split(" ")[0] + "_family"}
-                        value={"1"}
-                        handleChange={(e) => handleInput(e)}
-                      />
+                      {item.value[0] === "1" ? (
+                        <input
+                          id="self"
+                          type="checkBox"
+                          value=""
+                          checked
+                          name={item.property + "_self"}
+                          onChange={(e) => handleInput(e)}
+                        />
+                      ) : (
+                        <input
+                          id="self"
+                          type="checkBox"
+                          value="1"
+                          name={item.property + "_self"}
+                          onChange={(e) => handleInput(e)}
+                        />
+                      )}
                       <label htmlFor="self">Family</label>
-                      <FormRow
-                        type={"checkBox"}
-                        name={item.property + "_specifics"}
-                        // name={item.split(" ")[0] + "_family"}
-                        value={"1"}
-                        handleChange={(e) => handleInput(e)}
-                      />
+                      {item.value[1] === "1" ? (
+                        <input
+                          id="self"
+                          type="checkBox"
+                          value=""
+                          checked
+                          name={item.property + "_family"}
+                          onChange={(e) => handleInput(e)}
+                        />
+                      ) : (
+                        <input
+                          id="self"
+                          type="checkBox"
+                          value="1"
+                          name={item.property + "_family"}
+                          onChange={(e) => handleInput(e)}
+                        />
+                      )}
                     </div>
                   </td>
                   <td>
@@ -241,7 +386,7 @@ const AssessmentForm5 = ({ updateFeilds }) => {
                         type={"text"}
                         name={item.property + "_specifics"}
                         // name={item.property.split(" ")[0] + "_specific"}
-                        // value={"family"}
+                        value={item.value[2]}
                         handleChange={(e) => handleInput(e)}
                       />
                     </div>

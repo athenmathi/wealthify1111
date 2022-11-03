@@ -10,57 +10,6 @@ const AssessmentForm3 = ({
   const [state, setState] = useState(initialData.tableData);
   console.log(state);
 
-  const [inputFields, setInputFields] = useState([
-    {
-      description: "",
-      dosage: "",
-      frequency: "",
-      startdate: "",
-      stopdate: "",
-    },
-    {
-      description: "",
-      dosage: "",
-      frequency: "",
-      startdate: "",
-      stopdate: "",
-    },
-    {
-      description: "",
-      dosage: "",
-      frequency: "",
-      startdate: "",
-      stopdate: "",
-    },
-  ]);
-  const handleFormChange = (index, event) => {
-    let data = [...inputFields];
-    data[index][event.target.name] = event.target.value;
-    setInputFields(data);
-    updateFeilds({
-      tableData: inputFields,
-    });
-  };
-  const addFields = () => {
-    let newfield = {
-      description: "",
-      dosage: "",
-      frequency: "",
-      startdate: "",
-      stopdate: "",
-    };
-
-    setInputFields([...inputFields, newfield]);
-  };
-  const submit = (e) => {
-    e.preventDefault();
-    updateFeilds({
-      tableData: inputFields,
-    });
-
-    console.log(initialData);
-    // console.log(...inputFields);
-  };
   return (
     <Wrappers>
       <div className="container">
@@ -129,53 +78,81 @@ const AssessmentForm3 = ({
           </thead>
 
           <tbody>
-            {inputFields.map((input, index) => {
-              return (
-                <tr key={index}>
-                  <td>
-                    <input
-                      name="description"
-                      value={input.description}
-                      onChange={(event) => handleFormChange(index, event)}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      name="dosage"
-                      value={input.dosage}
-                      onChange={(event) => handleFormChange(index, event)}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      name="frequency"
-                      value={input.frequency}
-                      onChange={(event) => handleFormChange(index, event)}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type={"date"}
-                      name="startdate"
-                      value={input.startdate}
-                      onChange={(event) => handleFormChange(index, event)}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type={"date"}
-                      name="stopdate"
-                      value={input.stopdate}
-                      onChange={(event) => handleFormChange(index, event)}
-                    />
-                  </td>
-                </tr>
-              );
-            })}
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  name="description"
+                  onChange={(e) => {
+                    let des = e.target.value;
+                    setState((prev) => {
+                      return [
+                        {
+                          ...prev,
+                          [e.target.name]: des,
+                        },
+                      ];
+                    });
+                  }}
+                />
+              </td>
+              <td>
+                <input type="text" name="dosage" />
+              </td>
+              <td>
+                <input type="text" name="frequency" />
+              </td>
+              <td>
+                <input type="date" name="startdate" />
+              </td>
+              <td>
+                <input type="date" name="stopdate" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  name="description"
+                  // onChange={updateFeilds({
+                  //   [e.target.name]: e.target.value,
+                  // })}
+                />
+              </td>
+              <td>
+                <input type="text" name="dosage" />
+              </td>
+              <td>
+                <input type="text" name="frequency" />
+              </td>
+              <td>
+                <input type="date" name="startdate" />
+              </td>
+              <td>
+                <input type="date" name="stopdate" />
+              </td>
+            </tr>
           </tbody>
+          <tfoot>
+            <tr>
+              <td>
+                <input type="text" name="descriptionName" />
+              </td>
+              <td>
+                <input type="text" name="dosage" />
+              </td>
+              <td>
+                <input type="text" name="frequency" />
+              </td>
+              <td>
+                <input type="date" name="startdate" />
+              </td>
+              <td>
+                <input type="date" name="stopdate" />
+              </td>
+            </tr>
+          </tfoot>
         </table>
-        <button onClick={addFields}>Add More..</button>
-        <button onClick={submit}>Submit</button>
       </div>
     </Wrappers>
   );

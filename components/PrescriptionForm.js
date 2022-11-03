@@ -19,13 +19,25 @@ const PrescriptionForm = ({ setOpenForm }) => {
     try {
       console.log("ads");
       const { data } = await axios.post(
-        `http://doctor.brandimagetech.com/healthrecords.php`,
+        `http://doctor.brandimagetech.com/healthrecord.php`,
+        // {
+        //   api_key: "send_otp",
+        //   p_id : '6'
+
+        //   record_date: initialData.record_date,
+        //   record_for: initialData.record_for,
+        //   record_name: initialData.record_date,
+        //   record_prescribe: initialData.record_date,
+        // },
         {
-          api_key: "send_otp",
-          record_date: initialData.record_date,
-          record_for: initialData.record_for,
-          record_name: initialData.record_date,
-          record_prescribe: initialData.record_date,
+          api_key: "add_healthrecord_doc_consul",
+          data: {
+            p_id: 6,
+            recfor: initialData.record_for,
+            recdate: initialData.record_date,
+            recname: initialData.record_name,
+            record_prescribe: initialData.prescribed_by,
+          },
         },
         {
           "Content-Type": "application/json;charset=UTF-8",

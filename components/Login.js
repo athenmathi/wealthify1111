@@ -7,7 +7,10 @@ import loginBtn from "../assets/image/loginBtn.png";
 import Link from "next/link";
 import axios from "axios";
 import OtpPage from "./OtpPage";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 const Login = ({ setModal }) => {
+  const [resData, setResData] = useState({});
   const [nextPage, setNextPage] = useState(true);
   const loginInfo = {
     mobileNumber: "",
@@ -42,6 +45,7 @@ const Login = ({ setModal }) => {
           // Accept: "application/json",
         }
       );
+      setResData(data);
     } catch (error) {
       console.log({ error: error.response });
     }
@@ -64,6 +68,7 @@ const Login = ({ setModal }) => {
             <h3>Please enter your mobile number to login</h3>
             <form action="" typeof="submit" onSubmit={(e) => handleSubmit(e)}>
               <div className="enter-btn">
+                {/* <PhoneInput country={"us"} /> */}
                 <input
                   className="number"
                   type="text"
@@ -88,7 +93,6 @@ const Login = ({ setModal }) => {
                 <input
                   type="text"
                   className="number"
-                  required
                   name="referalId"
                   value={loginData.referalId}
                   onChange={(e) => handleChange(e)}
@@ -100,14 +104,26 @@ const Login = ({ setModal }) => {
               {/* <div className="align-horizontal"> */}
 
               <div className="signup">
-                <input
-                  type="checkbox"
-                  name="agree"
-                  id=""
-                  required
-                  value={"agreed"}
-                  onChange={(e) => handleChange(e)}
-                />
+                {loginData.agree === "agreed" ? (
+                  <input
+                    type="checkbox"
+                    name="agree"
+                    id=""
+                    required
+                    checked
+                    value={""}
+                    onChange={(e) => handleChange(e)}
+                  />
+                ) : (
+                  <input
+                    type="checkbox"
+                    name="agree"
+                    id=""
+                    required
+                    value={"agreed"}
+                    onChange={(e) => handleChange(e)}
+                  />
+                )}
                 <p>By signing up, I agree to the</p>
               </div>
               {/* </div> */}
@@ -117,6 +133,7 @@ const Login = ({ setModal }) => {
         </div>
       ) : (
         <OtpPage
+          otpValue={resData.otp}
           setNextPage={setNextPage}
           setModal={setModal}
           mobileNumber={loginData.mobileNumber}
