@@ -11,7 +11,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 const Login = ({ setModal }) => {
   const [resData, setResData] = useState({});
-  const [nextPage, setNextPage] = useState(true);
+  const [nextPage, setNextPage] = useState(false);
   const loginInfo = {
     mobileNumber: "",
     referalId: "",
@@ -45,15 +45,12 @@ const Login = ({ setModal }) => {
           // Accept: "application/json",
         }
       );
+      localStorage.setItem("phoneNumber", loginData.mobileNumber);
+      localStorage.setItem("referalId", loginData.referalId);
       setResData(data);
     } catch (error) {
       console.log({ error: error.response });
     }
-
-    // const { data } = await axios.post(
-    //   `http://doctor.brandimagetech.com/portal.php?api_key=send_otp&ph_num=${loginData.mobileNumber}`
-    // );
-    // console.log("data");
     setNextPage(true);
   };
   return ReactDOM.createPortal(
@@ -134,6 +131,7 @@ const Login = ({ setModal }) => {
       ) : (
         <OtpPage
           otpValue={resData.otp}
+          loginInformation={resData.data}
           setNextPage={setNextPage}
           setModal={setModal}
           mobileNumber={loginData.mobileNumber}

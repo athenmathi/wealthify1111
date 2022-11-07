@@ -5,7 +5,14 @@ import loginBtn from "../assets/image/loginBtn.png";
 import { AiOutlineArrowLeft, AiOutlineClose } from "react-icons/ai";
 import { useRouter } from "next/router";
 import Link from "next/link";
-const OtpPage = ({ setModal, setNextPage, mobileNumber, otpValue }) => {
+const OtpPage = ({
+  setModal,
+  setNextPage,
+  mobileNumber,
+  otpValue,
+  loginInformation,
+}) => {
+  console.log(loginInformation);
   const [otp, setOtp] = useState("");
   const router = useRouter();
   const handleChange = (e) => {
@@ -13,18 +20,20 @@ const OtpPage = ({ setModal, setNextPage, mobileNumber, otpValue }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Define the string
+    console.log(otp);
+    var decodedString = window.btoa(otp);
 
-    // Encode the String
-    // var encodedString = window.btoa(otp);
-    // console.log(encodedString); // Outputs: "SGVsbG8gV29ybGQh"
-
-    // Decode the String
-    var decodedString = window.atob(otp);
-
-    if (otp === decodedString) {
-      router.push("/assessment");
-      // console.log("sucess");
+    if (otpValue === decodedString) {
+      localStorage.setItem("p_id", loginInformation.p_id);
+      localStorage.setItem("number_exist", loginInformation.number_exist);
+      localStorage.setItem("phoneNumber2", mobileNumber);
+      if (loginInformation.number_exist === 0) {
+        router.push("/assessment");
+      }
+      setModal(false);
+      console.log("sucess");
+    } else {
+      alert("Otp is wrong please try again");
     }
   };
   return (
@@ -42,7 +51,7 @@ const OtpPage = ({ setModal, setNextPage, mobileNumber, otpValue }) => {
             <p>{`Now type in the OTP sent to  ${mobileNumber} for authentication`}</p>
             <div className="otp-container">
               <input
-                className="number"
+                className="text"
                 type="text"
                 name="otp"
                 id=""

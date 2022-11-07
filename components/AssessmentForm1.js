@@ -13,6 +13,7 @@ const data = [
   "You are responsible for securely preserving your login credentials to prevent account misuse. You must not support any religious or political viewpoints or propaganda.",
 ];
 const AssessmentForm1 = ({
+  refer_id,
   f_name,
   l_name,
   mobile_num,
@@ -26,6 +27,7 @@ const AssessmentForm1 = ({
     let name = e.target.name;
     console.log({ [e.target.name]: e.target.value });
     updateFeilds({ [e.target.name]: e.target.value });
+    updateFeilds({ refer_id: localStorage.getItem("referalId") });
   };
   return (
     <Wrappers>

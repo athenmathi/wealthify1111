@@ -15,7 +15,6 @@ const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [singleDoctor, setSingleDoctor] = useState(false);
   const [menubar, setMenubar] = useState(false);
-  console.log(useRouter());
   const [mobileSidebar, setMobileSidebar] = useState(false);
   return (
     <Wrappers>

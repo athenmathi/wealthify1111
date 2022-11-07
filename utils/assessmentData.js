@@ -1,4 +1,5 @@
 export const initialData = {
+  refer_id: "",
   f_name: "",
   l_name: "",
   mobile_num: "",

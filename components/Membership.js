@@ -1,7 +1,26 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import Wrappers from "../assets/wrappers/Membership";
 import MembershipCard from "./MembershipCard";
 const Membership = () => {
+  const getData = async () => {
+    try {
+      const { data } = await axios.post(
+        "http://doctor.brandimagetech.com/subscription.php",
+        { api_key: "get", p_id: 6 },
+        {
+          "Content-Type": "application/json;charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+    console.log({ api_key: "get", p_id: 6 }, "test");
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <Wrappers>
       <div className="container">
@@ -25,14 +44,14 @@ const Membership = () => {
           <div className="plans-container">
             <MembershipCard
               price={"5,003.2"}
-              planType={"Basic Plan"}
+              planType={"basic_plan"}
               month={"2 Months"}
               calls={"3 CALLS"}
               dietChart={"3 DIET CHART/ MONTH"}
             />
             <MembershipCard
               price={"7,504.8"}
-              planType={"Basic Plan"}
+              planType={"basic_plan"}
               month={"3 Months"}
               calls={"3 CALLS"}
               dietChart={"3 DIET CHART/ MONTH"}
@@ -40,11 +59,11 @@ const Membership = () => {
           </div>
         </div>
         <div className="plans basic">
-          <p className="sub-title">PERMIUM PLAN</p>
+          <p className="sub-title">PREMIUM PLAN</p>
           <div className="plans-container">
             <MembershipCard
-              price={"5003.2"}
-              planType={"Basic Plan"}
+              price={"11,800"}
+              planType={"premium"}
               month={"1 Months"}
               calls={"3 CALLS"}
               dietChart={"3 DIET CHART/ MONTH"}
@@ -54,7 +73,7 @@ const Membership = () => {
             />
             <MembershipCard
               price={"23,600"}
-              planType={"Premium Plan"}
+              planType={"premium"}
               month={"2 Months"}
               calls={"3 CALLS"}
               dietChart={"3 DIET CHART/ MONTH"}
@@ -63,8 +82,8 @@ const Membership = () => {
               personalFitness={"1 - Personal Fitness Trainer"}
             />
             <MembershipCard
-              price={"5003.2"}
-              planType={"Basic Plan"}
+              price={"35,400"}
+              planType={"premium"}
               month={"2 Months"}
               calls={"3 CALLS"}
               dietChart={"3 DIET CHART/ MONTH"}
@@ -79,14 +98,14 @@ const Membership = () => {
           <div className="plans-container">
             <MembershipCard
               price={"5003.2"}
-              planType={"Basic Plan"}
+              planType={"golden_plan"}
               month={"2 Months"}
               calls={"3 CALLS"}
               dietChart={"3 DIET CHART/ MONTH"}
             />
             <MembershipCard
               price={"5003.2"}
-              planType={"Basic Plan"}
+              planType={"golden_plan"}
               month={"2 Months"}
               calls={"3 CALLS"}
               dietChart={"3 DIET CHART/ MONTH"}

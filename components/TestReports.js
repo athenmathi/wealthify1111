@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Wrappers = styled.div`
@@ -28,8 +29,43 @@ const Wrappers = styled.div`
   }
 `;
 const TestReports = () => {
+  const [file, setFile] = useState();
+  const handleChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!file) {
+      console.log("please select any files");
+      return;
+    }
+    const url = "http://doctor.brandimagetech.com/healthrecord.php";
+    const formData = new FormData();
+    // formData.append("file", file);
+    formData.append("fileName", file.name);
+    formData.append("api_key", "add_healthrecord_test_report");
+    formData.append("data", { p_id: 6 });
+    formData.append("name", "rajesh");
+
+    console.log(formData);
+    const obj = {
+      api_key: "add_healthrecord_test_report",
+      data: { p_id: 6, file: file },
+    };
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    axios
+      .post(url, obj, config)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <Wrappers>
@@ -37,7 +73,7 @@ const TestReports = () => {
         <div className="file-form">
           <label htmlFor="">Please submit your test Reports</label>
           <form action="" type="submit">
-            <input type="file" />
+            <input type="file" onChange={(e) => handleChange(e)} />
             <div>
               <button className="btn" onClick={(e) => handleSubmit(e)}>
                 Submit

@@ -14,6 +14,10 @@ import ManageProfile from "../components/ManageProfile";
 import ActiveLink from "./ActiveLink";
 
 export default function Sidebar() {
+  const logoutUser = () => {
+    localStorage.removeItem("p_id", loginInformation.p_id);
+    localStorage.removeItem("number_exist", loginInformation.number_exist);
+  };
   return (
     <Wrappers>
       <div className="container">
@@ -116,7 +120,7 @@ export default function Sidebar() {
             <div className="img">
               <Image src={notification} />
             </div>
-            <div className="">
+            <div className="" onClick={() => {}}>
               <p className="text">Logout</p>
             </div>
             <div className="rightCheveron">

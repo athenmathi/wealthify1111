@@ -17,7 +17,7 @@ const AssessmentFormContainer = () => {
     e.preventDefault();
     console.log(assessmentData);
     try {
-      const res = await axios.post(
+      const { data } = await axios.post(
         `
      http://doctor.brandimagetech.com/patient.php`,
         {
@@ -30,7 +30,8 @@ const AssessmentFormContainer = () => {
           // Accept: "application/json",
         }
       );
-      console.log(res.data);
+
+      localStorage.setItem("p_id", data.p_id);
     } catch (error) {
       console.log({ error: error.response });
     }
