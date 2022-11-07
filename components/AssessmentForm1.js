@@ -3,6 +3,7 @@ import React from "react";
 import Wrappers from "../assets/wrappers/AssessmentForm1";
 import nextBtn from "../assets/image/nextBtn.svg";
 import FormRow from "./customComponents.js/FormRow";
+import { useAppcontext } from "../context/appContext";
 const data = [
   "Your signature below indicates your permission and willingness to participate in the below assessments, questionnaires and interviews and consider the potential program or recommendations, including interviews, counselling, medical nutrition therapy, personal training sessions and subsequent dietary/nutrition/exercise/health recommendations. All information and data discussed, written, typed, or communicated will be strictly confidential between the patient and the healthcare team.",
   "You consent receive to SMS, call, What's App, email, electronic or other means of communication from us, our associates or our third-party service providers.",
@@ -12,6 +13,15 @@ const data = [
   "Consent is obtained for the non-refund of the cost (Fee).",
   "You are responsible for securely preserving your login credentials to prevent account misuse. You must not support any religious or political viewpoints or propaganda.",
 ];
+let mobileNumber;
+if (typeof window !== "undefined") {
+  // Perform localStorage action
+
+  mobileNumber = localStorage.getItem("phoneNumber");
+}
+
+console.log(mobileNumber);
+
 const AssessmentForm1 = ({
   refer_id,
   f_name,
@@ -22,6 +32,7 @@ const AssessmentForm1 = ({
   agree,
   updateFeilds,
 }) => {
+  const { phoneNumber } = useAppcontext();
   const handleInput = (e) => {
     console.log(e.target.value);
     let name = e.target.name;
@@ -75,7 +86,7 @@ const AssessmentForm1 = ({
                   name="mobile_num"
                   value={mobile_num}
                   labelText="Phone Number"
-                  handleChange={(e) => handleInput(e)}
+                  // handleChange={(e) => handleInput(e)}
                 />
                 {/* <label htmlFor="">Phone Number</label>
                 <input type="text" value={"+91"} placeholder="" /> */}

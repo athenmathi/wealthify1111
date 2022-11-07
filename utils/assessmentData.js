@@ -1,8 +1,13 @@
+let mobileNumber;
+if (typeof window !== "undefined") {
+  mobileNumber = localStorage.getItem("phoneNumber");
+}
+
 export const initialData = {
   refer_id: "",
   f_name: "",
   l_name: "",
-  mobile_num: "",
+  mobile_num: mobileNumber,
   email: "",
   dob: "",
   agree: "",

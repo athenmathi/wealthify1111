@@ -4,30 +4,15 @@ import Wrappers from "../assets/wrappers/MembershipCard";
 import Tag from "../assets/image/Tag.svg";
 import axios from "axios";
 import { getRequest, postRequest } from "../utils/request/postRequest";
+let patientId;
+if (typeof window !== "undefined") {
+  patientId = localStorage.getItem("p_id");
+}
 const MembershipCard = ({ price, planType, month, calls, dietChart }) => {
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     try {
-  //       const { data } = await axios.post(
-  //         `http://doctor.brandimagetech.com/subscription.php`,
-  //         { api_key: "get", p_id: 6 },
-  //         {
-  //           "Content-Type": "application/json;charset=UTF-8",
-  //           "Access-Control-Allow-Origin": "*",
-  //         }
-  //       );
-  //       console.log("a");
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   getData();
-  // }, []);
-
   const buyPlans = async () => {
     postRequest("subscription", {
       api_key: "add",
-      data: { p_id: 6, plan_type: planType, plan_id: 1 },
+      data: { p_id: patientId, plan_type: planType, plan_id: 1 },
     });
   };
   return (

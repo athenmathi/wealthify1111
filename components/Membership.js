@@ -1,43 +1,30 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import Wrappers from "../assets/wrappers/Membership";
+import { useAppcontext } from "../context/appContext";
 import MembershipCard from "./MembershipCard";
 const Membership = () => {
-  const getData = async () => {
-    try {
-      const { data } = await axios.post(
-        "http://doctor.brandimagetech.com/subscription.php",
-        { api_key: "get", p_id: 6 },
-        {
-          "Content-Type": "application/json;charset=UTF-8",
-          "Access-Control-Allow-Origin": "*",
-        }
-      );
-    } catch (error) {
-      console.log(error);
-    }
-    console.log({ api_key: "get", p_id: 6 }, "test");
-  };
-  useEffect(() => {
-    getData();
-  }, []);
+  const { subscriptionPlan, subscriptionPlanCount } = useAppcontext();
+  // const { plan_type, s_no } = subscriptionPlan;
   return (
     <Wrappers>
       <div className="container">
         <p className="title tac">Current Subscription</p>
-        <div className="first-container">
-          <h1 className="weeks">4 Weeks </h1>
-          <ul className="list">
-            <li>Validate For 28 Days</li>
-            <li>Include Personal Trainer</li>
-            <li>
-              Access to all equipments
-              <br />
-              and weights
-            </li>
-            <li>No Security deposit</li>
-          </ul>
-        </div>
+        {subscriptionPlanCount ? (
+          <div className="first-container">
+            <h1 className="weeks">4 Weeks </h1>
+            <ul className="list">
+              <li>Validate For 28 Days</li>
+              <li>Include Personal Trainer</li>
+              <li>
+                Access to all equipments
+                <br />
+                and weights
+              </li>
+              <li>No Security deposit</li>
+            </ul>
+          </div>
+        ) : null}
         <p className="title tal">Membership Upgrade</p>
         <div className="plans basic">
           <p className="sub-title">BASIC PLAN</p>

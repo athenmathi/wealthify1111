@@ -4,7 +4,6 @@ import ManageProfile from "./ManageProfile";
 import Sidebar from "./Sidebar";
 
 const LoggedInHome = ({ children }) => {
-  console.log(children);
   return (
     <Wrappers>
       <div className="container">

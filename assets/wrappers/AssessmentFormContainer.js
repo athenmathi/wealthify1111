@@ -11,8 +11,11 @@ import useMultiStepForm from "../../customHooks/useMultiStepForm";
 import nextBtn from "../image/nextBtn.svg";
 import Wrappers from "./AssessmentForm1";
 import { initialData } from "../../utils/assessmentData";
+import { useRouter } from "next/router";
+import { mobile } from "fontawesome";
 
 const AssessmentFormContainer = () => {
+  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(assessmentData);
@@ -27,11 +30,14 @@ const AssessmentFormContainer = () => {
         {
           "Content-Type": "application/json;charset=UTF-8",
           "Access-Control-Allow-Origin": "*",
-          // Accept: "application/json",
         }
       );
+      if (data.status === "success") {
+        // router.push("/membership");
+      }
+      console.log(data.data.p_id);
 
-      localStorage.setItem("p_id", data.p_id);
+      localStorage.setItem("p_id", data.data.p_id);
     } catch (error) {
       console.log({ error: error.response });
     }
@@ -42,7 +48,9 @@ const AssessmentFormContainer = () => {
       return { ...prev, ...feilds };
     });
   };
+
   const [assessmentData, setAssessmentData] = useState(initialData);
+
   const { steps, currentStepIndex, back, goTo, next, step } = useMultiStepForm([
     <AssessmentForm1
       {...assessmentData}

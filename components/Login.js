@@ -9,7 +9,10 @@ import axios from "axios";
 import OtpPage from "./OtpPage";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { useAppcontext } from "../context/appContext";
+import { useEffect } from "react";
 const Login = ({ setModal }) => {
+  const { otpLogin } = useAppcontext();
   const [resData, setResData] = useState({});
   const [nextPage, setNextPage] = useState(false);
   const loginInfo = {
@@ -30,29 +33,35 @@ const Login = ({ setModal }) => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const { data } = await axios.post(
-        `
-     http://doctor.brandimagetech.com/portal.php`,
-        {
-          api_key: "send_otp",
-          ph_num: loginData.mobileNumber,
-          referal_id: loginData.referalId,
-        },
-        {
-          "Content-Type": "application/json;charset=UTF-8",
-          "Access-Control-Allow-Origin": "*",
-          // Accept: "application/json",
-        }
-      );
-      localStorage.setItem("phoneNumber", loginData.mobileNumber);
-      localStorage.setItem("referalId", loginData.referalId);
-      setResData(data);
-    } catch (error) {
-      console.log({ error: error.response });
-    }
+    // try {
+    //   const { data } = await axios.post(
+    //     `
+    //  http://doctor.brandimagetech.com/portal.php`,
+    //     {
+    //       api_key: "send_otp",
+    //       ph_num: loginData.mobileNumber,
+    //       referal_id: loginData.referalId,
+    //     },
+    //     {
+    //       "Content-Type": "application/json;charset=UTF-8",
+    //       "Access-Control-Allow-Origin": "*",
+    //       // Accept: "application/json",
+    //     }
+    //   );
+    //   localStorage.setItem("phoneNumber", loginData.mobileNumber);
+    //   localStorage.setItem("referalId", loginData.referalId);
+    //   setResData(data);
+    // } catch (error) {
+    //   console.log({ error: error.response });
+    // }
+    otpLogin("portal", {
+      api_key: "send_otp",
+      ph_num: loginData.mobileNumber,
+      referal_id: loginData.referalId,
+    });
     setNextPage(true);
   };
+
   return ReactDOM.createPortal(
     <Wrappers>
       {!nextPage ? (

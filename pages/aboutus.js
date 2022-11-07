@@ -19,6 +19,8 @@ import AssessmentFormContainer from "../assets/wrappers/AssessmentFormContainer"
 import AssessmentForm4 from "../components/AssessmentForm4";
 import MobileNavbar from "../components/MobileNavbar";
 import OtpPage from "../components/OtpPage";
+import { useEffect } from "react";
+import { useAppcontext } from "../context/appContext";
 
 const aboutus = () => {
   return (

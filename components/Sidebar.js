@@ -120,7 +120,12 @@ export default function Sidebar() {
             <div className="img">
               <Image src={notification} />
             </div>
-            <div className="" onClick={() => {}}>
+            <div
+              className=""
+              onClick={() => {
+                localStorage.clear();
+              }}
+            >
               <p className="text">Logout</p>
             </div>
             <div className="rightCheveron">

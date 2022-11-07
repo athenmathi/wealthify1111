@@ -2,20 +2,19 @@ import "../styles/globals.css";
 import Navbar from "../components/Navbar.js";
 import Footer from "../components/Footer";
 import Login from "../components/Login";
-import { Provider } from "react-redux";
-import { store } from "../store/index";
+import { AppProvider } from "../context/appContext";
 function MyApp({ Component, pageProps }) {
   const Layout = Component.Layout || HomeLayout;
 
   return (
     <>
-      <Provider store={store}>
+      <AppProvider>
         <Navbar />
         <Layout>
           <Component {...pageProps} />
         </Layout>
         <Footer />
-      </Provider>
+      </AppProvider>
     </>
   );
 }

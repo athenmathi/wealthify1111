@@ -5,16 +5,12 @@ import loginBtn from "../assets/image/loginBtn.png";
 import { AiOutlineArrowLeft, AiOutlineClose } from "react-icons/ai";
 import { useRouter } from "next/router";
 import Link from "next/link";
-const OtpPage = ({
-  setModal,
-  setNextPage,
-  mobileNumber,
-  otpValue,
-  loginInformation,
-}) => {
+import { useAppcontext } from "../context/appContext";
+const OtpPage = ({ setModal, setNextPage, mobileNumber, loginInformation }) => {
+  const router = useRouter();
+  const { otpValue, numberExist, patientId } = useAppcontext();
   console.log(loginInformation);
   const [otp, setOtp] = useState("");
-  const router = useRouter();
   const handleChange = (e) => {
     setOtp(e.target.value);
   };
@@ -24,10 +20,10 @@ const OtpPage = ({
     var decodedString = window.btoa(otp);
 
     if (otpValue === decodedString) {
-      localStorage.setItem("p_id", loginInformation.p_id);
-      localStorage.setItem("number_exist", loginInformation.number_exist);
-      localStorage.setItem("phoneNumber2", mobileNumber);
-      if (loginInformation.number_exist === 0) {
+      localStorage.setItem("p_id", patientId);
+      // localStorage.setItem("number_exist", loginInformation.number_exist);
+      // localStorage.setItem("phoneNumber2", mobileNumber);
+      if (numberExist === 0) {
         router.push("/assessment");
       }
       setModal(false);

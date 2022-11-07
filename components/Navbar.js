@@ -10,12 +10,19 @@ import ActiveLink from "./ActiveLink";
 import MobileNavbar from "./MobileNavbar";
 import MobileSidebar from "./MobileSidebar";
 import rightArrow from "../assets/image/rightArrow.svg";
+
 const Navbar = () => {
   const [modal, setModal] = useState(false);
   const [menu, setMenu] = useState(false);
   const [singleDoctor, setSingleDoctor] = useState(false);
   const [menubar, setMenubar] = useState(false);
   const [mobileSidebar, setMobileSidebar] = useState(false);
+  let p_id;
+  if (typeof window !== "undefined") {
+    // Perform localStorage action
+    p_id = localStorage.getItem("p_id");
+  }
+  console.log(p_id);
   return (
     <Wrappers>
       {mobileSidebar ? (
@@ -49,7 +56,7 @@ const Navbar = () => {
         <div className="second-item">
           <li>
             <ul>
-              <Link href={"/homeLoggedOut"}>
+              {/* <Link href={"/homeLoggedOut"}>
                 <a
                   href=""
                   style={{
@@ -59,13 +66,14 @@ const Navbar = () => {
                 >
                   Before Login{" "}
                 </a>
-                {/* Before Login */}
-              </Link>
+              </Link> */}
             </ul>
             <ul>
               {/* <Link href={"/"}>Home</Link> */}
 
-              <ActiveLink route={"/"}>Home</ActiveLink>
+              <ActiveLink route={p_id === null ? "homeLoggedOut" : "/"}>
+                Home
+              </ActiveLink>
             </ul>
             <ul>
               {/* <Link href={"/aboutus"}>
