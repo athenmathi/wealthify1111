@@ -15,7 +15,12 @@ const data = [
 ];
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 const EachPatientDetails = () => {
+  const router = useRouter();
+  const redirectToHealthRecords = (id) => {
+    router.push(`/healthRecords?${id}`);
+  };
   return (
     <Wrappers>
       <table className="doctor-heading">
@@ -29,7 +34,9 @@ const EachPatientDetails = () => {
             return (
               <Link href={"/healthRecords"}>
                 <tr>
-                  <td>{item.patientName}</td>
+                  <td onClick={() => redirectToHealthRecords(item.patientName)}>
+                    {item.patientName}
+                  </td>
                   <td> {item.callDuration} </td>
                 </tr>
               </Link>

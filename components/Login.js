@@ -12,7 +12,8 @@ import "react-phone-input-2/lib/style.css";
 import { useAppcontext } from "../context/appContext";
 import { useEffect } from "react";
 const Login = ({ setModal }) => {
-  const { otpLogin } = useAppcontext();
+  const { otpLogin, p_id, doctorId } = useAppcontext();
+  console.log(p_id, doctorId);
   const [resData, setResData] = useState({});
   const [nextPage, setNextPage] = useState(false);
   const loginInfo = {
@@ -61,7 +62,8 @@ const Login = ({ setModal }) => {
                   required="required"
                   placeholder="+91"
                   name="mobileNumber"
-                  value={loginData.mobileNumber}
+                  // value={loginData.mobileNumber}
+                  value={"918939068212"}
                   onChange={(e) => handleChange(e)}
                 />
 
@@ -100,6 +102,7 @@ const Login = ({ setModal }) => {
                     name="agree"
                     id=""
                     required
+                    checked
                     value={"agreed"}
                     onChange={(e) => handleChange(e)}
                   />

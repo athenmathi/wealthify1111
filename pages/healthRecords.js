@@ -7,9 +7,11 @@ if (typeof window !== "undefined") {
 }
 import HealthRecords from "../components/HealthRecords";
 import LoggedInHome from "../components/LoggedInHome";
+import { useRouter } from "next/router";
 const HealthRecord = () => {
   const { getSubscription, subscriptionPlanCount, getData } = useAppcontext();
-
+  const router = useRouter();
+  console.log(router.asPath.split("?")[1]);
   useEffect(() => {
     getSubscription("subscription", { api_key: "get", p_id: patientId });
     getData("patient", {
@@ -20,13 +22,7 @@ const HealthRecord = () => {
 
   return (
     <>
-      {subscriptionPlanCount ? (
-        <HealthRecords />
-      ) : (
-        <Wrappers>
-          <h1>buy subscription</h1>
-        </Wrappers>
-      )}
+      <HealthRecords />
     </>
   );
 };

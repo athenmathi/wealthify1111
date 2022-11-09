@@ -1,10 +1,20 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import { useAppcontext } from "../context/appContext";
-
+let patientId;
+if (typeof window !== "undefined") {
+  patientId = localStorage.getItem("p_id");
+}
 const TestReports = () => {
-  const { postData } = useAppcontext();
+  const { postData, getTestReport, imageData } = useAppcontext();
+  useEffect(() => {
+    getTestReport("healthrecord", {
+      api_key: "get_healthrecord_test_report",
+      data: { p_id: 6 },
+    });
+  }, []);
   const [file, setFile] = useState();
   const handleChange = (e) => {
     setFile(e.target.files[0]);
@@ -22,6 +32,16 @@ const TestReports = () => {
       };
     });
   };
+  const convertToImage = (string) => {
+    return decodeURIComponent(
+      atob(string)
+        .split("")
+        .map((item) => {
+          return "%" + ("00" + item.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join("")
+    );
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,12 +56,12 @@ const TestReports = () => {
       api_key: "add_healthrecord_test_report",
       data: { p_id: 6, file: base64 },
     };
-    const config = {
-      headers: {
-        "content-type": "",
-      },
-    };
+    postData("healthrecord", obj);
   };
+  if (!imageData) {
+    return;
+  }
+
   return (
     <Wrappers>
       <div className="reports-container">
@@ -56,7 +76,35 @@ const TestReports = () => {
             </div>
           </form>
         </div>
-        <div className="file-display"></div>
+        <div className="file-display">
+          <table>
+            <thead>
+              <tr>
+                <th>Patient Name</th>
+                <th> Uploaded Date </th>
+                <th> File </th>
+              </tr>
+            </thead>
+            <tr>
+              <td> john </td>
+              <td> today </td>
+              <td> file </td>
+            </tr>
+            {imageData.map((item) => {
+              const { s_no, patient_id, file } = item;
+              return (
+                <tr>
+                  <td> {s_no} </td>
+                  <td> {patientId} </td>
+                  <td>
+                    {" "}
+                    <img src={convertToImage(file)} alt="ds" srcset="" />{" "}
+                  </td>
+                </tr>
+              );
+            })}
+          </table>
+        </div>
       </div>
     </Wrappers>
   );

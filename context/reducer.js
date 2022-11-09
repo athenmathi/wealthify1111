@@ -6,7 +6,9 @@ import {
 
 const reducer = (state, action) => {
   if (action.type === POST_OTP_LOGIN_SUCCESS) {
-    const { ph_num, referal_id, p_id, number_exist, otp } = action.payload;
+    const { ph_num, referal_id, p_id, number_exist, doctorId, userType, otp } =
+      action.payload;
+    console.log(ph_num);
     return {
       ...state,
       phoneNumber: ph_num,
@@ -14,6 +16,8 @@ const reducer = (state, action) => {
       patientId: p_id,
       numberExist: number_exist,
       otpValue: otp,
+      doctorId: doctorId,
+      userType,
       alertType: "success",
       alertText: "Enter your otp",
     };
@@ -53,6 +57,18 @@ const reducer = (state, action) => {
       currentWeight: current_weight,
       normalWeight: normal_weight,
       weight_6_month_ago,
+    };
+  }
+  if (action.type === "SET_AGREE") {
+    return {
+      ...state,
+      agree: action.payload,
+    };
+  }
+  if (action.type === "GET_TEST_REPORTS_SUCCESS") {
+    return {
+      ...state,
+      imageData: action.payload.data,
     };
   }
 };

@@ -32,13 +32,19 @@ const AssessmentForm1 = ({
   agree,
   updateFeilds,
 }) => {
-  const { phoneNumber } = useAppcontext();
+  const { setAgree } = useAppcontext();
   const handleInput = (e) => {
     console.log(e.target.value);
     let name = e.target.name;
     console.log({ [e.target.name]: e.target.value });
     updateFeilds({ [e.target.name]: e.target.value });
     updateFeilds({ refer_id: localStorage.getItem("referalId") });
+  };
+  const handleCheckBox = (e) => {
+    let value = e.target.checked ? e.target.value : "";
+    console.log({ [e.target.name]: value });
+    setAgree(value);
+    updateFeilds({ [e.target.name]: e.target.value });
   };
   return (
     <Wrappers>
@@ -128,7 +134,14 @@ const AssessmentForm1 = ({
           <ul>
             <li>
               <div className="agree-btn">
-                <input type="checkBox" required />
+                <input
+                  type="checkBox"
+                  name="agree"
+                  value={"1"}
+                  onChange={(e) => {
+                    handleCheckBox(e);
+                  }}
+                />
                 <p>I agree to terms & condition</p>
               </div>
             </li>

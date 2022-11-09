@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import { useAppcontext } from "../context/appContext";
 
 const useMultiStepForm = (steps) => {
+  const { agree } = useAppcontext();
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   function next() {
     setCurrentStepIndex((prev) => {
       if (prev >= steps.length - 1) {
+        return prev;
+      }
+      if (!agree) {
+        alert("please agree to the terms and condition to proceed");
         return prev;
       }
       return prev + 1;

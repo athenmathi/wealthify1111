@@ -2,9 +2,14 @@ import {
   BUYSUBSCRIPTION_BEGIN,
   GETDATA_BEGIN,
   GETDATA_SUCCESS,
+  GET_EACHDOCTOR_PATIENT_BEGIN,
+  GET_EACHDOCTOR_PATIENT_SUCCESS,
   GET_SUBCRIPTION_BEGIN,
+  GET_TEST_REPORTS_BEGIN,
+  GET_TEST_REPORTS_SUCCESS,
   POST_OTP_LOGIN_BEGIN,
   POST_OTP_LOGIN_SUCCESS,
+  SET_AGREE,
   SUBSCRIPTION_SUCCESS,
 } from "./action";
 import React from "react";
@@ -17,8 +22,11 @@ const initialState = {
   phoneNumber: "",
   referalId: "",
   patientId: "",
+  doctorId: "",
+  userType: "",
   numberExist: "",
   subscriptionPlan: [],
+  subscriptionPlanCount: "",
   commonData: "",
   sex: "",
   firstName: "",
@@ -31,6 +39,8 @@ const initialState = {
   currentWeight: "",
   normalWeight: "",
   weight_6_month_ago: "",
+  agree: "",
+  imageData: [],
 };
 const AppContext = React.createContext();
 
@@ -88,10 +98,18 @@ const AppProvider = ({ children }) => {
       const { data } = await authFetch.post(`${url}.php`, obj);
       const { ph_num, referal_id } = obj;
       const { otp } = data;
-      const { p_id, number_exist } = data.data;
+      const { p_id, doc_id, user_type, number_exist } = data.data;
       dispatch({
         type: POST_OTP_LOGIN_SUCCESS,
-        payload: { ph_num, referal_id, p_id, number_exist, otp },
+        payload: {
+          ph_num,
+          referal_id,
+          p_id,
+          doc_id,
+          user_type,
+          number_exist,
+          otp,
+        },
       });
       console.log(p_id, number_exist);
       localStorage.setItem("phoneNumber", ph_num);
@@ -122,6 +140,26 @@ const AppProvider = ({ children }) => {
       console.log(error);
     }
   };
+  const getTestReport = async (url, obj) => {
+    dispatch({ type: GET_TEST_REPORTS_BEGIN });
+    try {
+      const { data } = await authFetch.post(`${url}.php`, obj);
+      dispatch({ type: GET_TEST_REPORTS_SUCCESS, payload: data });
+    } catch (error) {}
+  };
+  const getDoctorList = async (url, obj) => {};
+  const getEachDoctorPatient = async (url, obj) => {
+    dispatch({ type: GET_EACHDOCTOR_PATIENT_BEGIN });
+    try {
+      const { data } = await authFetch.post(`${url}.php`, obj);
+      dispatch({ type: GET_EACHDOCTOR_PATIENT_SUCCESS, payload: data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const setAgree = (value) => {
+    dispatch({ type: SET_AGREE, payload: value });
+  };
 
   return (
     <AppContext.Provider
@@ -131,6 +169,9 @@ const AppProvider = ({ children }) => {
         otpLogin,
         getData,
         postData,
+        setAgree,
+        getEachDoctorPatient,
+        getTestReport,
       }}
     >
       {children}

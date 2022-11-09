@@ -495,9 +495,7 @@ const AssessmentForm4 = ({
   const handleInput = (e) => {
     let value = e.target.checked ? e.target.value : "";
     console.log({ [e.target.name]: value });
-    // console.log(e.target.checked);
     updateFeilds({ [e.target.name]: e.target.value });
-    console.log(ref.current.checked);
   };
 
   const ref = useRef(null);

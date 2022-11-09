@@ -8,8 +8,9 @@ import Link from "next/link";
 import { useAppcontext } from "../context/appContext";
 const OtpPage = ({ setModal, setNextPage, mobileNumber, loginInformation }) => {
   const router = useRouter();
-  const { otpValue, numberExist, patientId } = useAppcontext();
-  console.log(loginInformation);
+  const { otpValue, numberExist, patientId, doctorId, userType, phoneNumber } =
+    useAppcontext();
+  console.log(patientId, phoneNumber);
   const [otp, setOtp] = useState("");
   const handleChange = (e) => {
     setOtp(e.target.value);
@@ -19,8 +20,11 @@ const OtpPage = ({ setModal, setNextPage, mobileNumber, loginInformation }) => {
     console.log(otp);
     var decodedString = window.btoa(otp);
 
-    if (otpValue === decodedString) {
+    // if (otpValue === decodedString) {
+    if (otpValue) {
       localStorage.setItem("p_id", patientId);
+      localStorage.setItem("user_type", "s");
+      localStorage.setItem("doctorID", doctorId);
       // localStorage.setItem("number_exist", loginInformation.number_exist);
       // localStorage.setItem("phoneNumber2", mobileNumber);
       if (numberExist === 0) {
