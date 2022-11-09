@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Wrappers from "../assets/wrappers/HealthRecords.js";
 import weight from "../assets/image/weight.svg";
-import height from "../assets/image/height.svg";
+import height1 from "../assets/image/height.svg";
 import blood from "../assets/image/blood.svg";
 import DoctorConsultation from "./DoctorConsultation.js";
 import TestReports from "./TestReports.js";
@@ -11,31 +11,39 @@ import PatientNotes from "./PatientNotes.js";
 import DietPlan from "./DietPlan.js";
 import FollowUp from "./FollowUp.js";
 import History from "./History.js";
+import { useAppcontext } from "../context/appContext.js";
 const HealthRecords = () => {
   const [tab, setTab] = useState("doctorConsultation");
+  const { dob, height, currentWeight, bloodGroup, sex, firstName, lastName } =
+    useAppcontext();
   return (
     <Wrappers>
       <div className="container">
         <div className="top">
-          <h2 className="name">John Doe</h2>
-          <p className="dob">26 JAN 1996 | Male</p>
+          <h2 className="name">
+            {" "}
+            {firstName} {lastName}{" "}
+          </h2>
+          <p className="dob">
+            {dob}| {sex}{" "}
+          </p>
         </div>
         <div className="line"></div>
         <div className="physical-details">
           <div className="height">
-            <Image src={height} />
+            <Image src={height1} />
             <p className="">Height</p>
-            <p className="value">190cm </p>
+            <p className="value">{height} cm</p>
           </div>
           <div className="weight">
             <Image className="img" src={weight} />
             <p className="">Weight</p>
-            <p className="value">72kgs</p>
+            <p className="value">{currentWeight}kgs</p>
           </div>
           <div className="blood">
             <Image src={blood} />
             <p className="">Blood</p>
-            <p className="value">B+</p>
+            <p className="value">{bloodGroup}</p>
           </div>
         </div>
         <div className="bottom">

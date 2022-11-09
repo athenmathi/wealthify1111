@@ -3,6 +3,12 @@ import React, { useState } from "react";
 import Wrappers from "../assets/wrappers/PrescriptionForm";
 import redCloseBtn from "../assets/image/redCloseBtn.svg";
 import axios from "axios";
+
+let patientId;
+if (typeof window !== "undefined") {
+  patientId = localStorage.getItem("p_id");
+}
+
 const PrescriptionForm = ({ setOpenForm }) => {
   const initialData = {
     record_for: "",

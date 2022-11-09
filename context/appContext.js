@@ -1,5 +1,7 @@
 import {
   BUYSUBSCRIPTION_BEGIN,
+  GETDATA_BEGIN,
+  GETDATA_SUCCESS,
   GET_SUBCRIPTION_BEGIN,
   POST_OTP_LOGIN_BEGIN,
   POST_OTP_LOGIN_SUCCESS,
@@ -17,6 +19,18 @@ const initialState = {
   patientId: "",
   numberExist: "",
   subscriptionPlan: [],
+  commonData: "",
+  sex: "",
+  firstName: "",
+  lastName: "",
+  phoneNumber: "",
+  dob: "",
+  bloodGroup: "",
+  age: "",
+  height: "",
+  currentWeight: "",
+  normalWeight: "",
+  weight_6_month_ago: "",
 };
 const AppContext = React.createContext();
 
@@ -86,6 +100,22 @@ const AppProvider = ({ children }) => {
   };
 
   const getData = async (url, obj) => {
+    dispatch({ type: GETDATA_BEGIN });
+    try {
+      const { data } = await authFetch.post(`${url}.php`, obj);
+
+      dispatch({
+        type: GETDATA_SUCCESS,
+        payload: {
+          data: data.data,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const postData = async (url, obj) => {
+    dispatch({ type: BUYSUBSCRIPTION_BEGIN });
     try {
       const { data } = await authFetch.post(`${url}.php`, obj);
     } catch (error) {
@@ -100,6 +130,7 @@ const AppProvider = ({ children }) => {
         getSubscription,
         otpLogin,
         getData,
+        postData,
       }}
     >
       {children}

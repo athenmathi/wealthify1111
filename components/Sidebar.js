@@ -12,17 +12,31 @@ import needHelp from "../assets/image/needHelp.svg";
 
 import ManageProfile from "../components/ManageProfile";
 import ActiveLink from "./ActiveLink";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { useAppcontext } from "../context/appContext";
+import { useEffect } from "react";
 
 export default function Sidebar() {
+  const [patientId, setPatientId] = useState(0);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      let patientId = localStorage.getItem("p_id");
+      setPatientId(patientId);
+    }
+  }, []);
+  console.log(patientId);
+  const router = useRouter();
+  console.log(patientId);
   const logoutUser = () => {
-    localStorage.removeItem("p_id", loginInformation.p_id);
-    localStorage.removeItem("number_exist", loginInformation.number_exist);
+    localStorage.clear();
+    router.reload(window.location.pathnames);
   };
   return (
     <Wrappers>
       <div className="container">
         <li>
-          <ul className="item ">
+          <ul className={`item ${patientId ? "" : "disable"} `}>
             <div className="img">
               <Image src={profile} />
             </div>
@@ -38,7 +52,7 @@ export default function Sidebar() {
               <RightCheveron />
             </div>
           </ul>
-          <ul className="item">
+          <ul className={`item ${patientId ? "" : "disable"}`}>
             <div className="img">
               <Image src={rupees} />
             </div>
@@ -51,7 +65,7 @@ export default function Sidebar() {
               <RightCheveron />
             </div>
           </ul>
-          <ul className="item">
+          <ul className={`item ${patientId ? "" : "disable"}`}>
             <div className="img">
               <Image src={profile} />
             </div>
@@ -64,7 +78,7 @@ export default function Sidebar() {
               <RightCheveron />
             </div>
           </ul>
-          <ul className="item">
+          <ul className={`item`}>
             <div className="img">
               <Image src={profile} />
             </div>
@@ -77,7 +91,7 @@ export default function Sidebar() {
               <RightCheveron />
             </div>
           </ul>
-          <ul className="item">
+          <ul className={`item ${patientId ? "" : "disable"}`}>
             <div className="img">
               <Image src={address} />
             </div>
@@ -90,7 +104,7 @@ export default function Sidebar() {
               <RightCheveron />
             </div>
           </ul>
-          <ul className="item">
+          <ul className={`item ${patientId ? "" : "disable"}`}>
             <div className="img">
               <Image src={needHelp} />
             </div>
@@ -103,7 +117,7 @@ export default function Sidebar() {
               <RightCheveron />
             </div>
           </ul>
-          <ul className="item">
+          <ul className={`item ${patientId ? "" : "disable"}`}>
             <div className="img">
               <Image src={notification} />
             </div>
@@ -116,14 +130,14 @@ export default function Sidebar() {
               <RightCheveron />
             </div>
           </ul>
-          <ul className="item">
+          <ul className={`item ${patientId ? "" : "disable"}`}>
             <div className="img">
               <Image src={notification} />
             </div>
             <div
               className=""
               onClick={() => {
-                localStorage.clear();
+                logoutUser();
               }}
             >
               <p className="text">Logout</p>

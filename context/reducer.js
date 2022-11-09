@@ -1,4 +1,8 @@
-import { POST_OTP_LOGIN_SUCCESS, SUBSCRIPTION_SUCCESS } from "./action";
+import {
+  GETDATA_SUCCESS,
+  POST_OTP_LOGIN_SUCCESS,
+  SUBSCRIPTION_SUCCESS,
+} from "./action";
 
 const reducer = (state, action) => {
   if (action.type === POST_OTP_LOGIN_SUCCESS) {
@@ -20,6 +24,35 @@ const reducer = (state, action) => {
       ...state,
       subscriptionPlanCount: planCount,
       subscriptionPlan: plan,
+    };
+  }
+  if (action.type === GETDATA_SUCCESS) {
+    const {
+      sex,
+      first_name,
+      last_name,
+      phone_number,
+      dob,
+      blood_group,
+      age,
+      height,
+      current_weight,
+      normal_weight,
+      weight_6_month_ago,
+    } = action.payload.data;
+    return {
+      ...state,
+      sex: sex,
+      firstName: first_name,
+      lastName: last_name,
+      phoneNumber: phone_number,
+      dob: dob,
+      bloodGroup: blood_group,
+      age: age,
+      height: height,
+      currentWeight: current_weight,
+      normalWeight: normal_weight,
+      weight_6_month_ago,
     };
   }
 };

@@ -27,6 +27,10 @@ const Wrappers = styled.div`
     margin-left: 2rem;
     width: 20rem;
   }
+  .disable {
+    pointer-events: none;
+    background-color: #f2f2f2;
+  }
 
   @media (max-width: 480px) {
     .container {

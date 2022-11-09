@@ -33,7 +33,7 @@ const AssessmentFormContainer = () => {
         }
       );
       if (data.status === "success") {
-        // router.push("/membership");
+        router.push("/membership");
       }
       console.log(data.data.p_id);
 

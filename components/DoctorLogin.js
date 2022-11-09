@@ -11,7 +11,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useAppcontext } from "../context/appContext";
 import { useEffect } from "react";
-const Login = ({ setModal }) => {
+const DoctorLogin = ({ setModal }) => {
   const { otpLogin } = useAppcontext();
   const [resData, setResData] = useState({});
   const [nextPage, setNextPage] = useState(false);
@@ -34,7 +34,7 @@ const Login = ({ setModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    otpLogin("portal", {
+    otpLogin("doctor", {
       api_key: "send_otp",
       ph_num: loginData.mobileNumber,
       referal_id: loginData.referalId,
@@ -69,16 +69,7 @@ const Login = ({ setModal }) => {
                   <Image src={loginBtn} />
                 </button>
               </div>
-              <div className="referal">
-                <label htmlFor="">Referal Id</label>
-                <input
-                  type="text"
-                  className="number"
-                  name="referalId"
-                  value={loginData.referalId}
-                  onChange={(e) => handleChange(e)}
-                />
-              </div>
+
               <p className="subtitle">
                 OTP will be sent to this number by SMS And Whatsapp
               </p>
@@ -125,4 +116,4 @@ const Login = ({ setModal }) => {
   );
 };
 
-export default Login;
+export default DoctorLogin;

@@ -1,7 +1,66 @@
 import axios from "axios";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useAppcontext } from "../context/appContext";
 
+const TestReports = () => {
+  const { postData } = useAppcontext();
+  const [file, setFile] = useState();
+  const handleChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!file) {
+      console.log("please select any files");
+      return;
+    }
+
+    const base64 = await convertBase64(file);
+
+    const obj = {
+      api_key: "add_healthrecord_test_report",
+      data: { p_id: 6, file: base64 },
+    };
+    const config = {
+      headers: {
+        "content-type": "",
+      },
+    };
+  };
+  return (
+    <Wrappers>
+      <div className="reports-container">
+        <div className="file-form">
+          <label htmlFor="">Please submit your test Reports</label>
+          <form action="" type="submit">
+            <input type="file" onChange={(e) => handleChange(e)} />
+            <div>
+              <button className="btn" onClick={(e) => handleSubmit(e)}>
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+        <div className="file-display"></div>
+      </div>
+    </Wrappers>
+  );
+};
 const Wrappers = styled.div`
   width: 700px;
   height: 300px;
@@ -28,62 +87,4 @@ const Wrappers = styled.div`
     width: 300px;
   }
 `;
-const TestReports = () => {
-  const [file, setFile] = useState();
-  const handleChange = (e) => {
-    setFile(e.target.files[0]);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!file) {
-      console.log("please select any files");
-      return;
-    }
-    const url = "http://doctor.brandimagetech.com/healthrecord.php";
-    const formData = new FormData();
-    // formData.append("file", file);
-    formData.append("fileName", file.name);
-    formData.append("api_key", "add_healthrecord_test_report");
-    formData.append("data", { p_id: 6 });
-    formData.append("name", "rajesh");
-
-    console.log(formData);
-    const obj = {
-      api_key: "add_healthrecord_test_report",
-      data: { p_id: 6, file: file },
-    };
-    const config = {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    };
-    axios
-      .post(url, obj, config)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  return (
-    <Wrappers>
-      <div className="reports-container">
-        <div className="file-form">
-          <label htmlFor="">Please submit your test Reports</label>
-          <form action="" type="submit">
-            <input type="file" onChange={(e) => handleChange(e)} />
-            <div>
-              <button className="btn" onClick={(e) => handleSubmit(e)}>
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
-        <div className="file-display"></div>
-      </div>
-    </Wrappers>
-  );
-};
 export default TestReports;

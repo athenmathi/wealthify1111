@@ -28,6 +28,7 @@ const OtpPage = ({ setModal, setNextPage, mobileNumber, loginInformation }) => {
       }
       setModal(false);
       console.log("sucess");
+      router.reload(window.location.pathnames);
     } else {
       alert("Otp is wrong please try again");
     }

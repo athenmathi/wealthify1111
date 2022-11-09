@@ -8,10 +8,14 @@ if (typeof window !== "undefined") {
 import HealthRecords from "../components/HealthRecords";
 import LoggedInHome from "../components/LoggedInHome";
 const HealthRecord = () => {
-  const { getSubscription, subscriptionPlanCount } = useAppcontext();
+  const { getSubscription, subscriptionPlanCount, getData } = useAppcontext();
 
   useEffect(() => {
     getSubscription("subscription", { api_key: "get", p_id: patientId });
+    getData("patient", {
+      api_key: "get_personal_info",
+      data: { p_id: patientId },
+    });
   }, []);
 
   return (

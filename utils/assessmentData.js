@@ -12,7 +12,7 @@ export const initialData = {
   dob: "",
   agree: "",
   todayDate: "",
-  sex: "",
+  sex: "Male",
   age: "",
   height: "",
   current_weight: "40",

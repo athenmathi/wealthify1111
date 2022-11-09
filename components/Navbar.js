@@ -10,6 +10,7 @@ import ActiveLink from "./ActiveLink";
 import MobileNavbar from "./MobileNavbar";
 import MobileSidebar from "./MobileSidebar";
 import rightArrow from "../assets/image/rightArrow.svg";
+import DoctorLogin from "./DoctorLogin";
 
 const Navbar = () => {
   const [modal, setModal] = useState(false);
@@ -17,6 +18,7 @@ const Navbar = () => {
   const [singleDoctor, setSingleDoctor] = useState(false);
   const [menubar, setMenubar] = useState(false);
   const [mobileSidebar, setMobileSidebar] = useState(false);
+  const [openDoctor, setOpenDoctor] = useState(false);
   let p_id;
   if (typeof window !== "undefined") {
     // Perform localStorage action
@@ -105,13 +107,16 @@ const Navbar = () => {
             <button className="btn-primary">Admin Login</button>
           </div>
         </Link>
-        <Link href={"/doctorHome"}>
-          <div className="third-item">
-            <button className="btn-primary">Doctor Login</button>
-          </div>
-        </Link>
+        {/* <Link href={"/doctorHome"}> */}
+        <div className="third-item">
+          <button className="btn-primary" onClick={() => setOpenDoctor(true)}>
+            Doctor Login
+          </button>
+        </div>
+        {/* </Link> */}
       </div>
-      {modal && <Login setModal={setModal} />}
+      {modal && <Login setModal={setModal} url={"portal"} />}
+      {openDoctor && <DoctorLogin setModal={setOpenDoctor} url={"doctor"} />}
 
       {/* {menu && <Menu setMenu={setMenu} />} */}
     </Wrappers>
