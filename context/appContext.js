@@ -2,6 +2,12 @@ import {
   BUYSUBSCRIPTION_BEGIN,
   GETDATA_BEGIN,
   GETDATA_SUCCESS,
+  GET_ADMIN_HOME_BEGIN,
+  GET_ADMIN_HOME_ERROR,
+  GET_ADMIN_HOME_SUCCESS,
+  GET_ARRAY_OF_OBJECT_BEGIN,
+  GET_ARRAY_OF_OBJECT_ERROR,
+  GET_ARRAY_OF_OBJECT_SUCCESS,
   GET_EACHDOCTOR_PATIENT_BEGIN,
   GET_EACHDOCTOR_PATIENT_SUCCESS,
   GET_SUBCRIPTION_BEGIN,
@@ -41,6 +47,8 @@ const initialState = {
   weight_6_month_ago: "",
   agree: "",
   imageData: [],
+  details: [],
+  adminDetails: [],
 };
 const AppContext = React.createContext();
 
@@ -113,7 +121,11 @@ const AppProvider = ({ children }) => {
       });
       console.log(p_id, number_exist);
       localStorage.setItem("phoneNumber", ph_num);
+      localStorage.setItem("user_type", user_type);
+      localStorage.setItem("phoneNumber", ph_num);
+      localStorage.setItem("doctorId", doc_id);
       localStorage.setItem("referalId", referal_id);
+      localStorage.setItem("p_id", p_id);
     } catch (error) {}
   };
 
@@ -160,6 +172,29 @@ const AppProvider = ({ children }) => {
   const setAgree = (value) => {
     dispatch({ type: SET_AGREE, payload: value });
   };
+  const getArrOfObj = async (url, obj) => {
+    dispatch({ type: GET_ARRAY_OF_OBJECT_BEGIN });
+    try {
+      const { data } = await authFetch.post(`${url}.php`, obj);
+
+      dispatch({ type: GET_ARRAY_OF_OBJECT_SUCCESS, payload: data.data });
+    } catch (error) {
+      dispatch({ type: GET_ARRAY_OF_OBJECT_ERROR });
+      console.log(error);
+    }
+  };
+
+  const getAdminHome = async (url, obj) => {
+    dispatch({ type: GET_ADMIN_HOME_BEGIN });
+    try {
+      const { data } = await authFetch.post(`${url}.php`, obj);
+
+      dispatch({ type: GET_ADMIN_HOME_SUCCESS, payload: data.data });
+    } catch (error) {
+      dispatch({ type: GET_ADMIN_HOME_ERROR });
+      console.log(error);
+    }
+  };
 
   return (
     <AppContext.Provider
@@ -172,6 +207,8 @@ const AppProvider = ({ children }) => {
         setAgree,
         getEachDoctorPatient,
         getTestReport,
+        getArrOfObj,
+        getAdminHome,
       }}
     >
       {children}

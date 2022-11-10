@@ -4,9 +4,9 @@ import EachPatientDetails from "../components/EachPatientDetails";
 import { useAppcontext } from "../context/appContext";
 
 const eachPatient = () => {
-  const { getEachDoctorPatient } = useAppcontext();
+  const { getArrOfObj, getEachDoctorPatient, details } = useAppcontext();
   useEffect(() => {
-    getEachDoctorPatient("doctor", {
+    getArrOfObj("doctor", {
       api_key: "get_doctor_s_patient",
       data: {
         doc_id: 12345678,

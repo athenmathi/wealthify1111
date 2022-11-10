@@ -16,11 +16,16 @@ const data = [
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useAppcontext } from "../context/appContext";
 const EachPatientDetails = () => {
   const router = useRouter();
+  const { details } = useAppcontext();
   const redirectToHealthRecords = (id) => {
     router.push(`/healthRecords?${id}`);
   };
+  if (!details) {
+    return;
+  }
   return (
     <Wrappers>
       <table className="doctor-heading">
@@ -30,16 +35,13 @@ const EachPatientDetails = () => {
             <th>Patient Name</th>
             {/* <th>Export</th> */}
           </tr>
-          {data.map((item) => {
+          {details.map((item) => {
+            const { p_id, first_name, last_name } = item;
             return (
-              <Link href={"/healthRecords"}>
-                <tr>
-                  <td onClick={() => redirectToHealthRecords(item.patientName)}>
-                    {item.patientName}
-                  </td>
-                  <td> {item.callDuration} </td>
-                </tr>
-              </Link>
+              <tr>
+                <td onClick={() => redirectToHealthRecords(p_id)}>{p_id}</td>
+                <td> {first_name + last_name} </td>
+              </tr>
             );
           })}
         </thead>

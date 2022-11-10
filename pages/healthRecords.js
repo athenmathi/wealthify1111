@@ -11,12 +11,13 @@ import { useRouter } from "next/router";
 const HealthRecord = () => {
   const { getSubscription, subscriptionPlanCount, getData } = useAppcontext();
   const router = useRouter();
-  console.log(router.asPath.split("?")[1]);
+  const pathId = router.asPath.split("?")[1];
+
   useEffect(() => {
     getSubscription("subscription", { api_key: "get", p_id: patientId });
     getData("patient", {
       api_key: "get_personal_info",
-      data: { p_id: patientId },
+      data: { p_id: pathId },
     });
   }, []);
 

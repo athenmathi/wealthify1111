@@ -6,33 +6,39 @@ import { AiOutlineArrowLeft, AiOutlineClose } from "react-icons/ai";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useAppcontext } from "../context/appContext";
+
+let userType;
+if (typeof window !== "undefined") {
+  userType = localStorage.getItem("user_type");
+}
 const OtpPage = ({ setModal, setNextPage, mobileNumber, loginInformation }) => {
   const router = useRouter();
-  const { otpValue, numberExist, patientId, doctorId, userType, phoneNumber } =
+  const { otpValue, numberExist, patientId, doctorId, phoneNumber } =
     useAppcontext();
-  console.log(patientId, phoneNumber);
   const [otp, setOtp] = useState("");
   const handleChange = (e) => {
     setOtp(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(otp);
     var decodedString = window.btoa(otp);
 
     // if (otpValue === decodedString) {
     if (otpValue) {
-      localStorage.setItem("p_id", patientId);
-      localStorage.setItem("user_type", "s");
-      localStorage.setItem("doctorID", doctorId);
-      // localStorage.setItem("number_exist", loginInformation.number_exist);
-      // localStorage.setItem("phoneNumber2", mobileNumber);
+      localStorage.setItem("loggedIn", true);
+
       if (numberExist === 0) {
         router.push("/assessment");
       }
+      if (userType === "doctor") {
+        router.push("/doctorHome");
+      }
+      if (userType === "patient") {
+        router.push("/");
+      }
       setModal(false);
       console.log("sucess");
-      router.reload(window.location.pathnames);
+      // router.reload(window.location.pathnames);
     } else {
       alert("Otp is wrong please try again");
     }

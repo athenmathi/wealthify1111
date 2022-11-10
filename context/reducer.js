@@ -71,5 +71,17 @@ const reducer = (state, action) => {
       imageData: action.payload.data,
     };
   }
+  if (action.type === "GET_ARRAY_OF_OBJECT_SUCCESS") {
+    return {
+      ...state,
+      details: action.payload,
+    };
+  }
+  if (action.type === "GET_ADMIN_HOME_SUCCESS") {
+    return {
+      ...state,
+      adminDetails: action.payload,
+    };
+  }
 };
 export default reducer;

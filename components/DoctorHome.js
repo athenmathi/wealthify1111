@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import styled from "styled-components";
 import Wrappers from "../assets/wrappers/DoctorHome";
+import { useAppcontext } from "../context/appContext";
 import EachDoctorDetails from "./EachDoctorDetails";
 import OpenCalender from "./OpenCalender";
 const data = [
@@ -16,12 +18,17 @@ const data = [
 const DoctorHome = () => {
   const [state, setState] = useState(false);
   const [openCalender, setOpenCalender] = useState(false);
-  // if (state) {
-  //   return <EachDoctorDetails />;
-  // }
+  const { adminDetails, details } = useAppcontext();
+  if (!adminDetails) {
+    return;
+  }
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/eachDoctorDetails");
+  };
   return (
     <Wrappers>
-      {state ? <EachDoctorDetails setState={setState} /> : null}
+      {/* {state ? <EachDoctorDetails setState={setState} /> : null} */}
       {openCalender ? <OpenCalender setOpenCalender={setOpenCalender} /> : null}
 
       <div className="table-container">
@@ -33,12 +40,13 @@ const DoctorHome = () => {
               <th>Working Hours</th>
               <th>Export</th>
             </tr>
-            {data.map((item) => {
+            {adminDetails.map((item) => {
+              const { doc_id, doc_name, working_hrs } = item;
               return (
                 <tr>
-                  <td onClick={() => setState(!state)}>{item.id}</td>
-                  <td onClick={() => setState(!state)}> {item.name} </td>
-                  <td onClick={() => setState(!state)}>{item.workingHours}</td>
+                  <td onClick={() => handleClick()}>{doc_id}</td>
+                  <td onClick={() => handleClick()}> {doc_name} </td>
+                  <td onClick={() => handleClick()}>{working_hrs}</td>
                   <td>
                     <button
                       className="btn"

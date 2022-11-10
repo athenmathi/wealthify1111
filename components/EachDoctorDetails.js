@@ -4,6 +4,9 @@ import Wrappers from "../assets/wrappers/EachDoctorDetails";
 import redCloseBtn from "../assets/image/redCloseBtn.svg";
 import { Calendar } from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import { useAppcontext } from "../context/appContext";
+import { useEffect } from "react";
+import Link from "next/link";
 const data = [
   {
     patientId: "1212",
@@ -47,6 +50,11 @@ const data = [
   },
 ];
 const EachDoctorDetails = ({ setState }) => {
+  const { getArrOfObj, getAdminHome, details } = useAppcontext();
+
+  if (!details) {
+    return;
+  }
   return (
     <Wrappers>
       <div className="container">
@@ -65,9 +73,11 @@ const EachDoctorDetails = ({ setState }) => {
             <input type="date" />
           </div>
 
-          <div className="close-btn" onClick={() => setState(false)}>
-            <Image src={redCloseBtn} />
-          </div>
+          <Link href={"/adminHome"}>
+            <div className="close-btn">
+              <Image src={redCloseBtn} />
+            </div>
+          </Link>
         </div>
 
         <div className="table-container">
@@ -79,12 +89,13 @@ const EachDoctorDetails = ({ setState }) => {
                 <th>Call Duration</th>
                 <th>Prescription</th>
               </tr>
-              {data.map((item) => {
+              {details.map((item) => {
+                const { p_id } = item;
                 return (
                   <tr>
-                    <td>{item.patientId}</td>
-                    <td>{item.attendedPatient}</td>
-                    <td> {item.callDuration} </td>
+                    <td>{p_id}</td>
+                    <td>{"sd"}</td>
+                    <td> {"12:45 PM - 1:00PM ,15 mins "} </td>
                     <td>
                       <button className="btn">View</button>
                     </td>
