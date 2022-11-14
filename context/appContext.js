@@ -8,6 +8,9 @@ import {
   GET_ARRAY_OF_OBJECT_BEGIN,
   GET_ARRAY_OF_OBJECT_ERROR,
   GET_ARRAY_OF_OBJECT_SUCCESS,
+  GET_COMMON_DATA_BEGIN,
+  GET_COMMON_DATA_ERROR,
+  GET_COMMON_DATA_SUCCESS,
   GET_EACHDOCTOR_PATIENT_BEGIN,
   GET_EACHDOCTOR_PATIENT_SUCCESS,
   GET_SUBCRIPTION_BEGIN,
@@ -52,6 +55,7 @@ const initialState = {
   details: [],
   adminDetails: [],
   planDetails: {},
+  commonData: "",
 };
 const AppContext = React.createContext();
 
@@ -205,6 +209,18 @@ const AppProvider = ({ children }) => {
   const setQueryId = (id) => {
     dispatch({ type: SET_QUERY_ID, payload: id });
   };
+  const getCommonData = async (url, obj) => {
+    dispatch({ type: GET_COMMON_DATA_BEGIN });
+    try {
+      const { data } = await authFetch.post(`${url}.php`, obj);
+      dispatch({
+        type: GET_COMMON_DATA_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({ type: GET_COMMON_DATA_ERROR });
+    }
+  };
 
   return (
     <AppContext.Provider
@@ -220,6 +236,7 @@ const AppProvider = ({ children }) => {
         getArrOfObj,
         getAdminHome,
         setQueryId,
+        getCommonData,
       }}
     >
       {children}

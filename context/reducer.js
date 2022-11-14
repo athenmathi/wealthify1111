@@ -90,5 +90,11 @@ const reducer = (state, action) => {
       queryId: action.payload,
     };
   }
+  if ((action.type = "GET_COMMON_DATA_SUCCESS")) {
+    return {
+      ...state,
+      commonData: action.payload,
+    };
+  }
 };
 export default reducer;

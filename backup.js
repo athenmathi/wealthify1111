@@ -156,3 +156,92 @@ const Wrappers = styled.div`
   }
 `;
 export default TestReports;
+
+
+import Link from "next/link";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import styled from "styled-components";
+import { useAppcontext } from "../context/appContext";
+import PrescriptionForm from "./PrescriptionForm";
+
+const Wrappers = styled.div`
+  width: 700px;
+  height: 400px;
+  textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+  }
+  .btn-green {
+    background-color: var(--primary-700);
+    padding: 1rem 7rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    border: none;
+    color: white;
+    margin-top: 3rem;
+    margin-left: 15rem;
+  }
+  @media (max-width: 480px) {
+    width: 300px;
+  }
+`;
+
+const DoctorConsultation = () => {
+  let doctorId;
+  if (typeof window !== "undefined") {
+    doctorId = localStorage.getItem("doctorId");
+  }
+  const [openForm, setOpenForm] = useState(false);
+  const [state, setState] = useState(false);
+  const { queryId, postData, getTestReports } = useAppcontext();
+  const [notes, setNotes] = useState();
+  const handleChange = (e) => {
+    setNotes(e.target.value);
+  };
+  console.log(notes);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setNotes("");
+    postData("healthrecord", {
+      api_key: "add_healthrecord_test_notes",
+      data: {
+        patient_id: queryId,
+        doctor_id: doctorId,
+        notes: notes,
+      },
+    });
+  };
+
+  return (
+    <Wrappers>
+      <h2>Doctor Consultation</h2>
+      <p>
+        <strong>Tip:</strong>
+        Doctor Write your notes here
+      </p>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <textarea
+          value={notes}
+          placeholder="Some text..."
+          onChange={(e) => handleChange(e)}
+        ></textarea>
+        <input type="submit" className="" />
+      </form>
+      {openForm ? <PrescriptionForm setOpenForm={setOpenForm} /> : null}
+
+      <button onClick={() => setOpenForm(true)} className="btn-green">
+        ADD PRESCRIPTION
+      </button>
+    </Wrappers>
+  );
+};
+
+export default DoctorConsultation;

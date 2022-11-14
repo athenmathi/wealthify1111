@@ -106,13 +106,11 @@ const Navbar = () => {
             <button className="btn-primary">Admin Login</button>
           </div>
         </Link>
-        {/* <Link href={"/doctorHome"}> */}
-        <div className="third-item">
-          <button className="btn-primary" onClick={() => setOpenDoctor(true)}>
-            Doctor Login
-          </button>
-        </div>
-        {/* </Link> */}
+        <Link href={"/doctorHome"}>
+          <div className="third-item">
+            <button className="btn-primary">Doctor Login</button>
+          </div>
+        </Link>
       </div>
       {modal && <Login setModal={setModal} url={"portal"} />}
       {openDoctor && <DoctorLogin setModal={setOpenDoctor} url={"doctor"} />}

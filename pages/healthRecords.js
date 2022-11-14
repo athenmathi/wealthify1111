@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 import Wrappers from "../assets/wrappers/Membership";
 import { useAppcontext } from "../context/appContext";
-
 import HealthRecords from "../components/HealthRecords";
 import LoggedInHome from "../components/LoggedInHome";
 import { useRouter } from "next/router";
-
 let patientId;
 if (typeof window !== "undefined") {
   patientId = localStorage.getItem("p_id");
@@ -31,7 +29,6 @@ const HealthRecord = () => {
     });
     setQueryId(id);
   }, []);
-  console.log({ queryId });
 
   return (
     <>

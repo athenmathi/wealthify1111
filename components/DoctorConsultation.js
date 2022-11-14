@@ -1,85 +1,102 @@
-import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { useAppcontext } from "../context/appContext";
-import PrescriptionForm from "./PrescriptionForm";
-
 const Wrappers = styled.div`
   width: 700px;
-  height: 400px;
-  textarea {
+  height: 300px;
+  input[type="text"],
+  select {
     width: 100%;
-    height: 150px;
     padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #f8f8f8;
-    font-size: 16px;
-    resize: none;
+    box-sizing: border-box;
   }
-  .btn-green {
-    background-color: var(--primary-700);
-    padding: 1rem 7rem;
-    border-radius: 2rem;
-    text-decoration: none;
-    border: none;
+
+  input[type="submit"] {
+    width: 100%;
+    background-color: #4caf50;
     color: white;
-    margin-top: 3rem;
-    margin-left: 15rem;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .notes-container {
+    height: 150px;
+    overflow: scroll;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  li {
+    margin-bottom: 2rem;
   }
   @media (max-width: 480px) {
     width: 300px;
   }
 `;
+let patientId;
+if (typeof window !== "undefined") {
+  patientId = localStorage.getItem("");
+}
+const PatientNotes = () => {
+  const { getArrOfObj, details } = useAppcontext();
+  useEffect(() => {
+    getArrOfObj("healthrecord", {
+      api_key: "get_healthrecord_patient_notes",
+      data: { p_id: 1 },
+    });
+  }, []);
+  const { queryId, postData } = useAppcontext();
 
-const DoctorConsultation = () => {
-  const [openForm, setOpenForm] = useState(false);
-  const [state, setState] = useState(false);
-  const { queryId } = useAppcontext();
-
-  const handleSubmit = async (e) => {
-    try {
-      const { data } = await axios.post(
-        `
-     http://doctor.brandimagetech.com/healthrecords.php`,
-        {
-          api_key: "send_otp",
-          ph_num: loginData.mobileNumber,
-          referal_id: loginData.referalId,
-        },
-        {
-          "Content-Type": "application/json;charset=UTF-8",
-          "Access-Control-Allow-Origin": "*",
-          // Accept: "application/json",
-        }
-      );
-    } catch (error) {
-      console.log({ error: error.response });
-    }
+  const [notes, setNotes] = useState();
+  const handleChange = (e) => {
+    setNotes(e.target.value);
   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setNotes("");
+    postData("healthrecord", {
+      api_key: "add_healthrecord_patient_notes",
+      data: {
+        p_id: 1,
+        notes: notes,
+      },
+    });
+  };
+  if (!details) {
+    return;
+  }
   return (
     <Wrappers>
-      <h2>Doctor Consultation</h2>
-
-      <p>
-        <strong>Tip:</strong>
-        Doctor Write your notes here
-      </p>
-
       <form onSubmit={(e) => handleSubmit(e)}>
-        <textarea placeholder="Some text..."></textarea>
-        <button type="submit" className="">
-          submit
-        </button>
-      </form>
-      {openForm ? <PrescriptionForm setOpenForm={setOpenForm} /> : null}
+        <label for="fname">Enter your Notes</label>
+        <input
+          type="text"
+          id="fname"
+          name="firstname"
+          value={notes}
+          onChange={(e) => handleChange(e)}
+          placeholder="Your notes.."
+        ></input>
 
-      <button onClick={() => setOpenForm(true)} className="btn-green">
-        ADD PRESCRIPTION
-      </button>
+        <input type="submit" className="" />
+      </form>
+      <ul className="notes-container">
+        {details.map((item) => {
+          return <li>{item.notes}</li>;
+        })}
+      </ul>
     </Wrappers>
   );
 };
 
-export default DoctorConsultation;
+export default PatientNotes;

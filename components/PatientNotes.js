@@ -1,5 +1,8 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
+import { useAppcontext } from "../context/appContext";
 const Wrappers = styled.div`
   width: 700px;
   height: 300px;
@@ -24,6 +27,10 @@ const Wrappers = styled.div`
     border-radius: 4px;
     cursor: pointer;
   }
+  .notes-container {
+    height: 150px;
+    overflow: scroll;
+  }
 
   input[type="submit"]:hover {
     background-color: #45a049;
@@ -35,30 +42,58 @@ const Wrappers = styled.div`
     width: 300px;
   }
 `;
+let patientId;
+if (typeof window !== "undefined") {
+  patientId = localStorage.getItem("");
+}
 const PatientNotes = () => {
+  const { getArrOfObj, details } = useAppcontext();
+  useEffect(() => {
+    getArrOfObj("healthrecord", {
+      api_key: "get_healthrecord_patient_notes",
+      data: { p_id: 1 },
+    });
+  }, []);
+  const { queryId, postData } = useAppcontext();
+
+  const [notes, setNotes] = useState();
+  const handleChange = (e) => {
+    setNotes(e.target.value);
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setNotes("");
+    postData("healthrecord", {
+      api_key: "add_healthrecord_patient_notes",
+      data: {
+        p_id: 1,
+        notes: notes,
+      },
+    });
+  };
+  if (!details) {
+    return;
+  }
   return (
     <Wrappers>
-      <form action="">
+      <form onSubmit={(e) => handleSubmit(e)}>
         <label for="fname">Enter your Notes</label>
         <input
           type="text"
           id="fname"
           name="firstname"
+          value={notes}
+          onChange={(e) => handleChange(e)}
           placeholder="Your notes.."
         ></input>
+
+        <input type="submit" className="" />
       </form>
-      <ul>
-        <li>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-          voluptas perferendis iste eos cumque! Provident culpa at id minus a
-          aliquam adipisci rem nesciunt incidunt eos quae, impedit quos porro.
-        </li>
-        <li>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius aliquam
-          deleniti nulla quidem quibusdam assumenda vel reprehenderit saepe
-          libero maxime, eos similique ducimus eum omnis, excepturi animi
-          laudantium velit fugiat!
-        </li>
+      <ul className="notes-container">
+        {details.map((item) => {
+          return <li>{item.notes}</li>;
+        })}
       </ul>
     </Wrappers>
   );

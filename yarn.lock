@@ -1526,6 +1526,11 @@
   "resolved" "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
   "version" "1.0.2"
 
+"base64-to-image@^1.0.2":
+  "integrity" "sha512-6tYtXV9NId5tKs304trKlzQD47rrHOIgX/V1+AR6hAKhLRdCeJlHeva0v/ONGy5VVgaPlVlTE7PhnrULELshrg=="
+  "resolved" "https://registry.npmjs.org/base64-to-image/-/base64-to-image-1.0.2.tgz"
+  "version" "1.0.2"
+
 "big.js@^5.2.2":
   "integrity" "sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ=="
   "resolved" "https://registry.npmjs.org/big.js/-/big.js-5.2.2.tgz"
