@@ -23,9 +23,10 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === SUBSCRIPTION_SUCCESS) {
-    const { plan, planCount } = action.payload;
+    const { plan, planCount, planDetails } = action.payload;
     return {
       ...state,
+      planDetails,
       subscriptionPlanCount: planCount,
       subscriptionPlan: plan,
     };
@@ -81,6 +82,12 @@ const reducer = (state, action) => {
     return {
       ...state,
       adminDetails: action.payload,
+    };
+  }
+  if ((action.type = "SET_QUERY_ID")) {
+    return {
+      ...state,
+      queryId: action.payload,
     };
   }
 };

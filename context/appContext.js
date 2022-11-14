@@ -16,6 +16,7 @@ import {
   POST_OTP_LOGIN_BEGIN,
   POST_OTP_LOGIN_SUCCESS,
   SET_AGREE,
+  SET_QUERY_ID,
   SUBSCRIPTION_SUCCESS,
 } from "./action";
 import React from "react";
@@ -24,6 +25,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { useReducer } from "react";
 const initialState = {
+  queryId: "",
   subscription: "",
   phoneNumber: "",
   referalId: "",
@@ -31,7 +33,7 @@ const initialState = {
   doctorId: "",
   userType: "",
   numberExist: "",
-  subscriptionPlan: [],
+  subscriptionPlan: "",
   subscriptionPlanCount: "",
   commonData: "",
   sex: "",
@@ -49,6 +51,7 @@ const initialState = {
   imageData: [],
   details: [],
   adminDetails: [],
+  planDetails: {},
 };
 const AppContext = React.createContext();
 
@@ -84,9 +87,13 @@ const AppProvider = ({ children }) => {
     dispatch({ type: GET_SUBCRIPTION_BEGIN });
     try {
       const { data } = await authFetch.post(`${url}.php`, obj);
-      const planCount = data.current_plan.plan.length;
-      const plan = data.current_plan.plan;
-      dispatch({ type: SUBSCRIPTION_SUCCESS, payload: { planCount, plan } });
+      const planCount = data.current_plan.length;
+      const plan = data.current_plan[0];
+      const planDetails = data.current_plan[1];
+      dispatch({
+        type: SUBSCRIPTION_SUCCESS,
+        payload: { planCount, plan, planDetails },
+      });
     } catch (error) {
       console.log(error);
     }
@@ -195,6 +202,9 @@ const AppProvider = ({ children }) => {
       console.log(error);
     }
   };
+  const setQueryId = (id) => {
+    dispatch({ type: SET_QUERY_ID, payload: id });
+  };
 
   return (
     <AppContext.Provider
@@ -209,6 +219,7 @@ const AppProvider = ({ children }) => {
         getTestReport,
         getArrOfObj,
         getAdminHome,
+        setQueryId,
       }}
     >
       {children}

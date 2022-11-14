@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Wrappers from "../assets/wrappers/PrescriptionForm";
 import redCloseBtn from "../assets/image/redCloseBtn.svg";
 import axios from "axios";
+import { useAppcontext } from "../context/appContext";
 
 let patientId;
 if (typeof window !== "undefined") {
@@ -10,6 +11,7 @@ if (typeof window !== "undefined") {
 }
 
 const PrescriptionForm = ({ setOpenForm }) => {
+  const { queryId } = useAppcontext();
   const initialData = {
     record_for: "",
     record_date: "",
@@ -38,7 +40,7 @@ const PrescriptionForm = ({ setOpenForm }) => {
         {
           api_key: "add_healthrecord_doc_consul",
           data: {
-            p_id: 6,
+            p_id: queryId,
             recfor: initialData.record_for,
             recdate: initialData.record_date,
             recname: initialData.record_name,

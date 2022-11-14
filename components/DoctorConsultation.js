@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useAppcontext } from "../context/appContext";
 import PrescriptionForm from "./PrescriptionForm";
 
 const Wrappers = styled.div`
@@ -35,6 +36,8 @@ const Wrappers = styled.div`
 const DoctorConsultation = () => {
   const [openForm, setOpenForm] = useState(false);
   const [state, setState] = useState(false);
+  const { queryId } = useAppcontext();
+
   const handleSubmit = async (e) => {
     try {
       const { data } = await axios.post(

@@ -8,11 +8,19 @@ let patientId;
 if (typeof window !== "undefined") {
   patientId = localStorage.getItem("p_id");
 }
-const MembershipCard = ({ price, planType, month, calls, dietChart }) => {
+const MembershipCard = ({
+  price,
+  planType,
+  month,
+  calls,
+  dietChart,
+  planId,
+  buttonType,
+}) => {
   const buyPlans = async () => {
     postRequest("subscription", {
       api_key: "add",
-      data: { p_id: patientId, plan_type: planType, plan_id: 1 },
+      data: { p_id: patientId, plan_type: planType, plan_id: planId },
     });
   };
   return (
@@ -37,7 +45,7 @@ const MembershipCard = ({ price, planType, month, calls, dietChart }) => {
               buyPlans();
             }}
           >
-            Upgrade
+            {buttonType}
           </button>
         </div>
       </div>
