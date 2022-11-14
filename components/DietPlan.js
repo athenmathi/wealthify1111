@@ -12,7 +12,7 @@ const TestReports = () => {
   const { postData, getTestReport, imageData } = useAppcontext();
   useEffect(() => {
     getTestReport("healthrecord", {
-      api_key: "get_healthrecord_test_report",
+      api_key: "get_diet_plan",
       data: { p_id: 6 },
     });
   }, []);
@@ -54,7 +54,7 @@ const TestReports = () => {
     const base64 = await convertBase64(file);
 
     const obj = {
-      api_key: "add_healthrecord_test_report",
+      api_key: "add_diet_plan",
       data: { p_id: 6, file: base64 },
     };
     postData("healthrecord", obj);
@@ -64,7 +64,7 @@ const TestReports = () => {
       <Wrappers>
         <div className="reports-container">
           <div className="file-form">
-            <label htmlFor="">Please submit the diet plans</label>
+            <label htmlFor="">Please submit your test Reports</label>
             <form action="" type="submit">
               <input type="file" onChange={(e) => handleChange(e)} />
               <div>
@@ -110,8 +110,9 @@ const TestReports = () => {
                   <td> {s_no} </td>
                   <td> {patient_id} </td>
                   <td>
+                    {/* <img src={convertToImage(file)} alt="ds" srcset="" />{" "} */}
                     <a href={convertToImage(file)} target="_blank">
-                      click
+                      click here
                     </a>
                   </td>
                 </tr>
@@ -150,6 +151,14 @@ const Wrappers = styled.div`
     background-color: var(--primary-700);
     padding: 1rem 2rem;
     color: white;
+  }
+  .file-display {
+    width: 600px;
+    height: 200px;
+    overflow: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   @media (max-width: 480px) {
     width: 300px;

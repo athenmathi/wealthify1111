@@ -112,7 +112,7 @@ const TestReports = () => {
                   <td>
                     {/* <img src={convertToImage(file)} alt="ds" srcset="" />{" "} */}
                     <a href={convertToImage(file)} target="_blank">
-                      fad
+                      click here
                     </a>
                   </td>
                 </tr>

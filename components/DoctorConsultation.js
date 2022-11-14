@@ -42,16 +42,19 @@ const Wrappers = styled.div`
     width: 300px;
   }
 `;
-let patientId;
+let doctorId;
 if (typeof window !== "undefined") {
-  patientId = localStorage.getItem("");
+  doctorId = localStorage.getItem("doctorId");
 }
 const PatientNotes = () => {
   const { getArrOfObj, details } = useAppcontext();
   useEffect(() => {
     getArrOfObj("healthrecord", {
-      api_key: "get_healthrecord_patient_notes",
-      data: { p_id: 1 },
+      api_key: "get_healthrecord_doc_notes",
+      data: {
+        doctor_id: doctorId,
+        patient_id: 1,
+      },
     });
   }, []);
   const { queryId, postData } = useAppcontext();
@@ -65,9 +68,10 @@ const PatientNotes = () => {
 
     setNotes("");
     postData("healthrecord", {
-      api_key: "add_healthrecord_patient_notes",
+      api_key: "add_healthrecord_test_notes",
       data: {
-        p_id: 1,
+        patient_id: queryId,
+        doctorId: doctorId,
         notes: notes,
       },
     });
