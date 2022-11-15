@@ -6,7 +6,7 @@ const recipe = () => {
   return (
     <>
       <Recipe />
-      <Recipes />
+      {/* <Recipes /> */}
     </>
   );
 };

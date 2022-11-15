@@ -24,6 +24,7 @@ const Navbar = () => {
     // Perform localStorage action
     p_id = localStorage.getItem("p_id");
   }
+
   return (
     <Wrappers>
       {mobileSidebar ? (

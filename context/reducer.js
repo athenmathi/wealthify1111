@@ -1,10 +1,16 @@
 import {
   GETDATA_SUCCESS,
+  GET_RECIPE_SUCESS,
   POST_OTP_LOGIN_SUCCESS,
   SUBSCRIPTION_SUCCESS,
 } from "./action";
 
 const reducer = (state, action) => {
+  console.log(
+    action.type === "GET_RECIPE_SUCCESS",
+    action.type == "GET_RECIPE_SUCCESS",
+    action.type
+  );
   if (action.type === POST_OTP_LOGIN_SUCCESS) {
     const { ph_num, referal_id, p_id, number_exist, doctorId, userType, otp } =
       action.payload;
@@ -84,16 +90,34 @@ const reducer = (state, action) => {
       adminDetails: action.payload,
     };
   }
-  if ((action.type = "SET_QUERY_ID")) {
+  if (action.type === "GET_RECIPE_SUCCESS") {
+    console.log(action.payload, "payload");
+    console.log("payload");
     return {
       ...state,
-      queryId: action.payload,
+      recipeData: action.payload,
     };
   }
+  // if ((action.type = "SET_QUERY_ID")) {
+  //   console.log("qureyid");
+  //   return {
+  //     ...state,
+  //     queryId: action.payload,
+  //   };
+  // }
   if ((action.type = "GET_COMMON_DATA_SUCCESS")) {
     return {
       ...state,
       commonData: action.payload,
+    };
+  }
+  //  code merge nutrition and recipe
+
+  if (action.type === "GET_NUTRITION_SUCESS") {
+    console.log(action.payload);
+    return {
+      ...state,
+      nutritionData: action.payload,
     };
   }
 };

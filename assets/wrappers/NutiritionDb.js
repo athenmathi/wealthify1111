@@ -139,7 +139,7 @@ div i {
     flex-direction: row;
   }
 
-  .button {
+  /* .button {
     width: 10% !important;
     height: 20%;
     background-color: yellow;
@@ -149,6 +149,22 @@ div i {
     text-align: center;
     cursor: pointer;
     border: 2px white !important;
+  } */
+
+  .button {
+    width: 20vh !important;
+    height: 7vh;
+    position: relative;
+    background-color: yellow;
+    box-shadow: 1px 1px solid black;
+    color: green;
+    font-weight: 300;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 2vh;
+    margin-left: 4vh;
+    border: 2px white !important;
+    border-radius: 20px;
   }
 
   .fruitgrid {

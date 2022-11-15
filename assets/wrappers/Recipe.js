@@ -116,31 +116,69 @@ div i {
     outline: none;
   }
   .button {
-    width: 10% !important;
-    height: 20%;
+    width: 20vh !important;
+    height: 7vh;
+    position: relative;
     background-color: yellow;
     box-shadow: 1px 1px solid black;
     color: green;
     font-weight: 300;
     text-align: center;
     cursor: pointer;
+    padding-top: 2vh;
+    margin-left: 4vh;
     border: 2px white !important;
+    border-radius: 20px;
   }
-  .fruitgrid {
+  /* .fruitgrid {
     display: grid;
-    grid-template-rows: auto;
+    grid-template-rows: 100%;
     grid-template-columns: 250px 250px 250px 250px;
     margin-top: 50px;
-    /* margin-left: 50px; */
+    /* margin-left: 50px;
     justify-content: space-evenly;
     grid-auto-flow: row;
+    height: 100%;
+  } */
+
+  .fruitgrid {
+    display: flex;
+    flex-direction: row;
   }
 
-  .fruitgrid .category ul {
+  /* .gridbox{
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 1.5em;
+  } */
+
+  .gridbox {
+    display: grid;
+    grid-template-columns: 250px 250px 250px;
+    margin-top: 50px;
+    margin-left: 50px;
+    justify-content: space-evenly;
+    grid-auto-flow: row;
+    grid-gap: 1vh 18vh;
+  }
+
+  .grid11 {
+    margin: 2px;
+    justify-content: space-between;
+  }
+  .category {
+    margin-top: 1.5em;
+    width: 18em;
+  }
+
+  /* .fruitgrid .category ul {
     text-align: left;
     padding-left: 0;
     color: #414141;
-  }
+  } */
   .fruitgrid .category p {
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
@@ -167,6 +205,8 @@ div i {
 
   .fruitgrid div p {
     /* border: 1px solid blue; */
+    text-align: center;
+    width: 200px;
     text-align: center;
   }
 

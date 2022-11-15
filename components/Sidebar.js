@@ -19,6 +19,10 @@ import { useEffect } from "react";
 
 export default function Sidebar() {
   const [patientId, setPatientId] = useState(0);
+  let doctorId;
+  if (typeof window !== "undefined") {
+    doctorId = localStorage.getItem("doctorId");
+  }
   useEffect(() => {
     if (typeof window !== "undefined") {
       let patientId = localStorage.getItem("p_id");
@@ -34,22 +38,45 @@ export default function Sidebar() {
     <Wrappers>
       <div className="container">
         <li>
-          <ul className={`item ${patientId ? "" : "disable"} `}>
-            <div className="img">
-              <Image src={profile} />
-            </div>
-            {/* <Link href={"/managedProfile"}>
+          {doctorId === "undefined" ? (
+            <ul className={`item ${patientId ? "" : "disable"} `}>
+              <div className="img">
+                <Image src={profile} />
+              </div>
+              {/* <Link href={"/managedProfile"}>
               <a className="text" href="">
                 Managed Profile
               </a>
             </Link> */}
-            <div className="text">
-              <ActiveLink route={"/managedProfile"}>Managed Profile</ActiveLink>
-            </div>
-            <div className="rightCheveron">
-              <RightCheveron />
-            </div>
-          </ul>
+              <div className="text">
+                <ActiveLink route={"/managedProfile"}>
+                  Managed Profile
+                </ActiveLink>
+              </div>
+              <div className="rightCheveron">
+                <RightCheveron />
+              </div>
+            </ul>
+          ) : (
+            <ul className={`item disable `}>
+              <div className="img">
+                <Image src={profile} />
+              </div>
+              {/* <Link href={"/managedProfile"}>
+              <a className="text" href="">
+                Managed Profile
+              </a>
+            </Link> */}
+              <div className="text">
+                <ActiveLink route={"/managedProfile"}>
+                  Managed Profile
+                </ActiveLink>
+              </div>
+              <div className="rightCheveron">
+                <RightCheveron />
+              </div>
+            </ul>
+          )}
           <ul className={`item ${patientId ? "" : "disable"}`}>
             <div className="img">
               <Image src={rupees} />

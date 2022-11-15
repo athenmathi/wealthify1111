@@ -9,17 +9,11 @@ if (typeof window !== "undefined") {
   patientId = localStorage.getItem("p_id");
 }
 const HealthRecord = () => {
-  const {
-    getSubscription,
-    subscriptionPlanCount,
-    getData,
-    setQueryId,
-    queryId,
-  } = useAppcontext();
+  const { getSubscription, subscriptionPlanCount, getData } = useAppcontext();
   const router = useRouter();
-  const pathId = router.asPath.split("?")[1];
+  const queryId = router.asPath.split("?")[1];
 
-  const id = patientId === "undefined" ? pathId : patientId;
+  const id = patientId === "undefined" ? queryId : patientId;
 
   useEffect(() => {
     getSubscription("subscription", { api_key: "get", p_id: patientId });
@@ -27,7 +21,6 @@ const HealthRecord = () => {
       api_key: "get_personal_info",
       data: { p_id: id },
     });
-    setQueryId(id);
   }, []);
 
   return (

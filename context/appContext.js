@@ -13,6 +13,8 @@ import {
   GET_COMMON_DATA_SUCCESS,
   GET_EACHDOCTOR_PATIENT_BEGIN,
   GET_EACHDOCTOR_PATIENT_SUCCESS,
+  GET_NUTRITION_SUCESS,
+  GET_RECIPE_SUCCESS,
   GET_SUBCRIPTION_BEGIN,
   GET_TEST_REPORTS_BEGIN,
   GET_TEST_REPORTS_SUCCESS,
@@ -56,6 +58,9 @@ const initialState = {
   adminDetails: [],
   planDetails: {},
   commonData: "",
+  //
+  recipeData: [],
+  nutritionData: [],
 };
 const AppContext = React.createContext();
 
@@ -206,9 +211,9 @@ const AppProvider = ({ children }) => {
       console.log(error);
     }
   };
-  const setQueryId = (id) => {
-    dispatch({ type: SET_QUERY_ID, payload: id });
-  };
+  // const setQueryId = (id) => {
+  //   dispatch({ type: SET_QUERY_ID, payload: id });
+  // };
   const getCommonData = async (url, obj) => {
     dispatch({ type: GET_COMMON_DATA_BEGIN });
     try {
@@ -222,10 +227,44 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  // merging code nove 15 nutrition and recipe
+  //nov 11
+  const getRecipe = async (url, obj) => {
+    dispatch({ type: GET_ADMIN_HOME_BEGIN });
+
+    try {
+      const { data } = await authFetch.post(`${url}.php`, obj);
+      console.log("da", data.data);
+      dispatch({
+        type: GET_RECIPE_SUCCESS,
+        payload: data.data,
+      });
+    } catch (error) {
+      console.log("appContextGetRecipeErr", error);
+    }
+  };
+
+  //nov 14
+  const getNutrition = async (url, obj) => {
+    dispatch({ type: GET_ADMIN_HOME_BEGIN });
+    try {
+      const { data } = await authFetch.post(`${url}.php`, obj);
+      console.log("appcontext_data", data.data);
+
+      dispatch({
+        type: GET_NUTRITION_SUCESS,
+        payload: data.data,
+      });
+    } catch (error) {
+      console.log("appContext_GetNutritionErr", error);
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
         ...state,
+
         getSubscription,
         otpLogin,
         getData,
@@ -235,8 +274,11 @@ const AppProvider = ({ children }) => {
         getTestReport,
         getArrOfObj,
         getAdminHome,
-        setQueryId,
+        // setQueryId,
         getCommonData,
+        //
+        getRecipe,
+        getNutrition,
       }}
     >
       {children}

@@ -21,6 +21,7 @@ import MobileNavbar from "../components/MobileNavbar";
 import OtpPage from "../components/OtpPage";
 import { useEffect } from "react";
 import { useAppcontext } from "../context/appContext";
+import Fileupload from "../components/Fileupload";
 
 const aboutus = () => {
   return (
@@ -31,6 +32,7 @@ const aboutus = () => {
       <Mission />
       <Working />
       <Team />
+      <Fileupload />
     </div>
   );
 };

@@ -1077,6 +1077,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
 
+"@popperjs/core@^2.11.6":
+  "integrity" "sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw=="
+  "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.6.tgz"
+  "version" "2.11.6"
+
 "@reduxjs/toolkit@^1.8.6":
   "integrity" "sha512-4Ia/Loc6WLmdSOzi7k5ff7dLK8CgG2b8aqpLsCAJhazAzGdp//YBUSaj0ceW6a3kDBDNRrq5CRwyCS0wBiL1ig=="
   "resolved" "https://registry.npmjs.org/@reduxjs/toolkit/-/toolkit-1.8.6.tgz"
@@ -1536,6 +1541,11 @@
   "resolved" "https://registry.npmjs.org/big.js/-/big.js-5.2.2.tgz"
   "version" "5.2.2"
 
+"bootstrap@^5.2.2":
+  "integrity" "sha512-dEtzMTV71n6Fhmbg4fYJzQsw1N29hJKO1js5ackCgIpDcGid2ETMGC6zwSYw09v05Y+oRdQ9loC54zB1La3hHQ=="
+  "resolved" "https://registry.npmjs.org/bootstrap/-/bootstrap-5.2.2.tgz"
+  "version" "5.2.2"
+
 "brace-expansion@^1.1.7":
   "integrity" "sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA=="
   "resolved" "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz"
@@ -1550,6 +1560,13 @@
   "version" "3.0.2"
   dependencies:
     "fill-range" "^7.0.1"
+
+"browser-image-compression@^2.0.0":
+  "integrity" "sha512-kBlkZo13yOOfcmrPW0M0K/UdZPogIQj2gRvXIM3FktAnfW6VRq9aY2RI+F6O0x6DMj1Xm+WLGgWcFK8Fu/ddnw=="
+  "resolved" "https://registry.npmjs.org/browser-image-compression/-/browser-image-compression-2.0.0.tgz"
+  "version" "2.0.0"
+  dependencies:
+    "uzip" "0.20201231.0"
 
 "browserslist@^4.14.5", "browserslist@^4.21.3", "browserslist@^4.21.4", "browserslist@>= 4.21.0":
   "integrity" "sha512-CBHJJdDmgjl3daYjN5Cp5kbTf1mUhZoS+beLklHIvkOWscs83YAhLlF3Wsh/lciQYAcbBJgTOD44VtG31ZM4Hw=="
@@ -3517,6 +3534,11 @@
   "integrity" "sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA=="
   "resolved" "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz"
   "version" "1.2.0"
+
+"uzip@0.20201231.0":
+  "integrity" "sha512-OZeJfZP+R0z9D6TmBgLq2LHzSSptGMGDGigGiEe0pr8UBe/7fdflgHlHBNDASTXB5jnFuxHpNaJywSg8YFeGng=="
+  "resolved" "https://registry.npmjs.org/uzip/-/uzip-0.20201231.0.tgz"
+  "version" "0.20201231.0"
 
 "watchpack@^2.4.0":
   "integrity" "sha512-Lcvm7MGST/4fup+ifyKi2hjyIAwcdI4HRgtvTpIUxBRhB+RFtUh8XtDOxUfctVCnhVi+QQj49i91OyvzkJl6cg=="
