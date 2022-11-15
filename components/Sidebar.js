@@ -25,9 +25,7 @@ export default function Sidebar() {
       setPatientId(patientId);
     }
   }, []);
-  console.log(patientId);
   const router = useRouter();
-  console.log(patientId);
   const logoutUser = () => {
     localStorage.clear();
     router.reload(window.location.pathnames);
@@ -65,7 +63,7 @@ export default function Sidebar() {
               <RightCheveron />
             </div>
           </ul>
-          <ul className={`item ${patientId ? "" : "disable"}`}>
+          <ul className={`item ${patientId == "undefined" ? "" : "disable"}`}>
             <div className="img">
               <Image src={profile} />
             </div>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
@@ -9,11 +10,14 @@ if (typeof window !== "undefined") {
   patientId = localStorage.getItem("p_id");
 }
 const TestReports = () => {
+  const router = useRouter();
+  const queryId = router.asPath.split("?")[1];
   const { postData, getTestReport, imageData } = useAppcontext();
+
   useEffect(() => {
     getTestReport("healthrecord", {
       api_key: "get_diet_plan",
-      data: { p_id: 6 },
+      data: { p_id: queryId },
     });
   }, []);
   const [file, setFile] = useState();
@@ -55,7 +59,7 @@ const TestReports = () => {
 
     const obj = {
       api_key: "add_diet_plan",
-      data: { p_id: 6, file: base64 },
+      data: { p_id: queryId, file: base64 },
     };
     postData("healthrecord", obj);
   };
@@ -83,7 +87,7 @@ const TestReports = () => {
     <Wrappers>
       <div className="reports-container">
         <div className="file-form">
-          <label htmlFor="">Please submit your test Reports</label>
+          <label htmlFor="">Please submit Diet Plan</label>
           <form action="" type="submit">
             <input type="file" onChange={(e) => handleChange(e)} />
             <div>

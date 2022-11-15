@@ -1,5 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
@@ -10,10 +11,12 @@ if (typeof window !== "undefined") {
 }
 const TestReports = () => {
   const { postData, getTestReport, imageData } = useAppcontext();
+  const router = useRouter();
+  const queryId = router.asPath.split("?")[1];
   useEffect(() => {
     getTestReport("healthrecord", {
       api_key: "get_healthrecord_test_report",
-      data: { p_id: 6 },
+      data: { p_id: queryId },
     });
   }, []);
   const [file, setFile] = useState();
@@ -55,7 +58,7 @@ const TestReports = () => {
 
     const obj = {
       api_key: "add_healthrecord_test_report",
-      data: { p_id: 6, file: base64 },
+      data: { p_id: queryId, file: base64 },
     };
     postData("healthrecord", obj);
   };

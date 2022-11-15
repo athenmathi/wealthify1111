@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -48,17 +49,20 @@ if (typeof window !== "undefined") {
 }
 const PatientNotes = () => {
   const { getArrOfObj, details } = useAppcontext();
+  const [state, setState] = useState(false);
   useEffect(() => {
     getArrOfObj("healthrecord", {
       api_key: "get_healthrecord_doc_notes",
       data: {
         doctor_id: doctorId,
-        patient_id: 1,
+        patient_id: queryId,
       },
     });
-  }, []);
-  const { queryId, postData } = useAppcontext();
-
+  }, [state]);
+  const { postData } = useAppcontext();
+  const router = useRouter();
+  const queryId = router.asPath.split("?")[1];
+  console.log(queryId);
   const [notes, setNotes] = useState();
   const handleChange = (e) => {
     setNotes(e.target.value);
@@ -67,11 +71,14 @@ const PatientNotes = () => {
     e.preventDefault();
 
     setNotes("");
+    setState(!state);
     postData("healthrecord", {
-      api_key: "add_healthrecord_test_notes",
+      api_key: "add_healthrecord_doc_notes",
       data: {
         patient_id: queryId,
-        doctorId: doctorId,
+        // patient_id: 1,
+
+        doctor_id: doctorId,
         notes: notes,
       },
     });
