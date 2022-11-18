@@ -175,7 +175,6 @@ const AssessmentForm3 = ({
           </tbody>
         </table>
         <button onClick={addFields}>Add More..</button>
-        <button onClick={submit}>Submit</button>
       </div>
     </Wrappers>
   );

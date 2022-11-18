@@ -13,6 +13,7 @@ const Fileupload2 = () => {
   if (typeof window !== "undefined") {
     patientId = localStorage.getItem("p_id");
   }
+  const [change, setChange] = useState(false);
   const [selectedFile, setSelectedFile] = useState("");
   const [responseArray, setResponseArray] = useState([]);
   const router = useRouter();
@@ -23,16 +24,17 @@ const Fileupload2 = () => {
   console.log(pat_id);
 
   useEffect(() => {
-    if (effectRan.current === false) {
-      getTestReport("healthrecord", {
-        api_key: "get_healthrecord_test_report",
-        p_id: pat_id,
-      });
-      return () => {
-        effectRan.current = true;
-      };
-    }
-  }, []);
+    // if (effectRan.current === false) {
+    getTestReport("healthrecord", {
+      api_key: "get_healthrecord_test_report",
+      p_id: pat_id,
+    });
+    console.log("ran 1");
+    return () => {
+      effectRan.current = true;
+      // };
+    };
+  }, [change]);
   console.log(imageData);
 
   const handleInputChange = (e) => {
@@ -45,6 +47,8 @@ const Fileupload2 = () => {
     document.getElementById("file-select").value = null;
   };
   const onSubmit = async (e) => {
+    // effectRan.current = !effectRan.current;
+    setChange(!change);
     e.preventDefault();
     if (!selectedFile) {
       alert("Please selcet a file ");

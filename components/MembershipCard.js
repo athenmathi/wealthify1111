@@ -4,6 +4,7 @@ import Wrappers from "../assets/wrappers/MembershipCard";
 import Tag from "../assets/image/Tag.svg";
 import axios from "axios";
 import { getRequest, postRequest } from "../utils/request/postRequest";
+import { useRouter } from "next/router";
 let patientId;
 if (typeof window !== "undefined") {
   patientId = localStorage.getItem("p_id");
@@ -17,11 +18,14 @@ const MembershipCard = ({
   planId,
   buttonType,
 }) => {
+  const router = useRouter();
   const buyPlans = async () => {
     postRequest("subscription", {
       api_key: "add",
       data: { p_id: patientId, plan_type: planType, plan_id: planId },
     });
+
+    router.reload(window.location.pathnames);
   };
   return (
     <Wrappers>

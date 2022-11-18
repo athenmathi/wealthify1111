@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 import Wrappers from "../assets/wrappers/Login";
 import closeBtn from "../assets/image/closeBtn.svg";
 import loginBtn from "../assets/image/loginBtn.png";
-import Link from "next/link";
 import axios from "axios";
 import OtpPage from "./OtpPage";
 import PhoneInput from "react-phone-input-2";
@@ -102,7 +101,6 @@ const Login = ({ setModal }) => {
                     name="agree"
                     id=""
                     required
-                    checked
                     value={"agreed"}
                     onChange={(e) => handleChange(e)}
                   />

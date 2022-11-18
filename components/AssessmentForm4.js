@@ -566,14 +566,20 @@ const AssessmentForm4 = ({
                 </td>
                 <td>
                   <div className="text-area">
-                    <FormRow
+                    {/* <FormRow
                       type={"text"}
                       name={item.property + "_specifics"}
                       // name={item.property.split(" ")[0] + "_specific"}
                       value={item.value[2]}
                       handleChange={(e) => handleInput(e)}
+                    /> */}
+                    <textarea
+                      type={"text"}
+                      name={item.property + "_specifics"}
+                      // name={item.property.split(" ")[0] + "_specific"}
+                      value={item.value[2]}
+                      onChange={(e) => handleInput(e)}
                     />
-                    {/* <textarea name="" id=""></textarea> */}
                   </div>
                 </td>
               </tr>

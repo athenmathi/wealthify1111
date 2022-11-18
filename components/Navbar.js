@@ -14,6 +14,10 @@ import DoctorLogin from "./DoctorLogin";
 import { useEffect } from "react";
 
 const Navbar = () => {
+  let loggedIn;
+  if (typeof window !== "undefined") {
+    loggedIn = localStorage.getItem("loggedIn");
+  }
   const [modal, setModal] = useState(false);
   const [menu, setMenu] = useState(false);
   const [singleDoctor, setSingleDoctor] = useState(false);
@@ -105,11 +109,13 @@ const Navbar = () => {
             <ul>
               <ActiveLink route={"/nutrition"}>Nutrition DataBase</ActiveLink>
             </ul>
-            <ul onClick={() => setModal(!modal)}>
-              <Link href={""}>
-                <a href=""> Login</a>
-              </Link>
-            </ul>
+            {loggedIn === "true" ? null : (
+              <ul onClick={() => setModal(!modal)}>
+                <Link href={""}>
+                  <a href=""> Login</a>
+                </Link>
+              </ul>
+            )}
           </li>
         </div>
 

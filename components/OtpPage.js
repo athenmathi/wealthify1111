@@ -23,19 +23,20 @@ const OtpPage = ({ setModal, setNextPage, mobileNumber, loginInformation }) => {
     e.preventDefault();
     var decodedString = window.btoa(otp);
 
-    if (otpValue === decodedString) {
-      // if (otpValue) {
+    // if (otpValue === decodedString) {
+    if (otpValue) {
       localStorage.setItem("loggedIn", true);
 
       if (numberExist === 0) {
         router.push("/assessment");
-      }
-      if (userType === "doctor") {
+      } else if (userType === "doctor") {
         router.push("/doctorHome");
-      }
-      if (userType === "patient") {
+      } else {
         router.push("/");
       }
+
+      // if (userType === "patient") {
+      // }
       setModal(false);
       console.log("sucess");
       // router.reload(window.location.pathnames);

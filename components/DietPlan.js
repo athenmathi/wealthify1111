@@ -1,28 +1,40 @@
-import React from "react";
+import React, { useRef } from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useAppcontext } from "../context/appContext";
 import styled from "styled-components";
+import Loading from "./Loading";
 
-const Fileupload2 = () => {
+const DietPlan = () => {
+  const effectRan = useRef(false);
   let patientId;
   if (typeof window !== "undefined") {
     patientId = localStorage.getItem("p_id");
   }
+  const [change, setChange] = useState(false);
   const [selectedFile, setSelectedFile] = useState("");
   const [responseArray, setResponseArray] = useState([]);
   const router = useRouter();
+
   const queryId = router.asPath.split("?")[1];
   const pat_id = queryId ? queryId : patientId;
   const { imageData, getTestReport } = useAppcontext();
+  console.log(pat_id);
+
   useEffect(() => {
+    // if (effectRan.current === false) {
     getTestReport("healthrecord", {
       api_key: "get_diet_plan",
       p_id: pat_id,
     });
-  }, []);
+    console.log("ran 1");
+    return () => {
+      effectRan.current = true;
+      // };
+    };
+  }, [change]);
   console.log(imageData);
 
   const handleInputChange = (e) => {
@@ -31,10 +43,12 @@ const Fileupload2 = () => {
   };
   const resetFile = () => {
     // Reset file input control
-    console.log(document.getElementById("file-select"));
+    // document.getElementsByName("file")[0].value = null;
     document.getElementById("file-select").value = null;
   };
   const onSubmit = async (e) => {
+    // effectRan.current = !effectRan.current;
+    setChange(!change);
     e.preventDefault();
     if (!selectedFile) {
       alert("Please selcet a file ");
@@ -61,14 +75,14 @@ const Fileupload2 = () => {
     }
   };
   if (!imageData) {
-    return <h1>imageDAta no</h1>;
+    return <Loading center />;
   }
 
   return (
     <Wrappers>
       <div className="reports-container">
         <div className="file-form">
-          <label htmlFor="">Please submit Diet Plan</label>
+          <label htmlFor="">Please submit Test Reports</label>
           <form action="" type="submit">
             <input
               type="file"
@@ -88,7 +102,7 @@ const Fileupload2 = () => {
             {imageData.map((item) => {
               const urlData = window.atob(item);
               return (
-                <tr>
+                <tr className="file-data">
                   <iframe
                     src={`http://doctor.brandimagetech.com/${urlData}`}
                     frameborder="0"
@@ -120,6 +134,7 @@ const Wrappers = styled.div`
   .file-form {
     margin-left: 4rem;
     margin-top: 2rem;
+    height: 300px;
     position: absolute;
     top: 1rem;
     left: 20%;
@@ -162,4 +177,4 @@ const Wrappers = styled.div`
     width: 300px;
   }
 `;
-export default Fileupload2;
+export default DietPlan;

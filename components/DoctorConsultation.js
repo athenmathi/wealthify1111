@@ -21,6 +21,9 @@ const Wrappers = styled.div`
     border-radius: 4px;
     box-sizing: border-box;
   }
+  textarea[placeholder="Your notes.."] {
+    margin-top: 1rem;
+  }
 
   input[type="submit"] {
     width: 100%;
@@ -109,14 +112,24 @@ const PatientNotes = () => {
     <Wrappers>
       <form onSubmit={(e) => handleSubmit(e)}>
         <label for="fname">Enter your Notes</label>
-        <input
+        {/* <input
           type="text"
           id="fname"
           name="firstname"
           value={notes}
           onChange={(e) => handleChange(e)}
           placeholder="Your notes.."
-        ></input>
+        ></input> */}
+
+        <textarea
+          cols="96"
+          type="text"
+          id="fname"
+          name="firstname"
+          value={notes}
+          onChange={(e) => handleChange(e)}
+          placeholder="Your notes.."
+        />
 
         <input type="submit" className="" />
       </form>

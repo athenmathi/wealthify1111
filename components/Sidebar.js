@@ -39,107 +39,119 @@ export default function Sidebar() {
     <Wrappers>
       <div className="container">
         <li>
-          {doctorId === "undefined" ? (
-            <ul className={`item ${subscriptionPlanCount ? "" : "disable"} `}>
-              <div className="img">
-                <Image src={profile} />
-              </div>
+          {/*   ------------- */}
 
-              <div className="text">
-                <ActiveLink route={"/managedProfile"}>
-                  Managed Profile
-                </ActiveLink>
-              </div>
-              <div className="rightCheveron">
-                <RightCheveron />
-              </div>
-            </ul>
-          ) : (
-            <ul className={`item disable `}>
-              <div className="img">
-                <Image src={profile} />
-              </div>
-              {/* <Link href={"/managedProfile"}>
+          {
+            (doctorId = "undefined" ? (
+              <ul className={`item ${subscriptionPlanCount ? "" : "disable"} `}>
+                <div className="img">
+                  <Image src={profile} />
+                </div>
+
+                <div className="text">
+                  <ActiveLink route={"/managedProfile"}>
+                    Managed Profile
+                  </ActiveLink>
+                </div>
+                <div className="rightCheveron">
+                  <RightCheveron />
+                </div>
+              </ul>
+            ) : (
+              <ul className={`item disable `}>
+                <div className="img">
+                  <Image src={profile} />
+                </div>
+                {/* <Link href={"/managedProfile"}>
               <a className="text" href="">
                 Managed Profile
               </a>
             </Link> */}
-              <div className="text">
-                <ActiveLink route={"/managedProfile"}>
-                  Managed Profile
-                </ActiveLink>
-              </div>
-              <div className="rightCheveron">
-                <RightCheveron />
-              </div>
-            </ul>
-          )}
-          {/* ---------- */}
-          {doctorId === "undefined" ? (
-            <ul className={`item ${subscriptionPlanCount ? "" : "disable"}`}>
-              <div className="img">
-                <Image src={rupees} />
-              </div>
-              <Link href={"/payments"}>
-                <a className="text" href="">
-                  My Payments
-                </a>
-              </Link>
-              <div className="rightCheveron">
-                <RightCheveron />
-              </div>
-            </ul>
-          ) : (
-            <ul className={`item disable`}>
-              <div className="img">
-                <Image src={rupees} />
-              </div>
-              <Link href={"/payments"}>
-                <a className="text" href="">
-                  My Payments
-                </a>
-              </Link>
-              <div className="rightCheveron">
-                <RightCheveron />
-              </div>
-            </ul>
-          )}
-          {/* _---------------------------------- */}
-          {doctorId === "undefined" ? (
-            <ul className={`item ${subscriptionPlanCount ? "" : "disable"}`}>
-              <div className="img">
-                <Image src={profile} />
-              </div>
-              <Link href={"/healthRecords"}>
-                <a className="text" href="">
-                  Health Records
-                </a>
-              </Link>
-              <div className="rightCheveron">
-                <RightCheveron />
-              </div>
-            </ul>
-          ) : (
-            <ul className={`item disable`}>
-              <div className="img">
-                <Image src={profile} />
-              </div>
-              <Link href={"/healthRecords"}>
-                <a className="text" href="">
-                  Health Records
-                </a>
-              </Link>
-              <div className="rightCheveron">
-                <RightCheveron />
-              </div>
-            </ul>
-          )}
-
-          {/* ---------subscription */}
-
+                <div className="text">
+                  <ActiveLink route={"/managedProfile"}>
+                    Managed Profile
+                  </ActiveLink>
+                </div>
+                <div className="rightCheveron">
+                  <RightCheveron />
+                </div>
+              </ul>
+            ))
+          }
+          {/* ------- */}
           {
             (doctorId = "undefined" ? (
-              <ul className={`item`}>
+              <ul className={`item ${subscriptionPlanCount ? "" : "disable"}`}>
+                <div className="img">
+                  <Image src={rupees} />
+                </div>
+                <Link href={"/payments"}>
+                  <a className="text" href="">
+                    My Payments
+                  </a>
+                </Link>
+                <div className="rightCheveron">
+                  <RightCheveron />
+                </div>
+              </ul>
+            ) : (
+              <ul className={`item disable`}>
+                <div className="img">
+                  <Image src={rupees} />
+                </div>
+                <Link href={"/payments"}>
+                  <a className="text" href="">
+                    My Payments
+                  </a>
+                </Link>
+                <div className="rightCheveron">
+                  <RightCheveron />
+                </div>
+              </ul>
+            ))
+          }
+
+          {/* ---------- */}
+          {
+            (doctorId = "undefined" ? (
+              <ul
+                className={`item ${
+                  subscriptionPlanCount ? "" : "disable activeHealthRecords"
+                }`}
+              >
+                <div className="img">
+                  <Image src={profile} />
+                </div>
+                <Link href={"/healthRecords"}>
+                  <a className="text" href="">
+                    Health Records
+                  </a>
+                </Link>
+                <div className="rightCheveron">
+                  <RightCheveron />
+                </div>
+              </ul>
+            ) : (
+              <ul className={`item disable`} id="activeHealthRecords">
+                <div className="img">
+                  <Image src={profile} />
+                </div>
+                <Link href={"/healthRecords"}>
+                  <a className="text" href="">
+                    Health Records
+                  </a>
+                </Link>
+                <div className="rightCheveron">
+                  <RightCheveron />
+                </div>
+              </ul>
+            ))
+          }
+
+          {/* ---------subscription */}
+          {
+            (doctorId = "undefined" ? (
+              <ul className={`item ${subscriptionPlanCount ? "" : "disable"}`}>
                 <div className="img">
                   <Image src={profile} />
                 </div>
@@ -173,7 +185,7 @@ export default function Sidebar() {
 
           {
             (doctorId = "undefined" ? (
-              <ul className={`item ${subscriptionPlanCount ? "" : "disable"}`}>
+              <ul className={`item  ${subscriptionPlanCount ? "" : "disable"}`}>
                 <div className="img">
                   <Image src={address} />
                 </div>
@@ -278,7 +290,7 @@ export default function Sidebar() {
           {/* logout */}
           {
             (doctorId = "undefined" ? (
-              <ul className={`item ${subscriptionPlanCount ? "" : "disable"}`}>
+              <ul className={`item`}>
                 <div className="img">
                   <Image src={notification} />
                 </div>

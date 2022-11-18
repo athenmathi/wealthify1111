@@ -31,7 +31,9 @@ const Wrappers = styled.div`
     pointer-events: none;
     background-color: #f2f2f2;
   }
-
+  #activeHealthRecords {
+    background-color: white;
+  }
   @media (max-width: 480px) {
     .container {
       margin: 0 auto;
