@@ -39,7 +39,8 @@ body {
   --gray-light: #fafafa;
   --line-color-gray: #707070;
   --font-color: #38565a;
-
+  --grey-400: #829ab1;
+  --primary-500: #2cb1bc;
   /* box-shadow */
   --shadow-1: 0px 0px 15px rgba(0, 0, 0, 0.161);
 }
@@ -84,6 +85,24 @@ a:active {
 li {
   list-style: none;
 }
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading {
+  width: 6rem;
+  height: 6rem;
+  border: 5px solid var(--grey-400);
+  border-radius: 50%;
+  border-top-color: var(--primary-500);
+  animation: spinner 2s linear infinite;
+}
+.loading-center {
+  margin: 0 auto;
+}
+
 .btn-primary {
   background-color: var(--primary-700);
   padding: 0.75rem 2.5rem;

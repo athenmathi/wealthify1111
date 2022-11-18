@@ -5,6 +5,7 @@ import rightArrow from "../assets/image/rightArrow.svg";
 import { useEffect } from "react";
 import { useAppcontext } from "../context/appContext";
 import { useState } from "react";
+import formatDate from "../utils/dateFormat";
 let patientId;
 if (typeof window !== "undefined") {
   patientId = localStorage.getItem("p_id");
@@ -26,7 +27,7 @@ const ManageProfile = () => {
           <p>
             {sex}: | {phoneNumber}
           </p>
-          <p>DOB: {dob}</p>
+          <p>DOB: {formatDate(dob)}</p>
         </div>
       </div>
     </Wrappers>

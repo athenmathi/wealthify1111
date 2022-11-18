@@ -87,16 +87,6 @@ class Fileupload extends React.Component {
             </div>
           </div>
           <br />
-          {/* {this.state.responseArray.map((res, i) => (
-            <div key={i}>
-              <div className={"img-alert alert alert-" + res.status}>
-                <div>
-                  {res.message} : {res.url}
-                </div>
-                <img src={res.base64} />
-              </div>
-            </div>
-          ))} */}
         </div>
       </div>
     );

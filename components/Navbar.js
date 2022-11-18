@@ -3,7 +3,7 @@ import Link from "next/link";
 import {} from "../styles/Navbar.module.css";
 import WealthifyLogo from "../assets/image/WealthifyLogo.png";
 import Wrappers from "../assets/wrappers/Navbar.js";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Login from "./Login";
 import { useRouter } from "next/router";
 import ActiveLink from "./ActiveLink";
@@ -11,6 +11,7 @@ import MobileNavbar from "./MobileNavbar";
 import MobileSidebar from "./MobileSidebar";
 import rightArrow from "../assets/image/rightArrow.svg";
 import DoctorLogin from "./DoctorLogin";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const [modal, setModal] = useState(false);
@@ -24,7 +25,17 @@ const Navbar = () => {
     // Perform localStorage action
     p_id = localStorage.getItem("p_id");
   }
+  const effectRan = useRef(false);
+  useEffect(() => {
+    if (effectRan.current === false) {
+      console.log({ navBar: "1" });
 
+      return () => {
+        console.log("unmounted");
+        effectRan.current = true;
+      };
+    }
+  }, []);
   return (
     <Wrappers>
       {mobileSidebar ? (

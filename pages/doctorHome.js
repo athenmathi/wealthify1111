@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import DoctorDashboard from "../components/DoctorDashboard";
 import EachPatientDetails from "../components/EachPatientDetails";
+import Loading from "../components/Loading";
 import { useAppcontext } from "../context/appContext";
 let doctorId;
 if (typeof window !== "undefined") {
@@ -17,7 +18,7 @@ const doctorHome = () => {
   }, []);
 
   if (!details) {
-    return;
+    return <Loading center />;
   }
   return <DoctorDashboard />;
 };

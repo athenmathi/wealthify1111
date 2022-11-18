@@ -81,7 +81,7 @@ const AssessmentFormContainer = () => {
   const nextPage = (e) => {
     e.preventDefault();
     next();
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   };
   const prevPage = (e) => {
     e.preventDefault();

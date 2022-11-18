@@ -40,7 +40,7 @@ const PrescriptionForm = ({ setOpenForm }) => {
         {
           api_key: "add_healthrecord_doc_consul",
           data: {
-            p_id: queryId,
+            p_id: 6,
             recfor: initialData.record_for,
             recdate: initialData.record_date,
             recname: initialData.record_name,
@@ -53,6 +53,9 @@ const PrescriptionForm = ({ setOpenForm }) => {
           // Accept: "application/json",
         }
       );
+
+      document.getElementById("firstName").value = null;
+      alert("Prescripton Added Successfully");
     } catch (error) {
       console.log({ error: error.response });
     }

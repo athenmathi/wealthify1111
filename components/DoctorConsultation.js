@@ -4,7 +4,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { useAppcontext } from "../context/appContext";
+import Loading from "./Loading";
+import Popup from "./Popup";
+import PrescriptionForm from "./PrescriptionForm";
 const Wrappers = styled.div`
+  margin-top: 2rem;
   width: 700px;
   height: 300px;
   input[type="text"],
@@ -47,22 +51,39 @@ let doctorId;
 if (typeof window !== "undefined") {
   doctorId = localStorage.getItem("doctorId");
 }
+let patientId;
+if (typeof window !== "undefined") {
+  patientId = localStorage.getItem("p_id");
+}
 const PatientNotes = () => {
-  const { getArrOfObj, details } = useAppcontext();
+  const { getDoctorId, uniqueDoctorId, getArrOfObj, details } = useAppcontext();
+  const [openForm, setOpenForm] = useState(false);
   const [state, setState] = useState(false);
-  useEffect(() => {
-    getArrOfObj("healthrecord", {
-      api_key: "get_healthrecord_doc_notes",
-      data: {
-        doctor_id: doctorId,
-        patient_id: queryId,
-      },
-    });
-  }, [state]);
-  const { postData } = useAppcontext();
   const router = useRouter();
   const queryId = router.asPath.split("?")[1];
-  console.log(queryId);
+  const pat_id = queryId ? queryId : patientId;
+  useEffect(() => {
+    getDoctorId(pat_id);
+    if (uniqueDoctorId) {
+      getArrOfObj("healthrecord", {
+        api_key: "get_healthrecord_doc_notes",
+        data: {
+          doctor_id: uniqueDoctorId,
+          patient_id: pat_id,
+        },
+      });
+    } else {
+      getArrOfObj("healthrecord", {
+        api_key: "get_healthrecord_doc_notes",
+        data: {
+          doctor_id: doctorId,
+          patient_id: pat_id,
+        },
+      });
+    }
+  }, [state]);
+  const { postData } = useAppcontext();
+  console.log(uniqueDoctorId);
   const [notes, setNotes] = useState();
   const handleChange = (e) => {
     setNotes(e.target.value);
@@ -75,16 +96,14 @@ const PatientNotes = () => {
     postData("healthrecord", {
       api_key: "add_healthrecord_doc_notes",
       data: {
-        patient_id: queryId,
-        // patient_id: 1,
-
-        doctor_id: doctorId,
+        patient_id: pat_id,
+        doctor_id: uniqueDoctorId,
         notes: notes,
       },
     });
   };
   if (!details) {
-    return;
+    return <Loading center />;
   }
   return (
     <Wrappers>
@@ -106,6 +125,8 @@ const PatientNotes = () => {
           return <li>{item.notes}</li>;
         })}
       </ul>
+
+      {openForm ? <Popup setOpenForm={setOpenForm} /> : null}
     </Wrappers>
   );
 };

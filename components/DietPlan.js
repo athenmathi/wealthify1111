@@ -1,86 +1,67 @@
+import React from "react";
 import axios from "axios";
-import Link from "next/link";
+import { useState } from "react";
 import { useRouter } from "next/router";
-import React, { useRef, useState } from "react";
 import { useEffect } from "react";
-import styled from "styled-components";
 import { useAppcontext } from "../context/appContext";
-let patientId;
-if (typeof window !== "undefined") {
-  patientId = localStorage.getItem("p_id");
-}
-const TestReports = () => {
+import styled from "styled-components";
+
+const Fileupload2 = () => {
+  let patientId;
+  if (typeof window !== "undefined") {
+    patientId = localStorage.getItem("p_id");
+  }
+  const [selectedFile, setSelectedFile] = useState("");
+  const [responseArray, setResponseArray] = useState([]);
   const router = useRouter();
   const queryId = router.asPath.split("?")[1];
-  const { postData, getTestReport, imageData } = useAppcontext();
-
+  const pat_id = queryId ? queryId : patientId;
+  const { imageData, getTestReport } = useAppcontext();
   useEffect(() => {
     getTestReport("healthrecord", {
       api_key: "get_diet_plan",
-      data: { p_id: queryId },
+      p_id: pat_id,
     });
   }, []);
-  const [file, setFile] = useState();
-  const handleChange = (e) => {
-    setFile(e.target.files[0]);
-  };
-  const convertBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
+  console.log(imageData);
 
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
+  const handleInputChange = (e) => {
+    setSelectedFile(e.target.files);
+    setResponseArray([]);
   };
-  const convertToImage = (string) => {
-    return decodeURIComponent(
-      atob(string)
-        .split("")
-        .map((item) => {
-          return "%" + ("00" + item.charCodeAt(0).toString(16)).slice(-2);
-        })
-        .join("")
-    );
+  const resetFile = () => {
+    // Reset file input control
+    console.log(document.getElementById("file-select"));
+    document.getElementById("file-select").value = null;
   };
-
-  const handleSubmit = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    if (!file) {
-      console.log("please select any files");
-      return;
+    if (!selectedFile) {
+      alert("Please selcet a file ");
+      return false;
     }
+    try {
+      let formData = new FormData();
+      for (let i = 0; i < selectedFile.length; i++) {
+        formData.append("file[]", selectedFile[i]);
+      }
+      formData.append("p_id", pat_id);
 
-    const base64 = await convertBase64(file);
+      let url = "http://doctor.brandimagetech.com/diet_upload.php";
 
-    const obj = {
-      api_key: "add_diet_plan",
-      data: { p_id: queryId, file: base64 },
-    };
-    postData("healthrecord", obj);
+      const { data } = await axios.post(url, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      setResponseArray({ data });
+      resetFile();
+    } catch (error) {
+      alert(error);
+    }
   };
   if (!imageData) {
-    return (
-      <Wrappers>
-        <div className="reports-container">
-          <div className="file-form">
-            <label htmlFor="">Please submit your test Reports</label>
-            <form action="" type="submit">
-              <input type="file" onChange={(e) => handleChange(e)} />
-              <div>
-                <button className="btn" onClick={(e) => handleSubmit(e)}>
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </Wrappers>
-    );
+    return <h1>imageDAta no</h1>;
   }
 
   return (
@@ -89,9 +70,14 @@ const TestReports = () => {
         <div className="file-form">
           <label htmlFor="">Please submit Diet Plan</label>
           <form action="" type="submit">
-            <input type="file" onChange={(e) => handleChange(e)} />
+            <input
+              type="file"
+              id="file-select"
+              multiple
+              onChange={handleInputChange}
+            />
             <div>
-              <button className="btn" onClick={(e) => handleSubmit(e)}>
+              <button className="btn" onClick={(e) => onSubmit(e)}>
                 Submit
               </button>
             </div>
@@ -99,26 +85,21 @@ const TestReports = () => {
         </div>
         <div className="file-display">
           <table>
-            <thead>
-              <tr>
-                <th>Patient Name</th>
-                <th> Uploaded Date </th>
-                <th> File </th>
-              </tr>
-            </thead>
-
             {imageData.map((item) => {
-              const { s_no, patient_id, file } = item;
+              const urlData = window.atob(item);
               return (
                 <tr>
-                  <td> {s_no} </td>
-                  <td> {patient_id} </td>
-                  <td>
-                    {/* <img src={convertToImage(file)} alt="ds" srcset="" />{" "} */}
-                    <a href={convertToImage(file)} target="_blank">
-                      click here
-                    </a>
-                  </td>
+                  <iframe
+                    src={`http://doctor.brandimagetech.com/${urlData}`}
+                    frameborder="0"
+                  ></iframe>
+                  <a
+                    className="open-preview"
+                    href={`http://doctor.brandimagetech.com/${urlData}`}
+                    target="_blank"
+                  >
+                    Click
+                  </a>
                 </tr>
               );
             })}
@@ -164,8 +145,21 @@ const Wrappers = styled.div`
     align-items: center;
     justify-content: center;
   }
+  .open-preview {
+    margin-left: 7rem;
+    margin-bottom: -2rem;
+  }
+  table {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 15rem;
+    width: 300px;
+    height: 200px;
+    overflow: scroll;
+  }
   @media (max-width: 480px) {
     width: 300px;
   }
 `;
-export default TestReports;
+export default Fileupload2;

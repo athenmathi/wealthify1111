@@ -23,8 +23,8 @@ const OtpPage = ({ setModal, setNextPage, mobileNumber, loginInformation }) => {
     e.preventDefault();
     var decodedString = window.btoa(otp);
 
-    // if (otpValue === decodedString) {
-    if (otpValue) {
+    if (otpValue === decodedString) {
+      // if (otpValue) {
       localStorage.setItem("loggedIn", true);
 
       if (numberExist === 0) {

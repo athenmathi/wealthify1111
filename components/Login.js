@@ -62,8 +62,8 @@ const Login = ({ setModal }) => {
                   required="required"
                   placeholder="+91"
                   name="mobileNumber"
-                  // value={loginData.mobileNumber}
-                  value={"918939068212"}
+                  value={loginData.mobileNumber}
+                  // value={""}
                   onChange={(e) => handleChange(e)}
                 />
 

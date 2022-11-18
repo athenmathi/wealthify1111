@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useRef } from "react";
 import Wrappers from "../assets/wrappers/Membership";
 import { useAppcontext } from "../context/appContext";
 import HealthRecords from "../components/HealthRecords";
@@ -14,13 +14,18 @@ const HealthRecord = () => {
   const queryId = router.asPath.split("?")[1];
 
   const id = patientId === "undefined" ? queryId : patientId;
-
+  const effectRan = useRef(false);
   useEffect(() => {
-    getSubscription("subscription", { api_key: "get", p_id: patientId });
-    getData("patient", {
-      api_key: "get_personal_info",
-      data: { p_id: id },
-    });
+    if (effectRan.current === false) {
+      getSubscription("subscription", { api_key: "get", p_id: patientId });
+      getData("patient", {
+        api_key: "get_personal_info",
+        data: { p_id: id },
+      });
+      return () => {
+        effectRan.current = true;
+      };
+    }
   }, []);
 
   return (

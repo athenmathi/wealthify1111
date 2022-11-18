@@ -1,9 +1,12 @@
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { useAppcontext } from "../context/appContext";
+import Loading from "./Loading";
 const Wrappers = styled.div`
+  margin-top: 2rem;
   width: 700px;
   height: 300px;
   input[type="text"],
@@ -44,17 +47,25 @@ const Wrappers = styled.div`
 `;
 let patientId;
 if (typeof window !== "undefined") {
-  patientId = localStorage.getItem("");
+  patientId = localStorage.getItem("p_id");
 }
 const PatientNotes = () => {
-  const { getArrOfObj, details } = useAppcontext();
+  const effectRan = useRef(false);
+  const { postData, getArrOfObj, details } = useAppcontext();
+  const router = useRouter();
+  const queryId = router.asPath.split("?")[1];
+  const pat_id = queryId ? queryId : patientId;
   useEffect(() => {
-    getArrOfObj("healthrecord", {
-      api_key: "get_healthrecord_patient_notes",
-      data: { p_id: 1 },
-    });
+    if (effectRan.current === false) {
+      getArrOfObj("healthrecord", {
+        api_key: "get_healthrecord_patient_notes",
+        data: { p_id: pat_id },
+      });
+      return () => {
+        effectRan.current = true;
+      };
+    }
   }, []);
-  const { queryId, postData } = useAppcontext();
 
   const [notes, setNotes] = useState();
   const handleChange = (e) => {
@@ -67,13 +78,13 @@ const PatientNotes = () => {
     postData("healthrecord", {
       api_key: "add_healthrecord_patient_notes",
       data: {
-        p_id: 1,
+        p_id: pat_id,
         notes: notes,
       },
     });
   };
   if (!details) {
-    return;
+    return <Loading center />;
   }
   return (
     <Wrappers>

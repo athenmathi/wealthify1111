@@ -38,8 +38,8 @@ const EachPatientDetails = () => {
           {details.map((item) => {
             const { p_id, first_name, last_name } = item;
             return (
-              <tr>
-                <td onClick={() => redirectToHealthRecords(p_id)}>{p_id}</td>
+              <tr onClick={() => redirectToHealthRecords(p_id)}>
+                <td>{p_id}</td>
                 <td> {first_name + last_name} </td>
               </tr>
             );

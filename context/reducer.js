@@ -1,20 +1,16 @@
 import {
   GETDATA_SUCCESS,
+  GET_DOCTOR_ID_SUCCESS,
   GET_RECIPE_SUCESS,
+  GET_SUBCRIPTION_BEGIN,
   POST_OTP_LOGIN_SUCCESS,
   SUBSCRIPTION_SUCCESS,
 } from "./action";
 
 const reducer = (state, action) => {
-  console.log(
-    action.type === "GET_RECIPE_SUCCESS",
-    action.type == "GET_RECIPE_SUCCESS",
-    action.type
-  );
   if (action.type === POST_OTP_LOGIN_SUCCESS) {
     const { ph_num, referal_id, p_id, number_exist, doctorId, userType, otp } =
       action.payload;
-    console.log(ph_num);
     return {
       ...state,
       phoneNumber: ph_num,
@@ -28,10 +24,18 @@ const reducer = (state, action) => {
       alertText: "Enter your otp",
     };
   }
+
+  if (action.type === GET_SUBCRIPTION_BEGIN) {
+    return {
+      ...state,
+      loading: true,
+    };
+  }
   if (action.type === SUBSCRIPTION_SUCCESS) {
     const { plan, planCount, planDetails } = action.payload;
     return {
       ...state,
+      loading: false,
       planDetails,
       subscriptionPlanCount: planCount,
       subscriptionPlan: plan,
@@ -66,6 +70,13 @@ const reducer = (state, action) => {
       weight_6_month_ago,
     };
   }
+  if (action.type === GET_DOCTOR_ID_SUCCESS) {
+    console.log(action.payload);
+    return {
+      ...state,
+      uniqueDoctorId: action.payload,
+    };
+  }
   if (action.type === "SET_AGREE") {
     return {
       ...state,
@@ -75,7 +86,7 @@ const reducer = (state, action) => {
   if (action.type === "GET_TEST_REPORTS_SUCCESS") {
     return {
       ...state,
-      imageData: action.payload.data,
+      imageData: action.payload.url,
     };
   }
   if (action.type === "GET_ARRAY_OF_OBJECT_SUCCESS") {
@@ -91,15 +102,12 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === "GET_RECIPE_SUCCESS") {
-    console.log(action.payload, "payload");
-    console.log("payload");
     return {
       ...state,
       recipeData: action.payload,
     };
   }
   // if ((action.type = "SET_QUERY_ID")) {
-  //   console.log("qureyid");
   //   return {
   //     ...state,
   //     queryId: action.payload,
@@ -114,7 +122,6 @@ const reducer = (state, action) => {
   //  code merge nutrition and recipe
 
   if (action.type === "GET_NUTRITION_SUCESS") {
-    console.log(action.payload);
     return {
       ...state,
       nutritionData: action.payload,

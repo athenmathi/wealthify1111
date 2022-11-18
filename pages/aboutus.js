@@ -22,6 +22,9 @@ import OtpPage from "../components/OtpPage";
 import { useEffect } from "react";
 import { useAppcontext } from "../context/appContext";
 import Fileupload from "../components/Fileupload";
+import Loading from "../components/Loading";
+import Fileupload2 from "../components/FileUpload2";
+import Popup from "../components/Popup";
 
 const aboutus = () => {
   return (
@@ -32,7 +35,6 @@ const aboutus = () => {
       <Mission />
       <Working />
       <Team />
-      <Fileupload />
     </div>
   );
 };

@@ -11,6 +11,8 @@ import {
   GET_COMMON_DATA_BEGIN,
   GET_COMMON_DATA_ERROR,
   GET_COMMON_DATA_SUCCESS,
+  GET_DOCTOR_ID_BEGIN,
+  GET_DOCTOR_ID_SUCCESS,
   GET_EACHDOCTOR_PATIENT_BEGIN,
   GET_EACHDOCTOR_PATIENT_SUCCESS,
   GET_NUTRITION_SUCESS,
@@ -29,13 +31,16 @@ import reducer from "./reducer";
 import axios from "axios";
 import { useContext } from "react";
 import { useReducer } from "react";
+import { useRouter } from "next/router";
 const initialState = {
+  loading: true,
   queryId: "",
   subscription: "",
   phoneNumber: "",
   referalId: "",
   patientId: "",
   doctorId: "",
+  uniqueDoctorId: "",
   userType: "",
   numberExist: "",
   subscriptionPlan: "",
@@ -259,6 +264,23 @@ const AppProvider = ({ children }) => {
       console.log("appContext_GetNutritionErr", error);
     }
   };
+  const getDoctorId = async (queryId) => {
+    dispatch({ type: GET_DOCTOR_ID_BEGIN });
+    try {
+      let patientId;
+      if (typeof window === "undefined") {
+        patientId = localStorage.getItem("p_id");
+      }
+      const pat_id = queryId ? queryId : patientId;
+      const { data } = await authFetch.post("healthrecord.php", {
+        api_key: "get_doctor_id",
+        p_id: queryId,
+      });
+      dispatch({ type: GET_DOCTOR_ID_SUCCESS, payload: data.doc_id });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <AppContext.Provider
@@ -279,6 +301,7 @@ const AppProvider = ({ children }) => {
         //
         getRecipe,
         getNutrition,
+        getDoctorId,
       }}
     >
       {children}

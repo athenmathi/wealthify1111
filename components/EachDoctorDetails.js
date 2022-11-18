@@ -68,10 +68,10 @@ const EachDoctorDetails = ({ setState }) => {
             <h4>Doctor Name</h4>
             <p>john</p>
           </div>
-          <div className="calender-selector">
+          {/* <div className="calender-selector">
             <label htmlFor="">Select by Date</label>
             <input type="date" />
-          </div>
+          </div> */}
 
           <Link href={"/adminHome"}>
             <div className="close-btn">

@@ -48,26 +48,28 @@ const HealthRecords = () => {
         </div>
         <div className="bottom">
           <div className="contents">
-            <p
-              className="name active"
-              onClick={() => setTab("doctorConsultation")}
-            >
-              Doctor Consultation
-            </p>
-            <p className="name" onClick={() => setTab("testReports")}>
-              Test Reports
-            </p>
+            {/*  */}
             <p className="name" onClick={() => setTab("healthCondition")}>
               Health Condition
             </p>
             <p className="name" onClick={() => setTab("patientNotes")}>
               Patient Notes
             </p>
+            <p className="name" onClick={() => setTab("testReports")}>
+              Test Reports
+            </p>
+
+            <p
+              className="name active"
+              onClick={() => setTab("doctorConsultation")}
+            >
+              Doctor Consultation
+            </p>
             <p className="name" onClick={() => setTab("dietPlan")}>
               Diet plan
             </p>
             <p className="name" onClick={() => setTab("history")}>
-              History
+              Prescription
             </p>
             <p className="name" onClick={() => setTab("followUp")}>
               Follow up
