@@ -34,9 +34,6 @@ const OtpPage = ({ setModal, setNextPage, mobileNumber, loginInformation }) => {
       } else {
         router.push("/");
       }
-
-      // if (userType === "patient") {
-      // }
       setModal(false);
       console.log("sucess");
       // router.reload(window.location.pathnames);

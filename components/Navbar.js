@@ -109,13 +109,20 @@ const Navbar = () => {
             <ul>
               <ActiveLink route={"/nutrition"}>Nutrition DataBase</ActiveLink>
             </ul>
-            {loggedIn === "true" ? null : (
+            <ul onClick={() => setModal(!modal)}>
+              <Link href={""}>
+                <a href=""> Login</a>
+              </Link>
+            </ul>
+            {/* {loggedIn === "true" ? (
+              <ul></ul>
+            ) : (
               <ul onClick={() => setModal(!modal)}>
                 <Link href={""}>
                   <a href=""> Login</a>
                 </Link>
               </ul>
-            )}
+            )} */}
           </li>
         </div>
 
